@@ -1,8 +1,14 @@
 import Link from 'next/link'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google'
+import Navbar from '@/components/Navbar'
 
-const inter = Inter({ subsets: ['latin'] })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'], // specify the weights you need
+  variable: '--font-space-grotesk', // optional: for CSS variable usage
+  display: 'swap', // optional
+});
 
 export const metadata = {
   title: 'DotHunters',
@@ -12,14 +18,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <nav>
-          <Link href="/">Home</Link>
-
-          <Link href="/services">Services</Link>
-          <Link href="/projects">Projects</Link>
-
-        </nav>
+      <body className={spaceGrotesk.className}>
+        <Navbar />
         {children}</body>
     </html>
   )

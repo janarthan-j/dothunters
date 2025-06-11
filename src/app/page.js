@@ -1,11 +1,22 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import React from "react";
+import Navbar from "../components/Navbar";
+import HeroSection from "../components/HeroSection";
+import ServicesSection from "../components/ServicesSection";
+import PortfolioSection from "../components/PortfolioSection";
+import ProcessSection from "../components/ProcessSection";
+import Footer from "../components/Footer";
 
-export default function Home() {
+function App() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Home
-
-    </main>
-  )
+    <div className="font-sans text-gray-900">
+      
+      <HeroSection />
+      <ServicesSection />
+      <PortfolioSection />
+      <ProcessSection />
+      <Footer />
+    </div>
+  );
 }
+
+export default App;
