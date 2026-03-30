@@ -1,94 +1,74 @@
+"use client";
+import { useState } from "react";
+import projects from "@/data/projects.json";
+
+const filters = ["All", ...Array.from(new Set(projects.flatMap((p) => p.categories))).sort()];
+
 const PortfolioSection = () => {
+  const [active, setActive] = useState("All");
+
+  const filtered =
+    active === "All"
+      ? projects
+      : projects.filter((p) => p.categories.includes(active));
+
   return (
-    <section className="py-16 px-6 relative overflow-hidden">
-      {/* PORTFOLIO text */}
-      <div className="absolute top-16 left-6 text-gray-100 font-bold">
-        <p className="text-2xl">PORTFOLIO</p>
-      </div>
-      
-      {/* Background "Recent Projects" text */}
-      <div className="absolute top-24 left-6 text-gray-100 opacity-30 pointer-events-none">
-        <h2 className="text-[180px] font-bold leading-none">Recent<br/>Projects</h2>
-      </div>
-      
-      {/* Content container */}
-      <div className="container mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row">
-          {/* Left empty space to accommodate the background text */}
-          <div className="md:w-1/2"></div>
-          
-          {/* Right side with heading and projects */}
-          <div className="md:w-1/2">
-            <h2 className="text-5xl font-bold text-black mb-16">Recent<br/>Projects</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Project 1 - Top right */}
-              <div className="project-card">
-                <div className="relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" 
-                    alt="Project Muve Design" 
-                    className="w-full h-[260px] object-cover"
-                  />
-                  <div className="absolute top-4 left-4 w-2 h-2 bg-black rounded-full"></div>
-                </div>
-                <div className="mt-4">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-medium">Project Muve Design</h3>
-                    <p className="text-gray-500">2023</p>
-                  </div>
-                  <p className="text-gray-500 text-sm mt-1">UI/UX</p>
-                </div>
-              </div>
-              
-              {/* Project 2 - Bottom right (full width) */}
-              <div className="project-card md:col-span-2">
-                <div className="relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" 
-                    alt="Swimming Pool Project" 
-                    className="w-full h-[400px] object-cover"
-                  />
-                  <div className="absolute top-4 left-4 w-2 h-2 bg-black rounded-full"></div>
-                </div>
-              </div>
-            </div>
+    <section className="py-24 bg-white dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+
+        {/* Header */}
+        <div className="mb-12">
+          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-3">Portfolio</p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <h2 className="text-4xl md:text-5xl font-bold dark:text-white">Recent Projects.</h2>
+            <a href="/projects" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium">
+              View all projects
+              <svg className="w-4 h-4 ml-1" viewBox="0 0 16 16" fill="currentColor">
+                <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </a>
           </div>
         </div>
-        
-        {/* Left side projects */}
-        <div className="mt-12 md:mt-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Project 3 - Left column */}
-            <div className="project-card md:mt-[-200px]">
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" 
-                  alt="Project 1" 
-                  className="w-full h-[400px] object-cover"
-                />
-                <div className="absolute top-4 left-4 w-2 h-2 bg-black rounded-full"></div>
-              </div>
-              <div className="mt-4">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-xl font-medium">Project Muve Design</h3>
-                  <p className="text-gray-500">2023</p>
-                </div>
-                <p className="text-gray-500 text-sm mt-1">UI/UX</p>
-              </div>
-            </div>
-            
-            {/* Project 4 - Left column, second row */}
-            <div className="project-card md:mt-[100px]">
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" 
-                  alt="New York City Project" 
-                  className="w-full h-[300px] object-cover"
+
+        {/* Filter tabs */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {filters.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActive(f)}
+              className={`px-5 py-2 rounded-full text-sm font-medium border transition ${
+                active === f
+                  ? "bg-black text-white border-black dark:bg-white dark:text-gray-900 dark:border-white"
+                  : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-400"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filtered.map((project, i) => (
+            <div key={i} className="group cursor-pointer">
+              {/* Image */}
+              <div className="overflow-hidden rounded-lg mb-4">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-[260px] object-cover group-hover:scale-105 transition duration-500"
                 />
               </div>
+              {/* Title */}
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-red-500 dark:group-hover:text-red-400 transition">
+                {project.title}
+              </h3>
+              {/* Categories */}
+              <p className="text-sm text-gray-400 dark:text-gray-500">
+                {project.categories.join(", ")}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

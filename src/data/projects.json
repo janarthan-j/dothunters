@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Brand Identity for FinTech Startup",
+    "categories": ["Corporate", "Creative"],
+    "service": "UI/UX Design",
+    "client": "FinLoop",
+    "year": "2024",
+    "description": "Full brand identity system including logo, colour palette, typography, and UI component library for a growing fintech platform.",
+    "image": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "E-Commerce Platform Redesign",
+    "categories": ["Business", "Startup"],
+    "service": "Web Development",
+    "client": "GreenCart",
+    "year": "2024",
+    "description": "Complete redesign and rebuild of a Shopify-based e-commerce store, improving page speed by 60% and conversion rate by 35%.",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "Mobile App UI for Lifestyle Brand",
+    "categories": ["Corporate", "Creative"],
+    "service": "Mobile App Development",
+    "client": "Muve",
+    "year": "2024",
+    "description": "End-to-end UI/UX design and React Native development for a music streaming app targeting Gen Z users across iOS and Android.",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "SaaS Dashboard Design System",
+    "categories": ["Business", "Corporate"],
+    "service": "SaaS Product Development",
+    "client": "PulseHR",
+    "year": "2023",
+    "description": "Built a scalable design system and component library for a multi-tenant HR SaaS platform used by 200+ companies.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "3D Product Visualization",
+    "categories": ["Creative", "Startup"],
+    "service": "3D / VR & Game Development",
+    "client": "Arko",
+    "year": "2024",
+    "description": "Interactive 3D product configurator built with Three.js and WebGL, allowing customers to customise and visualise products in real time.",
+    "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "Corporate Website Overhaul",
+    "categories": ["Business", "Corporate"],
+    "service": "Web Development",
+    "client": "NovaTech Solutions",
+    "year": "2023",
+    "description": "Full redesign and Next.js rebuild of a B2B corporate website, reducing bounce rate by 40% and doubling lead form submissions.",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "VR Training Simulator",
+    "categories": ["Corporate", "Creative"],
+    "service": "3D / VR & Game Development",
+    "client": "LogiCore",
+    "year": "2024",
+    "description": "Immersive VR onboarding and safety training simulator built in Unity for Oculus Quest, cutting training time by 50%.",
+    "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "Lending Management Portal",
+    "categories": ["Business", "Corporate"],
+    "service": "Web Application Development",
+    "client": "LoanTrack",
+    "year": "2023",
+    "description": "Complex web application for managing loan applications, approvals, and repayments across 5,000+ daily active users.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "SaaS Explainer Video",
+    "categories": ["Creative", "Startup"],
+    "service": "Video Production",
+    "client": "Loopify",
+    "year": "2024",
+    "description": "90-second animated explainer video that became the brand's top-converting piece of content, embedded across their site and pitch decks.",
+    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "Delivery Driver Mobile App",
+    "categories": ["Business", "Startup"],
+    "service": "Mobile App Development",
+    "client": "UrbanRoute",
+    "year": "2023",
+    "description": "Flutter-based cross-platform driver app with real-time maps, route optimisation, and push notification integrations.",
+    "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "Brand Film & Product Launch",
+    "categories": ["Creative", "Corporate"],
+    "service": "Video Production",
+    "client": "Kova",
+    "year": "2024",
+    "description": "Cinematic brand film produced for a major product launch, screened at events and used across all digital channels.",
+    "image": "https://images.unsplash.com/photo-1540655037529-dec987208707?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "title": "Email Automation SaaS Platform",
+    "categories": ["Business", "Startup"],
+    "service": "SaaS Product Development",
+    "client": "Loopify",
+    "year": "2023",
+    "description": "Full-stack SaaS MVP with multi-tenant workspace management, Stripe billing, and a visual email flow builder.",
+    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+  }
+]

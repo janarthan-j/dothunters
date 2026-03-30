@@ -1,0 +1,514 @@
+[
+  {
+    "slug": "ui-ux-design",
+    "title": "UI/UX Design",
+    "tagline": "Interfaces that feel as good as they look.",
+    "description": "We craft user experiences that are intuitive, beautiful, and built around real human behaviour. From discovery to final pixel, every decision is grounded in research and purpose.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Discovery & Research",
+        "description": "We start by deeply understanding your users, competitors, and business goals through interviews, analytics, and market research."
+      },
+      {
+        "number": "02",
+        "title": "Wireframing & Prototyping",
+        "description": "Low and high-fidelity wireframes let us test ideas fast before a single line of code is written."
+      },
+      {
+        "number": "03",
+        "title": "Visual Design",
+        "description": "We create pixel-perfect designs with a consistent design system — colours, type, components — that scales with your product."
+      },
+      {
+        "number": "04",
+        "title": "Handoff & Support",
+        "description": "Developer-ready Figma files, component specs, and ongoing support to ensure the final product matches the design intent."
+      }
+    ],
+    "projects": [
+      {
+        "title": "Muve — Music Streaming App",
+        "category": "Mobile UI",
+        "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "FinLoop — Finance Dashboard",
+        "category": "Web App",
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "NovaTech — Corporate Website",
+        "category": "Website",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "DotHunters redesigned our entire platform in 6 weeks. The new UI cut our support tickets by 30% — users just get it now.",
+        "name": "Amal Perera",
+        "role": "CEO, NovaTech Solutions",
+        "initials": "AP"
+      },
+      {
+        "quote": "The attention to detail in every screen was incredible. They think like product designers, not just visual designers.",
+        "name": "Samantha Lee",
+        "role": "Product Manager, FinLoop",
+        "initials": "SL"
+      }
+    ]
+  },
+  {
+    "slug": "web-development",
+    "title": "Web Development",
+    "tagline": "Fast, scalable websites that convert.",
+    "description": "We build modern web applications with clean code, great performance, and seamless UX. Whether it's a marketing site or a complex SaaS product, we deliver solutions that last.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Tech Stack Planning",
+        "description": "We choose the right tools for the job — Next.js, React, Node, or headless CMS — based on your goals and scale."
+      },
+      {
+        "number": "02",
+        "title": "Architecture & Setup",
+        "description": "Clean project structure, CI/CD pipelines, and best-practice conventions established from day one."
+      },
+      {
+        "number": "03",
+        "title": "Development & QA",
+        "description": "Iterative sprints with regular demos. Every feature is tested across devices, browsers, and edge cases."
+      },
+      {
+        "number": "04",
+        "title": "Launch & Maintenance",
+        "description": "We handle deployment, performance tuning, and post-launch monitoring so you can focus on your business."
+      }
+    ],
+    "projects": [
+      {
+        "title": "UrbanRoute — SaaS Platform",
+        "category": "Next.js / Node",
+        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "GreenCart — E-Commerce Store",
+        "category": "Shopify / React",
+        "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "PulseHR — HR Dashboard",
+        "category": "Web App",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Our new site loads in under 1 second and our conversion rate jumped 40%. The code quality is excellent — our internal devs were impressed.",
+        "name": "Ravi Chandran",
+        "role": "Founder, UrbanRoute",
+        "initials": "RC"
+      },
+      {
+        "quote": "They delivered a fully functional SaaS MVP in 8 weeks. Clean, documented, and ready to scale.",
+        "name": "Priya Nair",
+        "role": "CTO, PulseHR",
+        "initials": "PN"
+      }
+    ]
+  },
+  {
+    "slug": "3d-vr-game-development",
+    "title": "3D / VR & Game Development",
+    "tagline": "Immersive experiences beyond the screen.",
+    "description": "We design and develop 3D environments, AR/VR applications, and interactive game experiences that push the boundaries of what's possible — for training, marketing, entertainment, and beyond.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Concept & Storyboarding",
+        "description": "We map out the user journey through the 3D space — camera paths, interactions, and narrative flow."
+      },
+      {
+        "number": "02",
+        "title": "Asset Creation",
+        "description": "3D modelling, rigging, texturing, and animation — optimised for real-time rendering or pre-rendered output."
+      },
+      {
+        "number": "03",
+        "title": "Engine Development",
+        "description": "Built in Unity or Unreal Engine, with clean scripting, physics, lighting, and platform-specific optimisation."
+      },
+      {
+        "number": "04",
+        "title": "Testing & Deployment",
+        "description": "Performance testing on target hardware, accessibility review, and deployment to PC, mobile, web, or VR headsets."
+      }
+    ],
+    "projects": [
+      {
+        "title": "VR Training Simulator",
+        "category": "Unity / Oculus",
+        "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "AR Product Showcase",
+        "category": "AR / WebXR",
+        "image": "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Interactive 3D Brand Experience",
+        "category": "Three.js / WebGL",
+        "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "The VR training module DotHunters built reduced our onboarding time by 50%. Incredibly polished and intuitive.",
+        "name": "James Wijekoon",
+        "role": "Head of L&D, LogiCore",
+        "initials": "JW"
+      },
+      {
+        "quote": "Our AR product demo at the trade show stopped people in their tracks. The quality of the 3D assets was outstanding.",
+        "name": "Melissa Tan",
+        "role": "Marketing Director, Arko",
+        "initials": "MT"
+      }
+    ]
+  },
+  {
+    "slug": "motion-graphics",
+    "title": "Motion Graphics",
+    "tagline": "Stories told through motion.",
+    "description": "We create compelling motion content — from explainer videos and logo animations to full brand films. Motion is the fastest way to communicate complex ideas and make your brand unforgettable.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Script & Storyboard",
+        "description": "Every great animation starts with a great script. We align on messaging, tone, and visual narrative before any animation begins."
+      },
+      {
+        "number": "02",
+        "title": "Style Frames",
+        "description": "Key visual moments are designed as static frames to lock in the aesthetic before full animation production."
+      },
+      {
+        "number": "03",
+        "title": "Animation Production",
+        "description": "Frame-by-frame motion, smooth transitions, and sound design — crafted in After Effects, Cinema 4D, or Lottie for web."
+      },
+      {
+        "number": "04",
+        "title": "Delivery",
+        "description": "Delivered in all required formats — MP4, GIF, Lottie JSON, or embedded web animation — optimised for every platform."
+      }
+    ],
+    "projects": [
+      {
+        "title": "SaaS Explainer Video",
+        "category": "2D Animation",
+        "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Brand Identity Animation",
+        "category": "Logo Motion",
+        "image": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Product Launch Film",
+        "category": "3D / Live Action",
+        "image": "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "The explainer video DotHunters made for us has been our #1 sales tool. Prospects finally understand what we do in 90 seconds.",
+        "name": "Daniel Gomez",
+        "role": "CEO, Loopify",
+        "initials": "DG"
+      },
+      {
+        "quote": "Our logo animation gave the entire brand a new energy. It's been used in every pitch deck and social post since.",
+        "name": "Anika Silva",
+        "role": "Brand Manager, Kova",
+        "initials": "AS"
+      }
+    ]
+  },
+  {
+    "slug": "web-application-development",
+    "title": "Web Application Development",
+    "tagline": "Powerful apps that run anywhere in the browser.",
+    "description": "We build complex, data-driven web applications — dashboards, portals, booking systems, and internal tools — engineered for performance, security, and real-world scale.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Requirements & Scoping",
+        "description": "We map every user role, workflow, and data flow before writing a line of code — eliminating costly surprises mid-project."
+      },
+      {
+        "number": "02",
+        "title": "Architecture Design",
+        "description": "Scalable database schemas, API contracts, and frontend component structures planned for growth from day one."
+      },
+      {
+        "number": "03",
+        "title": "Agile Development",
+        "description": "Two-week sprints with working demos after each cycle. You see real progress — not just status updates."
+      },
+      {
+        "number": "04",
+        "title": "QA, Launch & Support",
+        "description": "End-to-end testing, staging environment review, zero-downtime deployment, and post-launch monitoring."
+      }
+    ],
+    "projects": [
+      {
+        "title": "LoanTrack — Lending Management Portal",
+        "category": "Web App / React",
+        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "ShiftFlow — Staff Scheduling Tool",
+        "category": "Web App / Node.js",
+        "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "MedPortal — Patient Management System",
+        "category": "Healthcare / Web App",
+        "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "The web app DotHunters built handles 5,000 daily active users without a hitch. Performance and reliability have been outstanding.",
+        "name": "Kevin Raj",
+        "role": "CTO, LoanTrack",
+        "initials": "KR"
+      },
+      {
+        "quote": "They took our messy spreadsheet workflow and turned it into a slick app our whole team actually enjoys using.",
+        "name": "Fatima Hassan",
+        "role": "Operations Lead, ShiftFlow",
+        "initials": "FH"
+      }
+    ]
+  },
+  {
+    "slug": "saas-product-development",
+    "title": "SaaS Product Development",
+    "tagline": "From idea to recurring revenue.",
+    "description": "We partner with founders and product teams to design, build, and launch SaaS products — handling everything from MVP to multi-tenant architecture, billing integration, and growth-ready infrastructure.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Product Strategy",
+        "description": "We validate your idea, define the core feature set, and create a roadmap that balances speed-to-market with long-term scalability."
+      },
+      {
+        "number": "02",
+        "title": "MVP Design & Build",
+        "description": "A lean, shippable MVP in 8–12 weeks — designed to test assumptions and start generating real user feedback immediately."
+      },
+      {
+        "number": "03",
+        "title": "Multi-Tenancy & Billing",
+        "description": "Workspace isolation, role-based permissions, Stripe billing, and subscription management built in from the ground up."
+      },
+      {
+        "number": "04",
+        "title": "Scale & Iterate",
+        "description": "Post-launch analytics, feature flagging, and sprint-based iteration to keep improving as your user base grows."
+      }
+    ],
+    "projects": [
+      {
+        "title": "PulseHR — HR & Payroll SaaS",
+        "category": "SaaS / Multi-tenant",
+        "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Loopify — Email Automation Platform",
+        "category": "SaaS / Marketing",
+        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Vaultly — Document Management SaaS",
+        "category": "SaaS / B2B",
+        "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "DotHunters took our napkin idea to a paying product in under 3 months. The architecture they chose has scaled with us effortlessly.",
+        "name": "Priya Nair",
+        "role": "Founder, PulseHR",
+        "initials": "PN"
+      },
+      {
+        "quote": "They understand SaaS — not just code. The billing flows, onboarding, and permission system were all handled without us having to explain the basics.",
+        "name": "Daniel Gomez",
+        "role": "CEO, Loopify",
+        "initials": "DG"
+      }
+    ]
+  },
+  {
+    "slug": "mobile-app-development",
+    "title": "Mobile App Development",
+    "tagline": "Native-quality apps for iOS and Android.",
+    "description": "We build high-performance mobile apps using React Native and Flutter — delivering a single codebase that feels truly native on both platforms, with offline support, push notifications, and App Store-ready polish.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "UX & Prototype",
+        "description": "Mobile-first wireframes and interactive prototypes tested with real users before development begins."
+      },
+      {
+        "number": "02",
+        "title": "Cross-Platform Build",
+        "description": "React Native or Flutter development with shared business logic, platform-specific UI where it matters, and full offline capability."
+      },
+      {
+        "number": "03",
+        "title": "Integrations",
+        "description": "Push notifications, payment gateways, maps, camera, biometrics, and third-party APIs — all handled cleanly."
+      },
+      {
+        "number": "04",
+        "title": "App Store Launch",
+        "description": "We manage the full submission process for both App Store and Google Play, including ASO, screenshots, and metadata."
+      }
+    ],
+    "projects": [
+      {
+        "title": "Muve — Music Streaming App",
+        "category": "React Native / iOS & Android",
+        "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "UrbanRoute — Delivery Driver App",
+        "category": "Flutter / Maps API",
+        "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "WellTrack — Health & Fitness App",
+        "category": "React Native / HealthKit",
+        "image": "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Our app hit 10k downloads in the first month. The UX is smooth and our users keep coming back — that's a direct result of DotHunters' work.",
+        "name": "Amal Perera",
+        "role": "CEO, Muve",
+        "initials": "AP"
+      },
+      {
+        "quote": "They built both iOS and Android from one codebase and neither platform felt like a compromise. Genuinely impressive.",
+        "name": "Ravi Chandran",
+        "role": "Founder, UrbanRoute",
+        "initials": "RC"
+      }
+    ]
+  },
+  {
+    "slug": "video-production",
+    "title": "Video Production",
+    "tagline": "Compelling video that drives action.",
+    "description": "From concept to final cut — we produce brand films, product videos, social content, and corporate documentaries. Our in-house team combines cinematic storytelling with strategic messaging to create video that converts.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1540655037529-dec987208707?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Creative Brief",
+        "description": "We define the message, audience, tone, and distribution channels — so every creative decision serves a clear purpose."
+      },
+      {
+        "number": "02",
+        "title": "Pre-Production",
+        "description": "Script writing, storyboarding, location scouting, casting, and shot lists — every detail planned before the camera rolls."
+      },
+      {
+        "number": "03",
+        "title": "Production",
+        "description": "Professional filming with our crew and equipment, or remote direction of client-side footage — flexible to your setup."
+      },
+      {
+        "number": "04",
+        "title": "Post-Production",
+        "description": "Editing, colour grading, sound design, motion graphics, and subtitle delivery in all required formats and aspect ratios."
+      }
+    ],
+    "projects": [
+      {
+        "title": "Kova — Brand Film",
+        "category": "Corporate / Cinematic",
+        "image": "https://images.unsplash.com/photo-1540655037529-dec987208707?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "GreenCart — Product Launch Video",
+        "category": "E-Commerce / Social",
+        "image": "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "title": "Loopify — SaaS Explainer",
+        "category": "Explainer / B2B",
+        "image": "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=800&q=80"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "The brand film DotHunters produced for our rebrand was cinematic-level quality. It set the tone for everything we did that year.",
+        "name": "Anika Silva",
+        "role": "Brand Manager, Kova",
+        "initials": "AS"
+      },
+      {
+        "quote": "Our product video has been embedded on our homepage for 8 months and is still our highest-converting piece of content.",
+        "name": "Kevin Raj",
+        "role": "Head of Growth, GreenCart",
+        "initials": "KR"
+      }
+    ]
+  }
+]

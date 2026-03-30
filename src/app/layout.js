@@ -1,14 +1,6 @@
-import Link from 'next/link'
 import './globals.css'
-import { Space_Grotesk } from 'next/font/google'
 import Navbar from '@/components/Navbar'
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'], // specify the weights you need
-  variable: '--font-space-grotesk', // optional: for CSS variable usage
-  display: 'swap', // optional
-});
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata = {
   title: 'DotHunters',
@@ -17,10 +9,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={spaceGrotesk.className}>
-        <Navbar />
-        {children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){var s=localStorage.getItem('theme');var d=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(s===null&&d)){document.documentElement.classList.add('dark')}})();`
+        }} />
+      </head>
+      <body>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
