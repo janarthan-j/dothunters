@@ -42,9 +42,9 @@ const ProcessSection = () => {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-4 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-0">
           {steps.map((step, i) => (
-            <div key={i} className="relative border-t-2 border-black dark:border-white pt-8 pr-8">
+            <div key={i} className="relative border-t-2 border-black dark:border-white pt-8 md:pr-8">
               {/* Step number */}
               <span className="text-xs font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">{step.number}</span>
               <h4 className={`text-xl font-bold mt-2 mb-3 dark:text-white`}>{step.title}</h4>

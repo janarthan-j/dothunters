@@ -2,7 +2,7 @@ const CTASection = () => {
   return (
     <section className="dot-bg py-10 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="border border-gray-200 dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-900 px-10 py-16 md:py-20 flex flex-col md:flex-row md:items-center md:justify-between gap-10">
+        <div className="border border-gray-200 dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-900 px-6 md:px-10 py-10 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           {/* Left */}
           <div className="max-w-xl">
             <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Let&apos;s connect</p>

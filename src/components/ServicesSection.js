@@ -36,7 +36,7 @@ const ServicesSection = () => {
           </Link>
         </div>
 
-        <h2 className="text-4xl md:text-5xl font-bold mb-14 max-w-3xl dark:text-white">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 md:mb-14 max-w-3xl dark:text-white">
           We help you go online &amp; increase your conversion rate.
         </h2>
 

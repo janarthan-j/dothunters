@@ -6,32 +6,32 @@ const HeroSection = () => {
     <section className="relative bg-gray-100 dark:bg-gray-900 h-screen flex flex-col overflow-hidden">
       <HeroDotGrid />
 
-      {/* Hero image — right side */}
+      {/* Hero image — top-right on mobile (half height), full height on desktop */}
       <img
-        className="absolute top-0 right-0 h-full w-auto object-cover object-left pointer-events-none select-none animate-float"
+        className="absolute top-14 right-0 h-[48%] md:top-0 md:h-full w-auto object-cover object-left pointer-events-none select-none animate-float"
         src="/images/hero.png"
         alt="Hero visual"
       />
 
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-16 -mt-8">
+      {/* Main content — bottom on mobile, centered on desktop */}
+      <div className="relative z-10 flex flex-col justify-end md:justify-center flex-1 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-16 pb-10 md:pb-0 md:-mt-8">
         <div className="max-w-2xl">
 
           {/* Badge pill */}
-          <div className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-4 py-1.5 w-fit mb-8 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-4 py-1.5 w-fit mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
             <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Creative Studio</span>
           </div>
 
           {/* Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight text-gray-900 dark:text-white mb-5">
             We Design &amp;<br />
             Build Digital<br />
             <span className="text-red-500">Experiences.</span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mb-10 max-w-md">
+          <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-8 max-w-md">
             UI/UX design, web development, and motion crafted to grow your brand and convert your users.
           </p>
 
@@ -61,8 +61,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Marquee pinned to bottom of hero */}
-      <div className="relative z-10 mt-auto">
+      {/* Marquee — hidden on mobile, visible on desktop */}
+      <div className="relative z-10 mt-auto hidden md:block">
         <MarqueeStrip />
       </div>
     </section>
