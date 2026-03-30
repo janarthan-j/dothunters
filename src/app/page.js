@@ -1,4 +1,12 @@
 import React from "react";
+
+export const metadata = {
+  title: 'DotHunters — Creative Digital Studio',
+  description: 'DotHunters is a creative digital studio specialising in UI/UX design, web development, 3D/VR experiences, and motion graphics. We build digital products that look great and convert.',
+  alternates: {
+    canonical: 'https://dothunters.com',
+  },
+};
 import HeroSection from "../components/HeroSection";
 import ServicesSection from "../components/ServicesSection";
 import StatsSection from "../components/StatsSection";
