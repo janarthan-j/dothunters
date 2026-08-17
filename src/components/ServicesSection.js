@@ -1,20 +1,13 @@
 "use client";
 import Link from "next/link";
-import { Layout, Code2, Gamepad2, Clapperboard } from "lucide-react";
+import { Code2, Gamepad2, Clapperboard, BrainCircuit } from "lucide-react";
 import { services } from "@/data/services";
 
 const icons = {
-  "ui-ux-design":           <Layout       className="w-10 h-10" strokeWidth={1.5} />,
-  "web-development":        <Code2        className="w-10 h-10" strokeWidth={1.5} />,
+  "web-design-development": <Code2        className="w-10 h-10" strokeWidth={1.5} />,
+  "ai-ml-development":      <BrainCircuit className="w-10 h-10" strokeWidth={1.5} />,
   "3d-vr-game-development": <Gamepad2     className="w-10 h-10" strokeWidth={1.5} />,
   "motion-graphics":        <Clapperboard className="w-10 h-10" strokeWidth={1.5} />,
-};
-
-const tools = {
-  "ui-ux-design":           ["Figma", "Adobe XD", "Maze", "Zeplin"],
-  "web-development":        ["React", "Next.js", "Node.js", "TypeScript"],
-  "3d-vr-game-development": ["Unity", "Unreal", "Blender", "WebXR"],
-  "motion-graphics":        ["After Effects", "Cinema 4D", "Lottie", "Premiere"],
 };
 
 // Show only the 4 core services on the homepage

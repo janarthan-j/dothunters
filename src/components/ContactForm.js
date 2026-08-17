@@ -1,17 +1,8 @@
 "use client";
 import { useState } from "react";
+import { services as serviceList } from "@/data/services";
 
-const services = [
-  "UI/UX Design",
-  "Web Development",
-  "Web Application Development",
-  "SaaS Product Development",
-  "Mobile App Development",
-  "3D / VR & Game Development",
-  "Motion Graphics",
-  "Video Production",
-  "Not sure yet",
-];
+const services = [...serviceList.map((s) => s.title), "Not sure yet"];
 
 const budgets = [
   "Under $5,000",

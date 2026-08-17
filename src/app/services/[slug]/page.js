@@ -4,14 +4,13 @@ import { services, getServiceBySlug } from "@/data/services";
 import ServiceHeroSlideshow from "@/components/ServiceHeroSlideshow";
 
 const serviceTools = {
-  "ui-ux-design":           ["Figma", "Adobe XD", "Maze", "Zeplin"],
-  "web-development":        ["React", "Next.js", "Node.js", "TypeScript"],
+  "web-design-development": ["Figma", "Next.js", "React", "Node.js"],
   "3d-vr-game-development": ["Unity", "Unreal", "Blender", "WebXR"],
   "motion-graphics":        ["After Effects", "Cinema 4D", "Lottie", "Premiere"],
-  "mobile-apps":            ["React Native", "Flutter", "Swift", "Kotlin"],
-  "saas-products":          ["Next.js", "Supabase", "Stripe", "Vercel"],
+  "mobile-app-development": ["React Native", "Flutter", "Swift", "Kotlin"],
+  "saas-product-development": ["Next.js", "Supabase", "Stripe", "Vercel"],
   "video-production":       ["Premiere Pro", "DaVinci Resolve", "After Effects", "Frame.io"],
-  "web-applications":       ["React", "Node.js", "PostgreSQL", "Docker"],
+  "ai-ml-development":      ["Python", "PyTorch", "OpenCV", "LangChain"],
 };
 
 export function generateStaticParams() {
@@ -75,7 +74,7 @@ export default function ServicePage({ params }) {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "120+", label: "Projects Delivered" },
+                { value: "7",    label: "Projects Delivered" },
                 { value: "98%",  label: "Client Satisfaction" },
                 { value: "5+",   label: "Years Experience" },
                 { value: "24h",  label: "Avg. Response Time" },
@@ -131,21 +130,25 @@ export default function ServicePage({ params }) {
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {service.projects.map((project, i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="overflow-hidden rounded-xl mb-4 bg-gray-100 dark:bg-gray-800">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-[240px] object-cover group-hover:scale-105 transition duration-500"
-                  />
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-red-500 dark:group-hover:text-red-400 transition">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-400 dark:text-gray-500">{project.category}</p>
-              </div>
-            ))}
+            {service.projects.map((project, i) => {
+              const Wrapper = project.slug ? Link : "div";
+              const wrapperProps = project.slug ? { href: `/projects/${project.slug}` } : {};
+              return (
+                <Wrapper key={i} {...wrapperProps} className="group cursor-pointer block">
+                  <div className="overflow-hidden rounded-xl mb-4 bg-gray-100 dark:bg-gray-800">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-[240px] object-cover group-hover:scale-105 transition duration-500"
+                    />
+                  </div>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-red-500 dark:group-hover:text-red-400 transition">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 dark:text-gray-500">{project.category}</p>
+                </Wrapper>
+              );
+            })}
           </div>
         </div>
       </section>
