@@ -1,110 +1,202 @@
 [
   {
-    "title": "Brand Identity for FinTech Startup",
-    "categories": ["Corporate", "Creative"],
-    "service": "UI/UX Design",
-    "client": "FinLoop",
-    "year": "2024",
-    "description": "Full brand identity system including logo, colour palette, typography, and UI component library for a growing fintech platform.",
-    "image": "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=800&q=80"
+    "slug": "school-management-system",
+    "title": "School Management System",
+    "tagline": "One platform to run every side of a school — students, staff, and attendance, live.",
+    "service": "Web Design & Development",
+    "serviceSlug": "web-design-development",
+    "platform": ["Web", "Mobile"],
+    "status": "In Development",
+    "year": "2025",
+    "categories": ["Education", "Web App", "Mobile App"],
+    "client": "",
+    "description": "A full school management platform covering teacher and student records, attendance, exams, and grading — accessible from a web dashboard and a companion mobile app.",
+    "image": "/images/projects/school-management-system/cover.jpg",
+    "heroImage": "/images/projects/school-management-system/hero.jpg",
+    "gallery": [
+      "/images/projects/school-management-system/1.jpg",
+      "/images/projects/school-management-system/2.jpg",
+      "/images/projects/school-management-system/3.jpg"
+    ],
+    "overview": "A full school management platform covering teacher and student records, attendance, exams, and grading — accessible from both a web dashboard and a companion mobile app.",
+    "problem": "Schools often track attendance, marks, and reporting across scattered spreadsheets and paper registers, making real-time visibility and report generation slow and error-prone.",
+    "solution": "We built a unified system where teachers mark live attendance from their phone or the web dashboard, exam marks and grades are recorded once and rolled into report cards automatically, and admins get a real-time view across the whole school.",
+    "features": [
+      "Live attendance tracking from web and mobile",
+      "Student & teacher record management",
+      "Exam marks and grade entry",
+      "Automated report card generation",
+      "Web dashboard for admins, mobile app for teachers"
+    ]
   },
   {
-    "title": "E-Commerce Platform Redesign",
-    "categories": ["Business", "Startup"],
-    "service": "Web Development",
-    "client": "GreenCart",
-    "year": "2024",
-    "description": "Complete redesign and rebuild of a Shopify-based e-commerce store, improving page speed by 60% and conversion rate by 35%.",
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+    "slug": "dotpos",
+    "title": "DotPOS",
+    "tagline": "Point-of-sale software built for everyday retail.",
+    "service": "Web Design & Development",
+    "serviceSlug": "web-design-development",
+    "platform": ["Web"],
+    "status": "In Development",
+    "year": "2025",
+    "categories": ["Retail", "Business", "Web App"],
+    "client": "",
+    "description": "A point-of-sale system for retail businesses — handling sales, billing, and day-to-day store operations.",
+    "image": "/images/projects/dotpos/cover.jpg",
+    "heroImage": "/images/projects/dotpos/hero.jpg",
+    "gallery": [
+      "/images/projects/dotpos/1.jpg",
+      "/images/projects/dotpos/2.jpg",
+      "/images/projects/dotpos/3.jpg"
+    ],
+    "overview": "A point-of-sale system for retail businesses — handling sales, billing, and day-to-day store operations.",
+    "problem": "Small and mid-size retailers need reliable, easy-to-use point-of-sale software without the overhead of enterprise POS suites.",
+    "solution": "DotPOS gives retailers a straightforward system for processing sales and running daily store operations.",
+    "features": [
+      "Sales & billing",
+      "Point-of-sale checkout flow",
+      "Built for everyday retail operations"
+    ]
   },
   {
-    "title": "Mobile App UI for Lifestyle Brand",
-    "categories": ["Corporate", "Creative"],
+    "slug": "agro-insect-identifier",
+    "title": "AGRO — Insect Identification App",
+    "tagline": "Point your camera, know the insect.",
+    "service": "AI / ML Development",
+    "serviceSlug": "ai-ml-development",
+    "platform": ["Mobile"],
+    "status": "In Development",
+    "year": "2025",
+    "categories": ["AI/ML", "Vision AI", "Mobile App", "Agriculture"],
+    "client": "",
+    "description": "A mobile app that uses computer vision to identify insects from a photo, helping farmers and growers recognise pests in the field.",
+    "image": "/images/projects/agro-insect-identifier/cover.jpg",
+    "heroImage": "/images/projects/agro-insect-identifier/hero.jpg",
+    "gallery": [
+      "/images/projects/agro-insect-identifier/1.jpg",
+      "/images/projects/agro-insect-identifier/2.jpg",
+      "/images/projects/agro-insect-identifier/3.jpg"
+    ],
+    "overview": "A mobile app that uses computer vision to identify insects from a photo, aimed at helping farmers and growers recognise pests in the field.",
+    "problem": "Farmers need to quickly identify insects on their crops to decide whether they're dealing with a pest or a beneficial species — without waiting for an expert.",
+    "solution": "The app uses a vision AI model to identify insect species from a photo taken directly in the field, right from a phone.",
+    "features": [
+      "Camera-based insect identification",
+      "Mobile vision AI model",
+      "Built for agricultural use in the field"
+    ]
+  },
+  {
+    "slug": "edgecam",
+    "title": "EdgeCam",
+    "tagline": "Stream your phone as a security camera, anywhere on your network.",
     "service": "Mobile App Development",
-    "client": "Muve",
-    "year": "2024",
-    "description": "End-to-end UI/UX design and React Native development for a music streaming app targeting Gen Z users across iOS and Android.",
-    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
+    "serviceSlug": "mobile-app-development",
+    "platform": ["Mobile"],
+    "status": "In Development",
+    "year": "2025",
+    "categories": ["Mobile App", "Security", "IoT"],
+    "client": "",
+    "description": "A mobile app that turns your phone into a live streaming security camera over your local network — for home or office surveillance.",
+    "image": "/images/projects/edgecam/cover.jpg",
+    "heroImage": "/images/projects/edgecam/hero.jpg",
+    "gallery": [
+      "/images/projects/edgecam/1.jpg",
+      "/images/projects/edgecam/2.jpg",
+      "/images/projects/edgecam/3.jpg"
+    ],
+    "overview": "A mobile app that turns your phone into a live streaming security camera over your local network — for home or office surveillance.",
+    "problem": "Setting up dedicated home security cameras is often expensive or complicated, when spare phones could do the job.",
+    "solution": "EdgeCam streams live video from a phone's camera over the local network, so any spare device can become a security camera.",
+    "features": [
+      "Live camera streaming over local network",
+      "Home & office security use",
+      "Turns any phone into a surveillance camera"
+    ]
   },
   {
-    "title": "SaaS Dashboard Design System",
-    "categories": ["Business", "Corporate"],
-    "service": "SaaS Product Development",
-    "client": "PulseHR",
-    "year": "2023",
-    "description": "Built a scalable design system and component library for a multi-tenant HR SaaS platform used by 200+ companies.",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    "slug": "easywatch",
+    "title": "EasyWatch",
+    "tagline": "AI-powered CCTV monitoring that actually watches for you.",
+    "service": "AI / ML Development",
+    "serviceSlug": "ai-ml-development",
+    "platform": ["Web"],
+    "status": "In Development",
+    "year": "2025",
+    "categories": ["AI/ML", "Vision AI", "Security"],
+    "client": "",
+    "description": "An AI-powered security surveillance system for homes, offices, and CCTV setups — built to actively watch footage instead of just recording it.",
+    "image": "/images/projects/easywatch/cover.jpg",
+    "heroImage": "/images/projects/easywatch/hero.jpg",
+    "gallery": [
+      "/images/projects/easywatch/1.jpg",
+      "/images/projects/easywatch/2.jpg",
+      "/images/projects/easywatch/3.jpg"
+    ],
+    "overview": "An AI-powered security surveillance system for homes, offices, and CCTV setups — built to actively watch footage instead of just recording it.",
+    "problem": "Traditional CCTV just records — someone still has to watch the footage to catch anything useful.",
+    "solution": "EasyWatch applies vision AI to CCTV feeds to actively monitor for security events across homes and offices.",
+    "features": [
+      "AI-based video monitoring",
+      "Works with home, office & CCTV setups",
+      "Vision AI for security surveillance"
+    ]
   },
   {
-    "title": "3D Product Visualization",
-    "categories": ["Creative", "Startup"],
-    "service": "3D / VR & Game Development",
-    "client": "Arko",
-    "year": "2024",
-    "description": "Interactive 3D product configurator built with Three.js and WebGL, allowing customers to customise and visualise products in real time.",
-    "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
+    "slug": "dot-cli",
+    "title": "Dot-CLI",
+    "tagline": "An AI CLI agent that plugs into any LLM and gets things done.",
+    "service": "AI / ML Development",
+    "serviceSlug": "ai-ml-development",
+    "platform": ["CLI"],
+    "status": "Open Source",
+    "year": "2025",
+    "categories": ["AI/ML", "LLM", "Open Source", "Automation"],
+    "client": "",
+    "description": "An open-source AI command-line agent, forked from OpenCode, capable of connecting to any custom LLM provider and running automated tasks.",
+    "image": "/images/projects/dot-cli/cover.jpg",
+    "heroImage": "/images/projects/dot-cli/hero.jpg",
+    "gallery": [
+      "/images/projects/dot-cli/1.jpg",
+      "/images/projects/dot-cli/2.jpg",
+      "/images/projects/dot-cli/3.jpg"
+    ],
+    "overview": "An open-source AI command-line agent, forked from OpenCode, capable of connecting to any custom LLM provider and running automated tasks.",
+    "problem": "Teams want an AI coding/automation agent they can point at their own LLM provider — not locked to one vendor.",
+    "solution": "Dot-CLI connects to any custom LLM provider and runs automated tasks from the command line, built as an open-source fork of OpenCode.",
+    "features": [
+      "Connects to any custom LLM provider",
+      "Runs automated CLI tasks",
+      "Open-source, forked from OpenCode"
+    ]
   },
   {
-    "title": "Corporate Website Overhaul",
-    "categories": ["Business", "Corporate"],
-    "service": "Web Development",
-    "client": "NovaTech Solutions",
-    "year": "2023",
-    "description": "Full redesign and Next.js rebuild of a B2B corporate website, reducing bounce rate by 40% and doubling lead form submissions.",
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "title": "VR Training Simulator",
-    "categories": ["Corporate", "Creative"],
-    "service": "3D / VR & Game Development",
-    "client": "LogiCore",
-    "year": "2024",
-    "description": "Immersive VR onboarding and safety training simulator built in Unity for Oculus Quest, cutting training time by 50%.",
-    "image": "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "title": "Lending Management Portal",
-    "categories": ["Business", "Corporate"],
-    "service": "Web Application Development",
-    "client": "LoanTrack",
-    "year": "2023",
-    "description": "Complex web application for managing loan applications, approvals, and repayments across 5,000+ daily active users.",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "title": "SaaS Explainer Video",
-    "categories": ["Creative", "Startup"],
-    "service": "Video Production",
-    "client": "Loopify",
-    "year": "2024",
-    "description": "90-second animated explainer video that became the brand's top-converting piece of content, embedded across their site and pitch decks.",
-    "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "title": "Delivery Driver Mobile App",
-    "categories": ["Business", "Startup"],
-    "service": "Mobile App Development",
-    "client": "UrbanRoute",
-    "year": "2023",
-    "description": "Flutter-based cross-platform driver app with real-time maps, route optimisation, and push notification integrations.",
-    "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "title": "Brand Film & Product Launch",
-    "categories": ["Creative", "Corporate"],
-    "service": "Video Production",
-    "client": "Kova",
-    "year": "2024",
-    "description": "Cinematic brand film produced for a major product launch, screened at events and used across all digital channels.",
-    "image": "https://images.unsplash.com/photo-1540655037529-dec987208707?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "title": "Email Automation SaaS Platform",
-    "categories": ["Business", "Startup"],
-    "service": "SaaS Product Development",
-    "client": "Loopify",
-    "year": "2023",
-    "description": "Full-stack SaaS MVP with multi-tenant workspace management, Stripe billing, and a visual email flow builder.",
-    "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+    "slug": "dotforms",
+    "title": "DotForms",
+    "tagline": "Turn a stack of handwritten forms into structured data — fast.",
+    "service": "AI / ML Development",
+    "serviceSlug": "ai-ml-development",
+    "platform": ["Web"],
+    "status": "In Development",
+    "year": "2025",
+    "categories": ["AI/ML", "LLM", "OCR", "Automation"],
+    "client": "",
+    "description": "A handwritten form extraction system using OCR and LLMs, able to extract data from any form type and push it into other systems for processing.",
+    "image": "/images/projects/dotforms/cover.jpg",
+    "heroImage": "/images/projects/dotforms/hero.jpg",
+    "gallery": [
+      "/images/projects/dotforms/1.jpg",
+      "/images/projects/dotforms/2.jpg",
+      "/images/projects/dotforms/3.jpg"
+    ],
+    "overview": "A handwritten form extraction system using OCR and LLMs, able to extract data from any form type and connect it to other systems for processing.",
+    "problem": "Digitising handwritten forms by hand is slow — manually re-typing thousands of forms takes days.",
+    "solution": "DotForms combines OCR and LLMs to extract structured data from any handwritten form, at up to 100 forms a minute, and connects that data to downstream systems automatically.",
+    "features": [
+      "OCR + LLM based handwritten form extraction",
+      "Works with any form type",
+      "Up to 100 forms processed per minute",
+      "Digitise around 1,000 forms in a day",
+      "Connects extracted data to other systems"
+    ]
   }
 ]

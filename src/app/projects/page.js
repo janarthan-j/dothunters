@@ -80,7 +80,7 @@ export default function ProjectsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
               {filtered.map((project, i) => (
-                <div key={i} className="group cursor-pointer">
+                <Link key={i} href={`/projects/${project.slug}`} className="group cursor-pointer block">
                   {/* Image */}
                   <div className="overflow-hidden rounded-xl mb-5 bg-gray-100 dark:bg-gray-800">
                     <img
@@ -108,9 +108,9 @@ export default function ProjectsPage() {
                     {project.description}
                   </p>
 
-                  {/* Client + categories */}
+                  {/* Status + categories */}
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{project.client}</span>
+                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{project.status}</span>
                     <div className="flex gap-1">
                       {project.categories.map((cat) => (
                         <span
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
@@ -138,9 +138,9 @@ export default function ProjectsPage() {
       <section className="py-16 bg-gray-50 dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-10">
           {[
-            { value: "120+", label: "Projects Delivered" },
-            { value: "60+",  label: "Happy Clients" },
-            { value: "8",    label: "Services Offered" },
+            { value: "7",    label: "Projects Delivered" },
+            { value: "5",    label: "Happy Clients" },
+            { value: "7",    label: "Services Offered" },
             { value: "98%",  label: "Client Satisfaction" },
           ].map((stat, i) => (
             <div key={i}>

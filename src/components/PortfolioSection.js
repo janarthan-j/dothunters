@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import projects from "@/data/projects.json";
 
 const filters = ["All", ...Array.from(new Set(projects.flatMap((p) => p.categories))).sort()];
@@ -50,7 +51,7 @@ const PortfolioSection = () => {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filtered.map((project, i) => (
-            <div key={i} className="group cursor-pointer">
+            <Link key={i} href={`/projects/${project.slug}`} className="group cursor-pointer block">
               {/* Image */}
               <div className="overflow-hidden rounded-lg mb-4">
                 <img
@@ -67,7 +68,7 @@ const PortfolioSection = () => {
               <p className="text-sm text-gray-400 dark:text-gray-500">
                 {project.categories.join(", ")}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

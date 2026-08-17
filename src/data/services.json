@@ -1,13 +1,13 @@
 [
   {
-    "slug": "ui-ux-design",
-    "title": "UI/UX Design",
-    "tagline": "Interfaces that feel as good as they look.",
-    "description": "We craft user experiences that are intuitive, beautiful, and built around real human behaviour. From discovery to final pixel, every decision is grounded in research and purpose.",
+    "slug": "web-design-development",
+    "title": "Web Design & Development",
+    "tagline": "Interfaces that feel as good as they perform.",
+    "description": "We design and build modern websites and web applications — from UI/UX and pixel-perfect interfaces to full-stack development. One team, one process, from first wireframe to production deploy.",
     "heroImages": [
       "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80"
+      "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
     ],
     "approach": [
       {
@@ -17,115 +17,89 @@
       },
       {
         "number": "02",
-        "title": "Wireframing & Prototyping",
-        "description": "Low and high-fidelity wireframes let us test ideas fast before a single line of code is written."
-      },
-      {
-        "number": "03",
-        "title": "Visual Design",
-        "description": "We create pixel-perfect designs with a consistent design system — colours, type, components — that scales with your product."
-      },
-      {
-        "number": "04",
-        "title": "Handoff & Support",
-        "description": "Developer-ready Figma files, component specs, and ongoing support to ensure the final product matches the design intent."
-      }
-    ],
-    "projects": [
-      {
-        "title": "Muve — Music Streaming App",
-        "category": "Mobile UI",
-        "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        "title": "FinLoop — Finance Dashboard",
-        "category": "Web App",
-        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        "title": "NovaTech — Corporate Website",
-        "category": "Website",
-        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    "testimonials": [
-      {
-        "quote": "DotHunters redesigned our entire platform in 6 weeks. The new UI cut our support tickets by 30% — users just get it now.",
-        "name": "Amal Perera",
-        "role": "CEO, NovaTech Solutions",
-        "initials": "AP"
-      },
-      {
-        "quote": "The attention to detail in every screen was incredible. They think like product designers, not just visual designers.",
-        "name": "Samantha Lee",
-        "role": "Product Manager, FinLoop",
-        "initials": "SL"
-      }
-    ]
-  },
-  {
-    "slug": "web-development",
-    "title": "Web Development",
-    "tagline": "Fast, scalable websites that convert.",
-    "description": "We build modern web applications with clean code, great performance, and seamless UX. Whether it's a marketing site or a complex SaaS product, we deliver solutions that last.",
-    "heroImages": [
-      "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
-    ],
-    "approach": [
-      {
-        "number": "01",
-        "title": "Tech Stack Planning",
-        "description": "We choose the right tools for the job — Next.js, React, Node, or headless CMS — based on your goals and scale."
-      },
-      {
-        "number": "02",
-        "title": "Architecture & Setup",
-        "description": "Clean project structure, CI/CD pipelines, and best-practice conventions established from day one."
+        "title": "Design & Prototyping",
+        "description": "Low and high-fidelity wireframes let us test ideas fast, followed by pixel-perfect visual design with a consistent design system."
       },
       {
         "number": "03",
         "title": "Development & QA",
-        "description": "Iterative sprints with regular demos. Every feature is tested across devices, browsers, and edge cases."
+        "description": "Clean, modern code — React, Next.js, Node — tested across devices, browsers, and edge cases before it ships."
       },
       {
         "number": "04",
-        "title": "Launch & Maintenance",
-        "description": "We handle deployment, performance tuning, and post-launch monitoring so you can focus on your business."
+        "title": "Launch & Support",
+        "description": "We handle deployment, performance tuning, and ongoing support so the product keeps running smoothly after launch."
       }
     ],
     "projects": [
       {
-        "title": "UrbanRoute — SaaS Platform",
-        "category": "Next.js / Node",
-        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
+        "title": "School Management System",
+        "category": "Web App / Mobile",
+        "image": "/images/projects/school-management-system/cover.jpg",
+        "slug": "school-management-system"
       },
       {
-        "title": "GreenCart — E-Commerce Store",
-        "category": "Shopify / React",
-        "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        "title": "PulseHR — HR Dashboard",
-        "category": "Web App",
-        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+        "title": "DotPOS",
+        "category": "Web App / Retail",
+        "image": "/images/projects/dotpos/cover.jpg",
+        "slug": "dotpos"
       }
     ],
-    "testimonials": [
+    "testimonials": []
+  },
+  {
+    "slug": "ai-ml-development",
+    "title": "AI / ML Development",
+    "tagline": "Machine learning, vision, and LLMs — built into real products.",
+    "description": "We build practical AI systems — from machine learning models and computer vision to LLM-powered apps and automation. If it needs to see, understand, or act on its own, we can build it.",
+    "heroImages": [
+      "/images/services/ai-ml-development/hero-1.jpg",
+      "/images/services/ai-ml-development/hero-2.jpg",
+      "/images/services/ai-ml-development/hero-3.jpg"
+    ],
+    "approach": [
       {
-        "quote": "Our new site loads in under 1 second and our conversion rate jumped 40%. The code quality is excellent — our internal devs were impressed.",
-        "name": "Ravi Chandran",
-        "role": "Founder, UrbanRoute",
-        "initials": "RC"
+        "number": "01",
+        "title": "Problem & Data Discovery",
+        "description": "We start by understanding the problem, the data available, and what 'working' looks like before picking a model or approach."
       },
       {
-        "quote": "They delivered a fully functional SaaS MVP in 8 weeks. Clean, documented, and ready to scale.",
-        "name": "Priya Nair",
-        "role": "CTO, PulseHR",
-        "initials": "PN"
+        "number": "02",
+        "title": "Model & System Design",
+        "description": "Whether it's a vision model, an LLM pipeline, or an automation flow, we design the system around your data and constraints."
+      },
+      {
+        "number": "03",
+        "title": "Build & Integrate",
+        "description": "We build and train the AI components, then integrate them into your product — web, mobile, or backend."
+      },
+      {
+        "number": "04",
+        "title": "Deploy & Monitor",
+        "description": "We ship to production and keep an eye on performance, so the system keeps working as real-world data changes."
       }
-    ]
+    ],
+    "projects": [
+      {
+        "title": "AGRO — Insect Identification App",
+        "category": "Vision AI / Mobile",
+        "image": "/images/projects/agro-insect-identifier/cover.jpg",
+        "slug": "agro-insect-identifier"
+      },
+      {
+        "title": "EasyWatch",
+        "category": "Vision AI / Security",
+        "image": "/images/projects/easywatch/cover.jpg",
+        "slug": "easywatch"
+      },
+      {
+        "title": "DotForms",
+        "category": "LLM / OCR",
+        "image": "/images/projects/dotforms/cover.jpg",
+        "slug": "dotforms"
+      }
+    ],
+    "testimonials": []
   },
   {
     "slug": "3d-vr-game-development",
@@ -252,70 +226,6 @@
         "name": "Anika Silva",
         "role": "Brand Manager, Kova",
         "initials": "AS"
-      }
-    ]
-  },
-  {
-    "slug": "web-application-development",
-    "title": "Web Application Development",
-    "tagline": "Powerful apps that run anywhere in the browser.",
-    "description": "We build complex, data-driven web applications — dashboards, portals, booking systems, and internal tools — engineered for performance, security, and real-world scale.",
-    "heroImages": [
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1600&q=80",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
-    ],
-    "approach": [
-      {
-        "number": "01",
-        "title": "Requirements & Scoping",
-        "description": "We map every user role, workflow, and data flow before writing a line of code — eliminating costly surprises mid-project."
-      },
-      {
-        "number": "02",
-        "title": "Architecture Design",
-        "description": "Scalable database schemas, API contracts, and frontend component structures planned for growth from day one."
-      },
-      {
-        "number": "03",
-        "title": "Agile Development",
-        "description": "Two-week sprints with working demos after each cycle. You see real progress — not just status updates."
-      },
-      {
-        "number": "04",
-        "title": "QA, Launch & Support",
-        "description": "End-to-end testing, staging environment review, zero-downtime deployment, and post-launch monitoring."
-      }
-    ],
-    "projects": [
-      {
-        "title": "LoanTrack — Lending Management Portal",
-        "category": "Web App / React",
-        "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        "title": "ShiftFlow — Staff Scheduling Tool",
-        "category": "Web App / Node.js",
-        "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        "title": "MedPortal — Patient Management System",
-        "category": "Healthcare / Web App",
-        "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    "testimonials": [
-      {
-        "quote": "The web app DotHunters built handles 5,000 daily active users without a hitch. Performance and reliability have been outstanding.",
-        "name": "Kevin Raj",
-        "role": "CTO, LoanTrack",
-        "initials": "KR"
-      },
-      {
-        "quote": "They took our messy spreadsheet workflow and turned it into a slick app our whole team actually enjoys using.",
-        "name": "Fatima Hassan",
-        "role": "Operations Lead, ShiftFlow",
-        "initials": "FH"
       }
     ]
   },
