@@ -36,6 +36,7 @@ export default function OnboardingWizard() {
       return questions.every((q) => Boolean(form.details[q.id]));
     }
     if (step === 2) return Boolean(form.budget) && Boolean(form.timeline);
+    if (step === 3) return Boolean(form.name) && Boolean(form.email);
     return true;
   };
 
