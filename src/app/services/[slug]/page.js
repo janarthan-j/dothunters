@@ -63,7 +63,7 @@ export default function ServicePage({ params }) {
                 </div>
               )}
               <Link
-                href="/contact"
+                href="/get-started"
                 className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-gray-900 px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition"
               >
                 Start a Project
@@ -224,7 +224,7 @@ export default function ServicePage({ params }) {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 shrink-0">
             <Link
-              href="/contact"
+              href="/get-started"
               className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-semibold text-sm transition justify-center"
             >
               Start a Project

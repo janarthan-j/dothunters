@@ -159,7 +159,7 @@ export default function ProjectsPage() {
             <p className="text-gray-400">Let&apos;s build something worth showcasing.</p>
           </div>
           <Link
-            href="/contact"
+            href="/get-started"
             className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-semibold text-sm transition shrink-0"
           >
             Start a Project
