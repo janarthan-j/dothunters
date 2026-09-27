@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import projects from "@/data/projects.json";
 import { getServiceBySlug } from "@/data/services";
+import ProjectGallery from "@/components/ProjectGallery";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -132,17 +133,7 @@ export default function ProjectPage({ params }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Gallery</p>
           <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-12">A closer look.</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {project.gallery.map((img, i) => (
-              <div key={i} className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800">
-                <img
-                  src={img}
-                  alt={`${project.title} screenshot ${i + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+          <ProjectGallery images={project.gallery} title={project.title} />
         </div>
       </section>
 
