@@ -41,20 +41,25 @@
     "categories": ["Retail", "Business", "Web App"],
     "client": "",
     "description": "A point-of-sale system for retail businesses — handling sales, billing, and day-to-day store operations.",
-    "image": "/images/projects/dotpos/cover.jpg",
-    "heroImage": "/images/projects/dotpos/hero.jpg",
+    "image": "/images/projects/dotpos/login.png",
+    "heroImage": "/images/projects/dotpos/login.png",
     "gallery": [
-      "/images/projects/dotpos/1.jpg",
-      "/images/projects/dotpos/2.jpg",
-      "/images/projects/dotpos/3.jpg"
+      "/images/projects/dotpos/products.png",
+      "/images/projects/dotpos/checkout.png",
+      "/images/projects/dotpos/bill.png",
+      "/images/projects/dotpos/dashboard.png",
+      "/images/projects/dotpos/employees.png"
     ],
-    "overview": "A point-of-sale system for retail businesses — handling sales, billing, and day-to-day store operations.",
+    "overview": "A point-of-sale system for retail businesses — handling sales, billing, and day-to-day store operations. Cashiers ring up sales from a searchable product catalog, while admins track performance, manage staff, and review every transaction from one place.",
     "problem": "Small and mid-size retailers need reliable, easy-to-use point-of-sale software without the overhead of enterprise POS suites.",
-    "solution": "DotPOS gives retailers a straightforward system for processing sales and running daily store operations.",
+    "solution": "DotPOS gives retailers a fast checkout with discounts, GST, and printable receipts, plus sales reports and role-based staff accounts. Every sale is tied to the logged-in employee for accountability.",
     "features": [
-      "Sales & billing",
-      "Point-of-sale checkout flow",
-      "Built for everyday retail operations"
+      "Product catalog with barcode and SKU search",
+      "Cart with discounts, coupons, GST, and split bills",
+      "Print, PDF, or email receipts",
+      "Sales reports by category, product, and payment type",
+      "Employee roles with per-user sales tracking and activity logs",
+      "Hold sales and save drafts mid-transaction"
     ]
   },
   {
@@ -69,20 +74,22 @@
     "categories": ["AI/ML", "Vision AI", "Mobile App", "Agriculture"],
     "client": "",
     "description": "A mobile app that uses computer vision to identify insects from a photo, helping farmers and growers recognise pests in the field.",
-    "image": "/images/projects/agro-insect-identifier/cover.jpg",
-    "heroImage": "/images/projects/agro-insect-identifier/hero.jpg",
+    "image": "/images/projects/said/mockup-home.jpg",
+    "heroImage": "/images/projects/said/mockup-home.jpg",
     "gallery": [
-      "/images/projects/agro-insect-identifier/1.jpg",
-      "/images/projects/agro-insect-identifier/2.jpg",
-      "/images/projects/agro-insect-identifier/3.jpg"
+      "/images/projects/said/mockup-home.jpg",
+      "/images/projects/said/mockup-detection.jpg"
     ],
     "overview": "A mobile app that uses computer vision to identify insects from a photo, aimed at helping farmers and growers recognise pests in the field.",
     "problem": "Farmers need to quickly identify insects on their crops to decide whether they're dealing with a pest or a beneficial species — without waiting for an expert.",
     "solution": "The app uses a vision AI model to identify insect species from a photo taken directly in the field, right from a phone.",
     "features": [
-      "Camera-based insect identification",
-      "Mobile vision AI model",
-      "Built for agricultural use in the field"
+      "Camera-based pest detection with per-insect confidence scores",
+      "Danger level for each detected pest",
+      "Biological, chemical, cultural, and IPM control advice",
+      "Pest names in English and Tamil",
+      "Regional pest alerts, detection history, and farmer forum",
+      "Ask SAID AI assistant for follow-up questions"
     ]
   },
   {
@@ -125,20 +132,21 @@
     "categories": ["AI/ML", "Vision AI", "Security"],
     "client": "",
     "description": "An AI-powered security surveillance system for homes, offices, and CCTV setups — built to actively watch footage instead of just recording it.",
-    "image": "/images/projects/easywatch/cover.jpg",
-    "heroImage": "/images/projects/easywatch/hero.jpg",
+    "image": "/images/projects/easywatch/login.png",
+    "heroImage": "/images/projects/easywatch/login.png",
     "gallery": [
-      "/images/projects/easywatch/1.jpg",
-      "/images/projects/easywatch/2.jpg",
-      "/images/projects/easywatch/3.jpg"
+      "/images/projects/easywatch/dashboard.png",
+      "/images/projects/easywatch/hotspots.png",
+      "/images/projects/easywatch/webhooks.png"
     ],
-    "overview": "An AI-powered security surveillance system for homes, offices, and CCTV setups — built to actively watch footage instead of just recording it.",
+    "overview": "An AI-powered security surveillance system for homes, offices, and CCTV setups — built to actively watch footage instead of just recording it. Connect live camera streams or upload recorded video, and EasyWatch tracks detections from a single dashboard.",
     "problem": "Traditional CCTV just records — someone still has to watch the footage to catch anything useful.",
-    "solution": "EasyWatch applies vision AI to CCTV feeds to actively monitor for security events across homes and offices.",
+    "solution": "EasyWatch applies vision AI to CCTV feeds to actively monitor for security events. Operators draw hotspots and entrances on each camera view to define what matters, and subscribe webhooks to get notified the moment something is detected there.",
     "features": [
-      "AI-based video monitoring",
-      "Works with home, office & CCTV setups",
-      "Vision AI for security surveillance"
+      "Live camera streams and video uploads",
+      "Draw hotspots and entrances per camera",
+      "Detection dashboard with history over time",
+      "Webhook notifications per camera hotspot"
     ]
   },
   {

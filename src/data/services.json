@@ -41,7 +41,7 @@
       {
         "title": "DotPOS",
         "category": "Web App / Retail",
-        "image": "/images/projects/dotpos/cover.jpg",
+        "image": "/images/projects/dotpos/login.png",
         "slug": "dotpos"
       }
     ],
@@ -83,13 +83,13 @@
       {
         "title": "AGRO — Insect Identification App",
         "category": "Vision AI / Mobile",
-        "image": "/images/projects/agro-insect-identifier/cover.jpg",
+        "image": "/images/projects/said/mockup-home.jpg",
         "slug": "agro-insect-identifier"
       },
       {
         "title": "EasyWatch",
         "category": "Vision AI / Security",
-        "image": "/images/projects/easywatch/cover.jpg",
+        "image": "/images/projects/easywatch/login.png",
         "slug": "easywatch"
       },
       {
