@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import projects from "@/data/projects.json";
+import { projects } from "@/data/projects";
 import { getServiceBySlug } from "@/data/services";
 import ProjectGallery from "@/components/ProjectGallery";
 

@@ -1,6 +1,7 @@
 [
   {
     "slug": "school-management-system",
+    "hidden": true,
     "title": "School Management System",
     "tagline": "One platform to run every side of a school — students, staff, and attendance, live.",
     "service": "Web Design & Development",
@@ -152,6 +153,7 @@
   },
   {
     "slug": "dot-cli",
+    "hidden": true,
     "title": "Dot-CLI",
     "tagline": "An AI CLI agent that plugs into any LLM and gets things done.",
     "service": "AI / ML Development",

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import projects from "@/data/projects.json";
+import { projects } from "@/data/projects";
 import Link from "next/link";
 
 const allCategories = ["All", ...Array.from(new Set(projects.flatMap((p) => p.categories))).sort()];
