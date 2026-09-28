@@ -104,20 +104,21 @@
     "categories": ["Mobile App", "Security", "IoT"],
     "client": "",
     "description": "A mobile app that turns your phone into a live streaming security camera over your local network — for home or office surveillance.",
-    "image": "/images/projects/edgecam/cover.jpg",
-    "heroImage": "/images/projects/edgecam/hero.jpg",
+    "image": "/images/projects/edgecam/mockup.jpg",
+    "heroImage": "/images/projects/edgecam/mockup.jpg",
     "gallery": [
-      "/images/projects/edgecam/1.jpg",
-      "/images/projects/edgecam/2.jpg",
-      "/images/projects/edgecam/3.jpg"
+      "/images/projects/edgecam/mockup.jpg"
     ],
     "overview": "A mobile app that turns your phone into a live streaming security camera over your local network — for home or office surveillance.",
     "problem": "Setting up dedicated home security cameras is often expensive or complicated, when spare phones could do the job.",
     "solution": "EdgeCam streams live video from a phone's camera over the local network, so any spare device can become a security camera.",
     "features": [
       "Live camera streaming over local network",
-      "Home & office security use",
-      "Turns any phone into a surveillance camera"
+      "Turns any phone into a surveillance camera",
+      "One-tap stream server start",
+      "Adjustable resolution, frame rate, and bitrate",
+      "Adaptive bitrate for changing network conditions",
+      "Custom port, stream path, and secure token links"
     ]
   },
   {
