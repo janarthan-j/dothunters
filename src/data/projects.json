@@ -138,16 +138,20 @@
     "heroImage": "/images/projects/easywatch/login.png",
     "gallery": [
       "/images/projects/easywatch/dashboard.png",
+      "/images/projects/easywatch/add-camera.png",
       "/images/projects/easywatch/hotspots.png",
-      "/images/projects/easywatch/webhooks.png"
+      "/images/projects/easywatch/statistics.png"
     ],
     "overview": "An AI-powered security surveillance system for homes, offices, and CCTV setups — built to actively watch footage instead of just recording it. Connect live camera streams or upload recorded video, and EasyWatch tracks detections from a single dashboard.",
     "problem": "Traditional CCTV just records — someone still has to watch the footage to catch anything useful.",
-    "solution": "EasyWatch applies vision AI to CCTV feeds to actively monitor for security events. Operators draw hotspots and entrances on each camera view to define what matters, and subscribe webhooks to get notified the moment something is detected there.",
+    "solution": "EasyWatch applies vision AI to CCTV feeds to actively monitor for security events. Operators connect any RTSP camera, draw zones and entrance lines on each view to define what matters, track people counts and detection trends over time, and subscribe webhooks to get notified the moment something is detected there.",
     "features": [
       "Live camera streams and video uploads",
-      "Draw hotspots and entrances per camera",
-      "Detection dashboard with history over time",
+      "Guided camera setup from any RTSP stream",
+      "Zone monitoring — log people and objects entering areas you draw",
+      "Entry/exit counting with live in, out, and inside totals",
+      "Dashboard with multi-camera grid and real-time AI event feed",
+      "Statistics on detections over time and what was detected",
       "Webhook notifications per camera hotspot"
     ]
   },
