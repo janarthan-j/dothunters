@@ -33,6 +33,12 @@
     ],
     "projects": [
       {
+        "title": "Limax Medica",
+        "category": "Website / Email / Maintenance",
+        "image": "/images/projects/limax-medica/home.png",
+        "slug": "limax-medica"
+      },
+      {
         "title": "School Management System",
         "category": "Web App / Mobile",
         "image": "/images/projects/school-management-system/cover.jpg",

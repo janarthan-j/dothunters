@@ -96,6 +96,26 @@ export default function ProjectPage({ params }) {
                   <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Status</p>
                   <p className="font-semibold text-gray-900 dark:text-white">{project.status}</p>
                 </div>
+                {project.client && (
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Client</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{project.client}</p>
+                  </div>
+                )}
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-full items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-sm transition"
+                  >
+                    Visit Live Site
+                    <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                    </svg>
+                  </a>
+                )}
                 <Link
                   href="/get-started"
                   className="inline-flex w-full items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition"

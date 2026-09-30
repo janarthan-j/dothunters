@@ -31,6 +31,39 @@
     ]
   },
   {
+    "slug": "limax-medica",
+    "title": "Limax Medica",
+    "tagline": "A credible web presence for a diagnostics supplier — built, hosted, and maintained for 2+ years.",
+    "service": "Web Design & Development",
+    "serviceSlug": "web-design-development",
+    "platform": ["Web"],
+    "status": "Live & Maintained",
+    "year": "2024",
+    "categories": ["Healthcare", "Business", "Website", "Maintenance"],
+    "client": "Limax Medica (Pvt) Ltd",
+    "url": "http://limaxmedica.lk/",
+    "description": "Company website for Limax Medica, a Sri Lankan supplier of diagnostic solutions and medical laboratory equipment.",
+    "image": "/images/projects/limax-medica/home.png",
+    "heroImage": "/images/projects/limax-medica/home.png",
+    "gallery": [
+      "/images/projects/limax-medica/home.png",
+      "/images/projects/limax-medica/products.png",
+      "/images/projects/limax-medica/about.png"
+    ],
+    "overview": "Limax Medica supplies diagnostic solutions and medical equipment to healthcare professionals across Sri Lanka. We designed and built their company website to present their product range, introduce the company, and make it easy for labs and hospitals to get in touch. For over two years we have maintained the site and run their business email server.",
+    "problem": "Labs and hospitals evaluating a supplier look for credibility first. Limax Medica needed a professional online presence that clearly shows what they offer across many diagnostic categories.",
+    "solution": "We built a focused site with a bold hero carousel, an icon-led product grid covering each diagnostic category, a company story page, and a direct contact route — clean, fast, and easy to navigate. Since launch we have handled ongoing maintenance, content updates, and their business email, so the team never has to think about the tech.",
+    "features": [
+      "Full-width hero carousel with call to action",
+      "Icon-based product category grid — Clinical Biochemistry, Serology, Haematology, Micropipettes and more",
+      "About page covering company background and partnerships",
+      "Contact page for enquiries from labs and hospitals",
+      "Responsive layout across desktop and mobile",
+      "2+ years of ongoing maintenance, updates, and support",
+      "Managed business email server on the company domain"
+    ]
+  },
+  {
     "slug": "dotpos",
     "title": "DotPOS",
     "tagline": "Point-of-sale software built for everyday retail.",
