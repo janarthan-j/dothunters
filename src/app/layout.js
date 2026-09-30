@@ -35,10 +35,7 @@ export const metadata = {
     description: 'UI/UX design, web development, and motion crafted to grow your brand and convert your users.',
     images: ['/image.png'],
   },
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-  },
+  manifest: '/site.webmanifest',
 }
 
 export default function RootLayout({ children }) {

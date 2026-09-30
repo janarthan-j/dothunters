@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Footer = () => {
   return (
     <footer className="bg-black text-white pt-16 pb-8">
@@ -6,9 +8,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className={`text-2xl font-bold mb-4`}>
-              <span className="text-red-500">Dot</span>Hunters
-            </div>
+            <a href="/" aria-label="DotHunters home" className="inline-block mb-5">
+              <Image src="/logo/logo-horizontal-white.png" alt="DotHunters" width={797} height={200} className="h-11 w-auto" />
+            </a>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               A creative studio crafting digital products that look great and perform even better.
             </p>

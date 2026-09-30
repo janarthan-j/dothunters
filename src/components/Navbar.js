@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import { useTheme } from "@/components/ThemeProvider";
 
 const Navbar = () => {
@@ -19,8 +20,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center py-3">
 
         {/* Logo */}
-        <a href="/" className="text-2xl font-bold">
-          <span className="text-red-500">Dot</span><span className="dark:text-white">Hunters</span>
+        <a href="/" aria-label="DotHunters home" className="shrink-0">
+          <Image src="/logo/logo-horizontal.png" alt="DotHunters" width={797} height={200} priority className="h-9 md:h-10 w-auto dark:hidden" />
+          <Image src="/logo/logo-horizontal-white.png" alt="DotHunters" width={797} height={200} priority className="h-9 md:h-10 w-auto hidden dark:block" />
         </a>
 
         {/* Desktop nav */}
