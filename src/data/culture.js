@@ -11,8 +11,9 @@ export const tools = ["Slack", "WhatsApp", "GitHub", "Figma", "Notion", "Google 
 
 // TODO(content): add remaining team members
 export const team = [
-  { slug: "janarthan-j",   name: "Janarthan J",   role: "Founder & Lead Engineer", disciplines: ["Web", "AI/ML", "Architecture"] },
-  { slug: "b-ranjith",     name: "B. Ranjith",    role: "ML Engineer",             disciplines: ["Vision AI", "Edge Devices"] },
+  { slug: "janarthan-j",   name: "Janarthan J",   role: "Founder & Lead Engineer", disciplines: ["Web", "AI/ML", "Architecture"], photo: "/images/team/janarthan.jpg", photoPosition: "center top" },
+  { slug: "b-ranjith",     name: "B. Ranjith",    role: "ML Engineer",             disciplines: ["Vision AI", "Edge Devices"], photo: "/images/team/b-ranjith.jpeg" },
+  { slug: "santhirakumar-sathurjan", name: "Santhirakumar Sathurjan", role: "Junior Software Engineer", disciplines: ["Web", "Full Stack"], photo: "/images/team/santhirakumar-sathurjan.jpeg" }, // TODO(content): confirm disciplines
 ];
 
 export const squadExample = {

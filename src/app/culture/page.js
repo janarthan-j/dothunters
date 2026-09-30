@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Globe, FileText, Clock, Target,
   GitBranch, ShieldCheck, Activity, Lock, BookOpen, LifeBuoy,
@@ -118,11 +119,24 @@ export default function CulturePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((m, i) => (
               <ScrollReveal key={m.slug} delay={i * 60}>
-                <div className="h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex items-start gap-5">
-                  <div className="w-16 h-16 rounded-2xl bg-red-500/10 text-red-500 flex items-center justify-center text-xl font-bold shrink-0">
-                    {initials(m.name)}
+                <div className="group h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
+                  <div className="relative aspect-square bg-red-500/10 overflow-hidden">
+                    {m.photo ? (
+                      <Image
+                        src={m.photo}
+                        alt={m.name}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        style={{ objectPosition: m.photoPosition || "center 15%" }}
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <span className="absolute inset-0 flex items-center justify-center text-6xl font-bold text-red-500">
+                        {initials(m.name)}
+                      </span>
+                    )}
                   </div>
-                  <div>
+                  <div className="p-6">
                     <h3 className="text-lg font-bold dark:text-white">{m.name}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{m.role}</p>
                     <div className="flex flex-wrap gap-2">
