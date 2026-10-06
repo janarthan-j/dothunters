@@ -2,44 +2,32 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Globe, FileText, Clock, Target,
+  GraduationCap, Wrench, FlaskConical, Users,
   GitBranch, ShieldCheck, Activity, Lock, BookOpen, LifeBuoy,
-  Code2, Gamepad2, Clapperboard, Cloud, Smartphone, Video, BrainCircuit,
-  Mail, MessageCircle, Phone, Hash, MapPin,
+  Mail, MessageCircle, Phone, MapPin, ArrowUpRight,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import { services } from "@/data/services";
 import {
-  remotePrinciples, tools, team, squadExample,
+  projectFlow, mentorship, team, values,
   reach, reachChannels, visitSteps, visitNote, productionChecklist,
 } from "@/data/culture";
 
 const icons = {
-  Globe, FileText, Clock, Target,
+  GraduationCap, Wrench, FlaskConical, Users,
   GitBranch, ShieldCheck, Activity, Lock, BookOpen, LifeBuoy,
 };
 
-const serviceIcons = {
-  "web-design-development":   Code2,
-  "3d-vr-game-development":   Gamepad2,
-  "motion-graphics":          Clapperboard,
-  "saas-product-development": Cloud,
-  "mobile-app-development":   Smartphone,
-  "video-production":         Video,
-  "ai-ml-development":        BrainCircuit,
-};
-
 const channelIcons = {
-  "Email":                Mail,
-  "WhatsApp":             MessageCircle,
-  "Phone":                Phone,
-  "Shared Slack channel": Hash,
+  "Email":    Mail,
+  "WhatsApp": MessageCircle,
+  "Phone":    Phone,
 };
 
 const initials = (name) => name.split(" ").map((p) => p[0]).join("").slice(0, 2).toUpperCase();
+const stepNumber = (i) => String(i + 1).padStart(2, "0");
 
 const SectionHeading = ({ eyebrow, title, accent, text }) => (
   <div className="max-w-2xl mb-14">
@@ -59,61 +47,79 @@ export default function CulturePage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Our culture</p>
           <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-3xl mb-6 dark:text-white">
-            Remote by design. <span className="text-red-500">Close when it counts.</span>
+            Built together. <span className="text-red-500">Delivered as one.</span>
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-lg max-w-xl">
-            A small, multi-disciplinary team that works from anywhere, answers fast, shows up on-site when it matters, and ships software that&apos;s ready for the real world.
+            A multi-disciplinary team across Batticaloa, Jaffna, Hatton and Colombo, guided by senior engineers and focused on software that works in the real world.
           </p>
         </div>
       </section>
 
-      {/* Remote work culture */}
+      {/* Project flow */}
       <section className="py-24 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
               eyebrow="How we work"
-              title="Remote-first,"
-              accent="never remote-distant."
-              text="Distributed work lets us hire the best people for the job, not the closest. These habits keep it fast and transparent for you."
+              title="From kickoff"
+              accent="to launch."
+              text="Every project follows the same clear path, with seniors setting the direction and the whole team building it."
+            />
+          </ScrollReveal>
+          <ol className="relative grid gap-6 lg:grid-cols-5">
+            <span aria-hidden="true" className="hidden lg:block absolute top-6 left-6 right-6 h-px bg-gray-200 dark:bg-gray-700" />
+            {projectFlow.map((s, i) => (
+              <ScrollReveal key={s.title} delay={i * 80}>
+                <li className="relative">
+                  <span className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-red-500 text-white text-sm font-bold mb-5">
+                    {stepNumber(i)}
+                  </span>
+                  <h3 className="text-lg font-bold mb-2 dark:text-white">{s.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{s.text}</p>
+                </li>
+              </ScrollReveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Mentorship */}
+      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="How we grow"
+              title="Seniors lead."
+              accent="Everyone grows."
+              text="Senior engineers guide every project, and the whole team builds alongside them. Our juniors learn on real work, not on the sidelines."
             />
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {remotePrinciples.map((p, i) => {
-              const Icon = icons[p.icon];
+            {mentorship.map((m, i) => {
+              const Icon = icons[m.icon];
               return (
-                <ScrollReveal key={p.title} delay={i * 80}>
-                  <div className="h-full border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+                <ScrollReveal key={m.title} delay={i * 80}>
+                  <div className="h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
                     <Icon className="w-8 h-8 text-red-500 mb-6" strokeWidth={1.5} />
-                    <h3 className="text-xl font-bold mb-2 dark:text-white">{p.title}</h3>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{p.text}</p>
+                    <h3 className="text-xl font-bold mb-2 dark:text-white">{m.title}</h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{m.text}</p>
                   </div>
                 </ScrollReveal>
               );
             })}
           </div>
-          <ScrollReveal>
-            <div className="mt-12 flex flex-wrap items-center gap-3">
-              <span className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mr-2">Our toolkit</span>
-              {tools.map((t) => (
-                <span key={t} className="px-4 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300">
-                  {t}
-                </span>
-              ))}
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
       {/* Team */}
-      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
               eyebrow="The team"
               title="The people behind"
               accent="the dots."
-              text="Every project gets senior hands — no hand-offs to anonymous juniors."
+              text="Every project is guided by senior engineers, with the whole team building alongside them."
             />
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -146,6 +152,12 @@ export default function CulturePage() {
                         </span>
                       ))}
                     </div>
+                    {m.education && (
+                      <p className="mt-4 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                        <GraduationCap className="w-4 h-4 text-red-500 shrink-0" strokeWidth={1.75} />
+                        {m.education}
+                      </p>
+                    )}
                   </div>
                 </div>
               </ScrollReveal>
@@ -154,51 +166,33 @@ export default function CulturePage() {
         </div>
       </section>
 
-      {/* Multi-disciplinary expertise */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      {/* Values with proof */}
+      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
-              eyebrow="Multi-disciplinary"
-              title="One team,"
-              accent="every layer."
-              text="Design, engineering, AI and 3D sit under one roof. We assemble a squad around your problem instead of forcing your problem into a single discipline."
+              eyebrow="What we believe"
+              title="Principles we"
+              accent="actually ship."
             />
           </ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {services.map((s, i) => {
-              const Icon = serviceIcons[s.slug] || Code2;
-              return (
-                <ScrollReveal key={s.slug} delay={i * 50}>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {values.map((v, i) => (
+              <ScrollReveal key={v.title} delay={i * 80}>
+                <div className="h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex flex-col">
+                  <h3 className="text-xl font-bold mb-2 dark:text-white">{v.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">{v.text}</p>
                   <Link
-                    href={`/services/${s.slug}`}
-                    className="group h-full border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex flex-col items-center text-center gap-3 hover:border-red-400 transition"
+                    href={`/projects/${v.slug}`}
+                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-red-500 hover:text-red-600 transition"
                   >
-                    <Icon className="w-8 h-8 text-gray-800 dark:text-gray-200 group-hover:text-red-500 transition" strokeWidth={1.5} />
-                    <span className="text-sm font-medium dark:text-white">{s.title}</span>
+                    {v.proof}
+                    <ArrowUpRight className="w-4 h-4 shrink-0" strokeWidth={2} />
                   </Link>
-                </ScrollReveal>
-              );
-            })}
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
-          <ScrollReveal>
-            <div className="mt-12 border border-red-400 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
-              <div className="shrink-0">
-                <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Squad example</p>
-                <Link href={`/projects/${squadExample.slug}`} className="text-2xl font-bold dark:text-white hover:text-red-500 transition">
-                  {squadExample.project} &rarr;
-                </Link>
-              </div>
-              <div className="flex flex-wrap items-center gap-2">
-                {squadExample.mix.map((d, i) => (
-                  <span key={d} className="flex items-center gap-2">
-                    <span className="px-4 py-1.5 rounded-full bg-red-500/10 text-red-500 text-sm font-medium">{d}</span>
-                    {i < squadExample.mix.length - 1 && <span className="text-gray-300 dark:text-gray-600">+</span>}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
         </div>
       </section>
 
@@ -209,7 +203,7 @@ export default function CulturePage() {
             <div className="max-w-2xl mb-14">
               <p className="uppercase tracking-widest text-gray-500 text-sm mb-4">Quick reach</p>
               <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Remote doesn&apos;t mean <span className="text-red-500">hard to reach.</span>
+                Wherever we are, <span className="text-red-500">we&apos;re easy to reach.</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -243,14 +237,14 @@ export default function CulturePage() {
               eyebrow="On-site visits"
               title="We come to you"
               accent="when it matters."
-              text="Some things are better done in the room — understanding a workflow, installing hardware, training a team. We fly in for the moments that count."
+              text="Some things are better done in the room — understanding a workflow, installing hardware, training a team. We travel to you for the moments that count."
             />
           </ScrollReveal>
           <ol className="grid md:grid-cols-4 gap-6">
             {visitSteps.map((s, i) => (
               <ScrollReveal key={s.title} delay={i * 80}>
                 <li className="relative h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
-                  <span className="block text-5xl font-bold text-red-500/20 mb-4">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="block text-5xl font-bold text-red-500/20 mb-4">{stepNumber(i)}</span>
                   <h3 className="text-lg font-bold mb-2 dark:text-white">{s.title}</h3>
                   <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{s.text}</p>
                 </li>

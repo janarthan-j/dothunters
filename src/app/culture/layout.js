@@ -1,6 +1,6 @@
 export const metadata = {
     title: "Culture",
-    description: "Remote-first, multi-disciplinary and production-focused — how DotHunters works with clients.",
+    description: "How DotHunters builds together: senior-guided, multi-disciplinary and production-focused.",
 }
 
 export default function CultureLayout({ children }) {
