@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import { services } from "@/data/services";
-import onboardingQuestions from "@/data/onboardingQuestions";
 import { sendNotification } from "@/lib/mailer";
 
 export async function POST(request) {
@@ -11,7 +9,7 @@ export async function POST(request) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const required = ["serviceSlug", "budget", "timeline", "name", "email"];
+  const required = ["name", "email", "service", "message"];
   const missing = required.filter((field) => !body?.[field]);
 
   if (missing.length > 0) {
@@ -21,27 +19,21 @@ export async function POST(request) {
     );
   }
 
-  const serviceTitle = services.find((s) => s.slug === body.serviceSlug)?.title || body.serviceSlug;
-  const questions = onboardingQuestions[body.serviceSlug] || [];
-  const detailRows = questions.map((q) => [q.label, body.details?.[q.id]]);
-
   try {
     await sendNotification({
-      subject: `New project request: ${serviceTitle} — ${body.name}`,
+      subject: `New contact message from ${body.name}`,
       replyTo: body.email,
       rows: [
-        ["Service", serviceTitle],
-        ...detailRows,
-        ["Budget", body.budget],
-        ["Timeline", body.timeline],
         ["Name", body.name],
         ["Email", body.email],
         ["Company", body.company],
-        ["Notes", body.notes],
+        ["Service", body.service],
+        ["Budget", body.budget],
+        ["Message", body.message],
       ],
     });
   } catch (err) {
-    console.error("Onboarding email failed:", err);
+    console.error("Contact email failed:", err);
     return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 

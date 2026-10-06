@@ -16,15 +16,31 @@ export default function ContactForm() {
   const [form, setForm] = useState({
     name: "", email: "", company: "", service: "", budget: "", message: "",
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Replace this with your actual form submission logic (e.g. API route, Formspree, etc.)
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSubmitted(true);
+      setForm({ name: "", email: "", company: "", service: "", budget: "", message: "" });
+    } catch {
+      setError("Something went wrong — please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -135,11 +151,18 @@ export default function ContactForm() {
         />
       </div>
 
+      {error && (
+        <p className="text-sm text-red-500 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/40 rounded-lg px-4 py-3">
+          {error}
+        </p>
+      )}
+
       <button
         type="submit"
-        className="inline-flex items-center gap-2 bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full font-semibold text-sm transition w-full sm:w-auto justify-center"
+        disabled={submitting}
+        className="inline-flex items-center gap-2 bg-black hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed text-white px-8 py-4 rounded-full font-semibold text-sm transition w-full sm:w-auto justify-center"
       >
-        Send Message
+        {submitting ? "Sending..." : "Send Message"}
         <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
           <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
         </svg>
