@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "Do you work with international clients?",
-    a: "Yes — the majority of our clients are remote. We work across time zones and use async-first communication to keep projects moving.",
+    a: "Yes. We work with clients across Sri Lanka and abroad, keeping projects moving with clear written updates and quick replies.",
   },
   {
     q: "Can you work within a fixed budget?",
