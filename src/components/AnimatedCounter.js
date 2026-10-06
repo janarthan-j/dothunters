@@ -1,14 +1,19 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
+// Only "one number + optional suffix" (e.g. "24h", "5+", "98%") animates; anything else renders as-is.
+const SIMPLE_VALUE = /^\d+\D*$/;
+
 export default function AnimatedCounter({ value, className = "" }) {
-  const num = parseInt(value.replace(/\D/g, ""), 10);
-  const suffix = value.replace(/[0-9]/g, "");
+  const animated = SIMPLE_VALUE.test(value);
+  const num = animated ? parseInt(value, 10) : 0;
+  const suffix = animated ? value.replace(/^\d+/, "") : "";
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const started = useRef(false);
 
   useEffect(() => {
+    if (!animated) return;
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -34,7 +39,11 @@ export default function AnimatedCounter({ value, className = "" }) {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [num]);
+  }, [animated, num]);
+
+  if (!animated) {
+    return <span className={className}>{value}</span>;
+  }
 
   return (
     <span ref={ref} className={className}>
