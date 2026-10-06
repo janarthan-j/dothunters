@@ -31,6 +31,45 @@
     ]
   },
   {
+    "slug": "cad-studio-photography",
+    "title": "CAD Studio Photography",
+    "tagline": "A bilingual booking and quoting platform that turns visitors into booked clients — no email back-and-forth.",
+    "service": "Web Design & Development",
+    "serviceSlug": "web-design-development",
+    "platform": ["Web"],
+    "status": "Live",
+    "year": "2026",
+    "categories": ["Photography", "Booking", "Web App", "Admin Dashboard"],
+    "client": "CAD Studio Photography",
+    "url": "https://www.cadphotos.com/en",
+    "description": "Bilingual booking and quoting platform for a photography studio. It has a live price calculator with Canadian tax rules, a booking calendar that prevents double bookings, a moderated reviews system and a full admin dashboard.",
+    "image": "/images/projects/cad-studio/home.png",
+    "heroImage": "/images/projects/cad-studio/home.png",
+    "gallery": [
+      "/images/projects/cad-studio/home.png",
+      "/images/projects/cad-studio/quote.png",
+      "/images/projects/cad-studio/packages.png",
+      "/images/projects/cad-studio/book.png",
+      "/images/projects/cad-studio/portfolio.png"
+    ],
+    "overview": "CAD Studio is a photography studio working in Canada and Sri Lanka. We built their full production website in English and French. Visitors can browse the studio's work, compare packages, get an instant price estimate and book a date on the spot. The owner runs pricing, availability, bookings and content from a custom admin dashboard, with no code changes needed.",
+    "problem": "Quoting and booking ran over email. Prices depend on hours, photographers, add-ons, travel, weekends, holidays and provincial sales tax, so every enquiry needed a manual reply. Leads went cold while they waited, and the owner had to keep the calendar in their head to avoid double-booking.",
+    "solution": "We built a pricing engine that gives clients a live, itemised estimate in the browser and re-checks it on the server, where its result is the one that counts. Bookings are written inside serializable database transactions, so two clients can never take the last free slot. Every price, tax rate and rule is stored in the database and managed from the admin dashboard, so the owner can change the business without touching code.",
+    "features": [
+      "Instant quote generator with extra hours, photographers, add-ons, travel, weekend and holiday surcharges",
+      "Canadian sales tax by province, with a reference number and PDF for every quote",
+      "Availability calendar that can't double-book, with unpaid holds released automatically",
+      "Confirmation emails with calendar invites (.ics), sent in the client's language",
+      "Portfolio case studies filtered by category and local or global reach",
+      "Gallery lightbox with keyboard and swipe support, images served as AVIF/WebP",
+      "Moderated reviews with \"Verified client\" badges via signed, expiring links",
+      "Role-based admin dashboard for packages, pricing, bookings, quotes, gallery, reviews and audit log",
+      "Full English and French versions with hreflang and locale-prefixed routes",
+      "PIPEDA, CASL and WCAG 2.1 AA compliant",
+      "120 test files: Vitest unit tests and Playwright end-to-end specs"
+    ]
+  },
+  {
     "slug": "limax-medica",
     "title": "Limax Medica",
     "tagline": "A credible web presence for a diagnostics supplier — built, hosted, and maintained for 2+ years.",

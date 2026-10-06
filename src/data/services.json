@@ -33,6 +33,12 @@
     ],
     "projects": [
       {
+        "title": "CAD Studio Photography",
+        "category": "Web App / Booking / Admin",
+        "image": "/images/projects/cad-studio/home.png",
+        "slug": "cad-studio-photography"
+      },
+      {
         "title": "Limax Medica",
         "category": "Website / Email / Maintenance",
         "image": "/images/projects/limax-medica/home.png",
