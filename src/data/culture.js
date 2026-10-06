@@ -13,6 +13,7 @@ export const tools = ["Slack", "WhatsApp", "GitHub", "Figma", "Notion", "Google 
 export const team = [
   { slug: "janarthan-j",   name: "Janarthan J",   role: "Founder & Lead Engineer", disciplines: ["Web", "AI/ML", "Architecture"], photo: "/images/team/janarthan.jpg", photoPosition: "center top" },
   { slug: "b-ranjith",     name: "B. Ranjith",    role: "ML Engineer",             disciplines: ["Vision AI", "Edge Devices"], photo: "/images/team/b-ranjith.jpeg" },
+  { slug: "thamilini-ramakrishna", name: "Thamilini Ramakrishna", role: "Senior Software Engineer", disciplines: ["ReactJS", "Frontend"], photo: "/images/team/thamilini.jpeg", photoPosition: "center 25%" },
   { slug: "santhirakumar-sathurjan", name: "Santhirakumar Sathurjan", role: "Junior Software Engineer", disciplines: ["Web", "Full Stack"], photo: "/images/team/santhirakumar-sathurjan.jpeg" }, // TODO(content): confirm disciplines
 ];
 
