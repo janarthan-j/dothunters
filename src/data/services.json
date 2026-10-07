@@ -56,8 +56,7 @@
         "image": "/images/projects/dotpos/login.png",
         "slug": "dotpos"
       }
-    ],
-    "testimonials": []
+    ]
   },
   {
     "slug": "ai-ml-development",
@@ -110,8 +109,7 @@
         "image": "/images/projects/dotforms/cover.jpg",
         "slug": "dotforms"
       }
-    ],
-    "testimonials": []
+    ]
   },
   {
     "slug": "3d-vr-game-development",
@@ -160,20 +158,6 @@
         "title": "Interactive 3D Brand Experience",
         "category": "Three.js / WebGL",
         "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    "testimonials": [
-      {
-        "quote": "The VR training module DotHunters built reduced our onboarding time by 50%. Incredibly polished and intuitive.",
-        "name": "James Wijekoon",
-        "role": "Head of L&D, LogiCore",
-        "initials": "JW"
-      },
-      {
-        "quote": "Our AR product demo at the trade show stopped people in their tracks. The quality of the 3D assets was outstanding.",
-        "name": "Melissa Tan",
-        "role": "Marketing Director, Arko",
-        "initials": "MT"
       }
     ]
   },
@@ -225,20 +209,6 @@
         "category": "3D / Live Action",
         "image": "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=800&q=80"
       }
-    ],
-    "testimonials": [
-      {
-        "quote": "The explainer video DotHunters made for us has been our #1 sales tool. Prospects finally understand what we do in 90 seconds.",
-        "name": "Daniel Gomez",
-        "role": "CEO, Loopify",
-        "initials": "DG"
-      },
-      {
-        "quote": "Our logo animation gave the entire brand a new energy. It's been used in every pitch deck and social post since.",
-        "name": "Anika Silva",
-        "role": "Brand Manager, Kova",
-        "initials": "AS"
-      }
     ]
   },
   {
@@ -288,20 +258,6 @@
         "title": "Vaultly — Document Management SaaS",
         "category": "SaaS / B2B",
         "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    "testimonials": [
-      {
-        "quote": "DotHunters took our napkin idea to a paying product in under 3 months. The architecture they chose has scaled with us effortlessly.",
-        "name": "Priya Nair",
-        "role": "Founder, PulseHR",
-        "initials": "PN"
-      },
-      {
-        "quote": "They understand SaaS — not just code. The billing flows, onboarding, and permission system were all handled without us having to explain the basics.",
-        "name": "Daniel Gomez",
-        "role": "CEO, Loopify",
-        "initials": "DG"
       }
     ]
   },
@@ -353,20 +309,6 @@
         "category": "React Native / HealthKit",
         "image": "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=800&q=80"
       }
-    ],
-    "testimonials": [
-      {
-        "quote": "Our app hit 10k downloads in the first month. The UX is smooth and our users keep coming back — that's a direct result of DotHunters' work.",
-        "name": "Amal Perera",
-        "role": "CEO, Muve",
-        "initials": "AP"
-      },
-      {
-        "quote": "They built both iOS and Android from one codebase and neither platform felt like a compromise. Genuinely impressive.",
-        "name": "Ravi Chandran",
-        "role": "Founder, UrbanRoute",
-        "initials": "RC"
-      }
     ]
   },
   {
@@ -416,20 +358,6 @@
         "title": "Loopify — SaaS Explainer",
         "category": "Explainer / B2B",
         "image": "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=800&q=80"
-      }
-    ],
-    "testimonials": [
-      {
-        "quote": "The brand film DotHunters produced for our rebrand was cinematic-level quality. It set the tone for everything we did that year.",
-        "name": "Anika Silva",
-        "role": "Brand Manager, Kova",
-        "initials": "AS"
-      },
-      {
-        "quote": "Our product video has been embedded on our homepage for 8 months and is still our highest-converting piece of content.",
-        "name": "Kevin Raj",
-        "role": "Head of Growth, GreenCart",
-        "initials": "KR"
       }
     ]
   }
