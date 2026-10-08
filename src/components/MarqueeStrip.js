@@ -6,6 +6,7 @@ const items = [
   "Mobile Apps",
   "SaaS Products",
   "Video Production",
+  "Digital Marketing",
   "Web Applications",
 ];
 

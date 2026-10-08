@@ -360,5 +360,39 @@
         "image": "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=800&q=80"
       }
     ]
+  },
+  {
+    "slug": "digital-marketing",
+    "title": "Digital Marketing",
+    "tagline": "Get found, get clicked, get customers.",
+    "description": "We grow your audience and turn traffic into revenue — through SEO, paid ads, social media, and email campaigns. Every channel is tracked and tuned against real numbers, not vanity metrics.",
+    "heroImages": [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80"
+    ],
+    "approach": [
+      {
+        "number": "01",
+        "title": "Audit & Strategy",
+        "description": "We review your current channels, competitors, and analytics, then build a plan around the audiences and goals that matter most."
+      },
+      {
+        "number": "02",
+        "title": "SEO & Content",
+        "description": "Technical SEO fixes, keyword research, and content that ranks — so customers find you without paying for every click."
+      },
+      {
+        "number": "03",
+        "title": "Paid & Social Campaigns",
+        "description": "Google, Meta, and LinkedIn campaigns with tight targeting and creative testing, plus social content that keeps your brand visible."
+      },
+      {
+        "number": "04",
+        "title": "Measure & Optimise",
+        "description": "Conversion tracking, monthly reporting, and continuous tuning of budgets and messaging based on what actually performs."
+      }
+    ],
+    "projects": []
   }
 ]

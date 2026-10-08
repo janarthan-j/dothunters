@@ -83,6 +83,18 @@ const onboardingQuestions = {
       options: ["We need filming", "We have footage, need editing", "Not sure"],
     },
   ],
+  "digital-marketing": [
+    {
+      id: "q1",
+      label: "Which channels are you most interested in?",
+      options: ["SEO", "Paid ads", "Social media", "Email marketing", "Not sure"],
+    },
+    {
+      id: "q2",
+      label: "Are you running any marketing today?",
+      options: ["Yes, want to improve it", "Starting from scratch", "Not sure"],
+    },
+  ],
 };
 
 export default onboardingQuestions;

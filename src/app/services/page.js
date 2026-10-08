@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { services } from "@/data/services";
-import { Code2, Gamepad2, Clapperboard, Cloud, Smartphone, Video, BrainCircuit } from "lucide-react";
+import { Code2, Gamepad2, Clapperboard, Cloud, Smartphone, Video, BrainCircuit, Megaphone } from "lucide-react";
 
 const icons = {
   "web-design-development":      <Code2       className="w-10 h-10" strokeWidth={1.5} />,
@@ -11,6 +11,7 @@ const icons = {
   "mobile-app-development":      <Smartphone  className="w-10 h-10" strokeWidth={1.5} />,
   "video-production":            <Video       className="w-10 h-10" strokeWidth={1.5} />,
   "ai-ml-development":           <BrainCircuit className="w-10 h-10" strokeWidth={1.5} />,
+  "digital-marketing":           <Megaphone   className="w-10 h-10" strokeWidth={1.5} />,
 };
 
 export default function ServicesPage() {

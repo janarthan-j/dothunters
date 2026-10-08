@@ -13,6 +13,7 @@ const serviceTools = {
   "saas-product-development": ["Next.js", "Supabase", "Stripe", "Vercel"],
   "video-production":       ["Premiere Pro", "DaVinci Resolve", "After Effects", "Frame.io"],
   "ai-ml-development":      ["Python", "PyTorch", "OpenCV", "LangChain"],
+  "digital-marketing":      ["Google Ads", "Meta Ads", "GA4", "Semrush"],
 };
 
 export function generateStaticParams() {
@@ -108,6 +109,7 @@ export default function ServicePage({ params }) {
       </section>
 
       {/* ── Projects ── */}
+      {service.projects.length > 0 && (
       <section className="py-24 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
@@ -148,6 +150,7 @@ export default function ServicePage({ params }) {
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Testimonials ── */}
       <TestimonialsSection
