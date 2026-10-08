@@ -38,7 +38,7 @@ const HeroSection = () => {
           {/* CTAs */}
           <div className="flex items-center gap-4 flex-wrap">
             <a
-              href="#contact"
+              href="/get-started"
               className="inline-flex items-center gap-2 bg-red-500 text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-red-600 transition"
             >
               Start a Project
