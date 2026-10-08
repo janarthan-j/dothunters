@@ -3,17 +3,21 @@ import { useState } from "react";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 
-const allCategories = ["All", ...Array.from(new Set(projects.flatMap((p) => p.categories))).sort()];
-const allServices  = ["All Services", ...Array.from(new Set(projects.map((p) => p.service))).sort()];
+// "Technology" uses the platform field until projects carry real tech stacks.
+const allServices     = ["All Services", ...Array.from(new Set(projects.map((p) => p.service))).sort()];
+const allTechnologies = ["All Technologies", ...Array.from(new Set(projects.flatMap((p) => p.platform))).sort()];
+
+const selectClass =
+  "text-sm border border-gray-200 dark:border-gray-600 rounded-full px-4 py-1.5 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 focus:outline-none focus:border-gray-400 dark:focus:border-gray-400 cursor-pointer";
 
 export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [activeService,  setActiveService]  = useState("All Services");
+  const [activeService,    setActiveService]    = useState("All Services");
+  const [activeTechnology, setActiveTechnology] = useState("All Technologies");
 
   const filtered = projects.filter((p) => {
-    const catMatch = activeCategory === "All" || p.categories.includes(activeCategory);
-    const svcMatch = activeService  === "All Services" || p.service === activeService;
-    return catMatch && svcMatch;
+    const svcMatch  = activeService    === "All Services"     || p.service === activeService;
+    const techMatch = activeTechnology === "All Technologies" || p.platform.includes(activeTechnology);
+    return svcMatch && techMatch;
   });
 
   return (
@@ -33,32 +37,28 @@ export default function ProjectsPage() {
 
       {/* ── Filters ── */}
       <section className="border-b border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900 sticky top-[57px] z-40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-          {/* Category pills */}
-          <div className="flex flex-wrap gap-2">
-            {allCategories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActiveCategory(c)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium border transition ${
-                  activeCategory === c
-                    ? "bg-black text-white border-black dark:bg-white dark:text-gray-900 dark:border-white"
-                    : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-400"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col sm:flex-row gap-3 sm:items-center">
           {/* Service dropdown */}
           <select
+            aria-label="Filter by service"
             value={activeService}
             onChange={(e) => setActiveService(e.target.value)}
-            className="text-sm border border-gray-200 dark:border-gray-600 rounded-full px-4 py-1.5 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 focus:outline-none focus:border-gray-400 dark:focus:border-gray-400 cursor-pointer"
+            className={selectClass}
           >
             {allServices.map((s) => (
               <option key={s}>{s}</option>
+            ))}
+          </select>
+
+          {/* Technology dropdown */}
+          <select
+            aria-label="Filter by technology"
+            value={activeTechnology}
+            onChange={(e) => setActiveTechnology(e.target.value)}
+            className={selectClass}
+          >
+            {allTechnologies.map((t) => (
+              <option key={t}>{t}</option>
             ))}
           </select>
         </div>
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
             <div className="text-center py-24 text-gray-400">
               <p className="text-lg font-medium">No projects match these filters.</p>
               <button
-                onClick={() => { setActiveCategory("All"); setActiveService("All Services"); }}
+                onClick={() => { setActiveService("All Services"); setActiveTechnology("All Technologies"); }}
                 className="mt-4 text-sm underline hover:text-gray-700 transition"
               >
                 Clear filters
