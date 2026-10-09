@@ -5,7 +5,7 @@ export const metadata = {
   description: "Tell us about your project in a few quick steps and we'll follow up within 24 hours.",
 };
 
-export default function GetStartedPage() {
+export default function GetStartedPage({ searchParams }) {
   return (
     <main id="get-started">
       <section className="dot-bg bg-gray-50 dark:bg-gray-800 py-24 border-b border-gray-100 dark:border-gray-700">
@@ -25,7 +25,7 @@ export default function GetStartedPage() {
 
       <section className="py-24 bg-white dark:bg-gray-900">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <OnboardingWizard />
+          <OnboardingWizard initialService={searchParams?.service} />
         </div>
       </section>
     </main>

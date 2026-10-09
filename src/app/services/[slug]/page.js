@@ -108,6 +108,57 @@ export default function ServicePage({ params }) {
         </div>
       </section>
 
+      {/* ── Pricing ── */}
+      {service.pricing && (
+      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Pricing</p>
+          <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-4 max-w-xl">
+            Transparent starting prices.
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mb-14">
+            Every project is quoted on scope — these ranges show where most of our work lands.
+          </p>
+          <div
+            className={`grid md:grid-cols-2 gap-6 ${
+              service.pricing.tiers.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
+            }`}
+          >
+            {service.pricing.tiers.map((tier, i) => (
+              <div
+                key={tier.name}
+                className={`flex flex-col border rounded-xl p-8 ${
+                  i === 1 ? "border-red-400" : "border-gray-200 dark:border-gray-700"
+                }`}
+              >
+                <h3 className="text-lg font-bold dark:text-white mb-2">{tier.name}</h3>
+                <p className="text-3xl font-bold text-red-500 mb-6">{tier.price}</p>
+                <ul className="space-y-2 mb-8 flex-1">
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
+                      <svg className="w-4 h-4 mt-0.5 text-red-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={`/get-started?service=${service.slug}`}
+                  className="inline-flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-full font-semibold text-sm hover:border-red-400 hover:text-red-500 dark:hover:text-red-400 transition"
+                >
+                  Get a quote
+                </Link>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-8 max-w-3xl">
+            Prices in USD. {service.pricing.note} Sri Lankan clients can be quoted in LKR.
+          </p>
+        </div>
+      </section>
+      )}
+
       {/* ── Projects ── */}
       {service.projects.length > 0 && (
       <section className="py-24 bg-white dark:bg-gray-900">

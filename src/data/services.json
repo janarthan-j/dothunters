@@ -56,6 +56,58 @@
         "image": "/images/projects/dotpos/login.png",
         "slug": "dotpos"
       }
+    ],
+    "pricing": {
+      "note": "Domains, hosting and paid plugins are billed separately at cost.",
+      "tiers": [
+        {
+          "name": "Starter",
+          "price": "$150 – $300",
+          "features": [
+            "Up to 5 pages",
+            "Mobile-friendly design",
+            "Contact form",
+            "Basic SEO setup"
+          ]
+        },
+        {
+          "name": "Business",
+          "price": "$400 – $900",
+          "features": [
+            "6–15 pages",
+            "Custom UI/UX design",
+            "Content management & blog",
+            "Analytics setup"
+          ]
+        },
+        {
+          "name": "Web App",
+          "price": "From $1,200",
+          "features": [
+            "User accounts & dashboards",
+            "Booking or payment flows",
+            "Admin panel",
+            "Custom backend"
+          ]
+        },
+        {
+          "name": "Care Plan",
+          "price": "$20 – $60/mo",
+          "features": [
+            "Hosting & backups",
+            "Security updates",
+            "Small content edits",
+            "Business email"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $300",
+      "$300 – $900",
+      "$900 – $2,500",
+      "$2,500+",
+      "Not sure yet"
     ]
   },
   {
@@ -109,6 +161,54 @@
         "image": "/images/projects/dotforms/cover.jpg",
         "slug": "dotforms"
       }
+    ],
+    "pricing": {
+      "note": "GPU compute, cloud hosting and third-party AI API usage are billed separately at cost. We share a monthly running-cost estimate before the build starts.",
+      "tiers": [
+        {
+          "name": "Proof of Concept",
+          "price": "$1,500 – $3,000",
+          "features": [
+            "Feasibility check on your data",
+            "Working prototype",
+            "Findings report"
+          ]
+        },
+        {
+          "name": "AI Feature",
+          "price": "$3,000 – $8,000",
+          "features": [
+            "Chatbot on your documents",
+            "Form OCR & data extraction",
+            "Single vision model in your app"
+          ]
+        },
+        {
+          "name": "Production System",
+          "price": "From $10,000",
+          "features": [
+            "Custom vision or LLM system",
+            "Deployment & integration",
+            "Performance monitoring"
+          ]
+        },
+        {
+          "name": "Support & Retraining",
+          "price": "From $300/mo",
+          "features": [
+            "Model monitoring",
+            "Retraining on new data",
+            "Fixes & improvements"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $3,000",
+      "$3,000 – $8,000",
+      "$8,000 – $20,000",
+      "$20,000+",
+      "Not sure yet"
     ]
   },
   {
@@ -159,6 +259,45 @@
         "category": "Three.js / WebGL",
         "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=800&q=80"
       }
+    ],
+    "pricing": {
+      "note": "Paid assets, engine licences and hardware are billed separately at cost.",
+      "tiers": [
+        {
+          "name": "3D Web Experience",
+          "price": "$600 – $1,500",
+          "features": [
+            "Interactive 3D product viewer",
+            "Runs in the browser",
+            "Mobile-friendly"
+          ]
+        },
+        {
+          "name": "AR / VR App",
+          "price": "$2,000 – $5,000",
+          "features": [
+            "AR product showcase",
+            "VR training scenario",
+            "Headset or mobile deployment"
+          ]
+        },
+        {
+          "name": "Game",
+          "price": "From $3,500",
+          "features": [
+            "Unity or Unreal build",
+            "Scoped to your concept",
+            "Platform publishing support"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $1,500",
+      "$1,500 – $5,000",
+      "$5,000 – $10,000",
+      "$10,000+",
+      "Not sure yet"
     ]
   },
   {
@@ -209,6 +348,45 @@
         "category": "3D / Live Action",
         "image": "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=800&q=80"
       }
+    ],
+    "pricing": {
+      "note": "Stock music, footage and premium voice-over talent are billed separately at cost.",
+      "tiers": [
+        {
+          "name": "Logo Animation",
+          "price": "$50 – $150",
+          "features": [
+            "5–10 second animation",
+            "All export formats",
+            "Two revision rounds"
+          ]
+        },
+        {
+          "name": "Explainer Video",
+          "price": "$250 – $700",
+          "features": [
+            "60–90 seconds",
+            "Script & storyboard",
+            "Voice-over & music"
+          ]
+        },
+        {
+          "name": "Social Motion Pack",
+          "price": "$120 – $250/mo",
+          "features": [
+            "8–12 animated posts a month",
+            "Sized for every platform",
+            "Brand-consistent style"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $150",
+      "$150 – $700",
+      "$700 – $1,500",
+      "$1,500+",
+      "Not sure yet"
     ]
   },
   {
@@ -259,6 +437,45 @@
         "category": "SaaS / B2B",
         "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80"
       }
+    ],
+    "pricing": {
+      "note": "Hosting, third-party services and payment-processor fees are billed separately at cost.",
+      "tiers": [
+        {
+          "name": "MVP",
+          "price": "$3,000 – $7,000",
+          "features": [
+            "Core feature set",
+            "Authentication",
+            "Billing integration"
+          ]
+        },
+        {
+          "name": "Growth Build",
+          "price": "$7,000 – $15,000",
+          "features": [
+            "Multi-tenant workspaces",
+            "Roles & permissions",
+            "Third-party integrations"
+          ]
+        },
+        {
+          "name": "Retainer",
+          "price": "From $800/mo",
+          "features": [
+            "Ongoing sprint development",
+            "Analytics-led iteration",
+            "Priority support"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $3,000",
+      "$3,000 – $7,000",
+      "$7,000 – $15,000",
+      "$15,000+",
+      "Not sure yet"
     ]
   },
   {
@@ -309,6 +526,45 @@
         "category": "React Native / HealthKit",
         "image": "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?auto=format&fit=crop&w=800&q=80"
       }
+    ],
+    "pricing": {
+      "note": "App Store / Google Play fees, hosting and third-party services are billed separately at cost.",
+      "tiers": [
+        {
+          "name": "Simple",
+          "price": "$1,000 – $2,000",
+          "features": [
+            "iOS & Android, one codebase",
+            "Up to ~8 screens",
+            "Store submission"
+          ]
+        },
+        {
+          "name": "Standard",
+          "price": "$2,000 – $5,000",
+          "features": [
+            "User accounts & payments",
+            "Push notifications & maps",
+            "Admin panel"
+          ]
+        },
+        {
+          "name": "Complex",
+          "price": "From $5,000",
+          "features": [
+            "Offline support",
+            "Real-time features",
+            "Hardware / IoT integration"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $2,000",
+      "$2,000 – $5,000",
+      "$5,000 – $10,000",
+      "$10,000+",
+      "Not sure yet"
     ]
   },
   {
@@ -359,6 +615,45 @@
         "category": "Explainer / B2B",
         "image": "https://images.unsplash.com/photo-1536240478700-b869ad10e2ab?auto=format&fit=crop&w=800&q=80"
       }
+    ],
+    "pricing": {
+      "note": "Travel, location fees, talent and stock media are billed separately at cost.",
+      "tiers": [
+        {
+          "name": "Social Content",
+          "price": "$60 – $150/video",
+          "features": [
+            "Short-form edits",
+            "Reels, TikTok & Shorts formats",
+            "Captions included"
+          ]
+        },
+        {
+          "name": "Product / Corporate",
+          "price": "$300 – $900",
+          "features": [
+            "One shoot day",
+            "Edit & colour grade",
+            "Subtitles"
+          ]
+        },
+        {
+          "name": "Brand Film",
+          "price": "From $1,200",
+          "features": [
+            "Full production crew",
+            "Script to final cut",
+            "Multi-format delivery"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $300",
+      "$300 – $900",
+      "$900 – $2,500",
+      "$2,500+",
+      "Not sure yet"
     ]
   },
   {
@@ -393,6 +688,45 @@
         "description": "Conversion tracking, monthly reporting, and continuous tuning of budgets and messaging based on what actually performs."
       }
     ],
-    "projects": []
+    "projects": [],
+    "pricing": {
+      "note": "Ad spend is paid directly to the platforms and is not included in these fees.",
+      "tiers": [
+        {
+          "name": "Starter",
+          "price": "$100 – $180/mo",
+          "features": [
+            "2 social platforms",
+            "12 posts a month",
+            "Monthly report"
+          ]
+        },
+        {
+          "name": "Growth",
+          "price": "$250 – $450/mo",
+          "features": [
+            "Social media management",
+            "SEO",
+            "Google & Meta ads management"
+          ]
+        },
+        {
+          "name": "Scale",
+          "price": "From $600/mo",
+          "features": [
+            "All channels",
+            "Email campaigns",
+            "Conversion tracking & tuning"
+          ]
+        }
+      ]
+    },
+    "budgetOptions": [
+      "Under $180/mo",
+      "$180 – $450/mo",
+      "$450 – $1,000/mo",
+      "$1,000+/mo",
+      "Not sure yet"
+    ]
   }
 ]

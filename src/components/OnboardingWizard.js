@@ -20,9 +20,11 @@ const initialForm = {
   notes: "",
 };
 
-export default function OnboardingWizard() {
-  const [step, setStep] = useState(0);
-  const [form, setForm] = useState(initialForm);
+export default function OnboardingWizard({ initialService }) {
+  // A ?service=<slug> link (e.g. from a service's pricing cards) skips the service step.
+  const preselected = services.some((s) => s.slug === initialService) ? initialService : "";
+  const [step, setStep] = useState(preselected ? 1 : 0);
+  const [form, setForm] = useState({ ...initialForm, serviceSlug: preselected });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
@@ -41,7 +43,8 @@ export default function OnboardingWizard() {
   };
 
   const handleSelectService = (slug) => {
-    setForm((prev) => ({ ...prev, serviceSlug: slug, details: {} }));
+    // Budget options differ per service, so a previous pick no longer applies.
+    setForm((prev) => ({ ...prev, serviceSlug: slug, details: {}, budget: "" }));
     setStep(1);
   };
 
@@ -92,7 +95,12 @@ export default function OnboardingWizard() {
         />
       )}
       {step === 2 && (
-        <BudgetTimelineStep budget={form.budget} timeline={form.timeline} onChange={handleFieldChange} />
+        <BudgetTimelineStep
+          budgetOptions={selectedService?.budgetOptions}
+          budget={form.budget}
+          timeline={form.timeline}
+          onChange={handleFieldChange}
+        />
       )}
       {step === 3 && <ContactStep form={form} onChange={handleFieldChange} />}
 
