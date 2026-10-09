@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "dotpos",
+    "title": "DotPOS",
+    "tagline": "Point-of-sale software built for everyday retail.",
+    "description": "",
+    "badges": ["Product"],
+    "image": "/images/projects/dotpos/login.png",
+    "features": [],
+    "repoUrl": "",
+    "projectSlug": "dotpos"
+  },
+  {
+    "slug": "easywatch",
+    "title": "EasyWatch",
+    "tagline": "AI-powered CCTV monitoring that actually watches for you.",
+    "description": "",
+    "badges": ["Product"],
+    "image": "/images/projects/easywatch/login.png",
+    "features": [],
+    "repoUrl": "",
+    "projectSlug": "easywatch"
+  },
+  {
+    "slug": "edgecam",
+    "title": "EdgeCam",
+    "tagline": "Stream your phone as a security camera, anywhere on your network.",
+    "description": "",
+    "badges": ["Product", "Open Source"],
+    "image": "/images/projects/edgecam/mockup.jpg",
+    "features": [],
+    "repoUrl": "",
+    "projectSlug": "edgecam"
+  },
+  {
+    "slug": "aragorn",
+    "title": "Aragorn",
+    "tagline": "A voice assistant you run on your own machine.",
+    "description": "Aragorn is a voice assistant you run on your own machine. Speak, and it transcribes you live with Whisper, sends each finished utterance to an LLM, and streams the answer back — on screen and, if you like, out loud. It can search the web when it needs current information, and it answers voice notes and text from Telegram too.",
+    "badges": ["Open Source", "Experimental"],
+    "image": "",
+    "features": [
+      "Live speech transcription with Whisper",
+      "Streaming LLM answers, on screen as they arrive",
+      "Optional spoken replies",
+      "Web search for current information",
+      "Answers Telegram voice notes and text"
+    ],
+    "repoUrl": "",
+    "projectSlug": ""
+  }
+]
