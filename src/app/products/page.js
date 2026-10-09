@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Mic } from "lucide-react";
 import { products, productHref } from "@/data/products";
 import ProductBadges from "@/components/ProductBadges";
 
@@ -31,7 +30,13 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
             {products.map((product) => (
               <div key={product.slug} className="group flex flex-col">
-                <Link href={productHref(product)} className="block overflow-hidden rounded-xl mb-5 bg-gray-100 dark:bg-gray-800">
+                {/* Duplicates "Learn more", so it's skipped by keyboard and screen readers. */}
+                <Link
+                  href={productHref(product)}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="block overflow-hidden rounded-xl mb-5 bg-gray-100 dark:bg-gray-800"
+                >
                   {product.image ? (
                     <img
                       src={product.image}
@@ -40,7 +45,12 @@ export default function ProductsPage() {
                     />
                   ) : (
                     <div className="w-full h-[280px] flex items-center justify-center text-gray-400 dark:text-gray-500 group-hover:text-red-500 transition">
-                      <Mic className="w-16 h-16" strokeWidth={1.25} />
+                      {/* Inline mic icon: lucide-react needs a client component, and this page is a server component. */}
+                      <svg className="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" x2="12" y1="19" y2="22" />
+                      </svg>
                     </div>
                   )}
                 </Link>

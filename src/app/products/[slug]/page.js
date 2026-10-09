@@ -10,7 +10,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }) {
   const product = getProductBySlug(params.slug);
-  return product ? { title: product.title, description: product.tagline } : {};
+  return product && !product.projectSlug ? { title: product.title, description: product.tagline } : {};
 }
 
 export default function ProductPage({ params }) {
