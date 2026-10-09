@@ -1,14 +1,17 @@
-const budgets = [
-  "Under $5,000",
+// Fallback when a service has no budgetOptions in services.json.
+const defaultBudgets = [
+  "Under $1,000",
+  "$1,000 – $5,000",
   "$5,000 – $15,000",
-  "$15,000 – $50,000",
-  "$50,000+",
-  "Let's discuss",
+  "$15,000+",
+  "Not sure yet",
 ];
 
 const timelines = ["ASAP", "1–3 months", "3–6 months", "Flexible / not sure"];
 
-export default function BudgetTimelineStep({ budget, timeline, onChange }) {
+export default function BudgetTimelineStep({ budgetOptions, budget, timeline, onChange }) {
+  const budgets = budgetOptions?.length ? budgetOptions : defaultBudgets;
+
   return (
     <div>
       <h2 className="text-2xl font-bold mb-2 dark:text-white">Budget & timeline</h2>
