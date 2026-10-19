@@ -1,6 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { services as serviceList } from "@/data/services";
+import Honeypot from "@/components/Honeypot";
+import Turnstile, { turnstileEnabled } from "@/components/Turnstile";
 
 const services = [...serviceList.map((s) => s.title), "Not sure yet"];
 
@@ -19,6 +21,10 @@ export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [token, setToken] = useState("");
+  const [turnstileReset, setTurnstileReset] = useState(0);
+  const startedAt = useRef(Date.now());
 
   const handleChange = (e) =>
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -31,13 +37,20 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          website: honeypot,
+          elapsedMs: Date.now() - startedAt.current,
+          turnstileToken: token,
+        }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSubmitted(true);
       setForm({ name: "", email: "", company: "", service: "", budget: "", message: "" });
+      startedAt.current = Date.now();
     } catch {
       setError("Something went wrong — please try again.");
+      setTurnstileReset((n) => n + 1);
     } finally {
       setSubmitting(false);
     }
@@ -66,7 +79,9 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="relative space-y-6">
+      <Honeypot value={honeypot} onChange={setHoneypot} />
+
       {/* Name + Email */}
       <div className="grid sm:grid-cols-2 gap-6">
         <div>
@@ -151,6 +166,8 @@ export default function ContactForm() {
         />
       </div>
 
+      <Turnstile onToken={setToken} resetKey={turnstileReset} />
+
       {error && (
         <p className="text-sm text-red-500 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/40 rounded-lg px-4 py-3">
           {error}
@@ -159,7 +176,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={submitting}
+        disabled={submitting || (turnstileEnabled && !token)}
         className="inline-flex items-center gap-2 bg-black hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed text-white px-8 py-4 rounded-full font-semibold text-sm transition w-full sm:w-auto justify-center"
       >
         {submitting ? "Sending..." : "Send Message"}
