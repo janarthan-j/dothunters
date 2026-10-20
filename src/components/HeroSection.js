@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import HeroDotGrid from "./HeroDotGrid";
 import HeroRotator from "./HeroRotator";
@@ -38,7 +39,7 @@ const HeroSection = () => {
 
           {/* CTAs */}
           <div className="flex items-center gap-4 flex-wrap">
-            <a
+            <Link
               href="/get-started"
               className="inline-flex items-center gap-2 bg-red-500 text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-red-600 transition"
             >
@@ -46,8 +47,8 @@ const HeroSection = () => {
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
                 <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/projects"
               className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-semibold text-sm transition"
             >
@@ -57,7 +58,7 @@ const HeroSection = () => {
                 </svg>
               </span>
               View Our Work
-            </a>
+            </Link>
           </div>
         </div>
       </div>

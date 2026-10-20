@@ -16,6 +16,9 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      transitionTimingFunction: {
+        fluid: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
       animation: {
         marquee: 'marquee 50s linear infinite',
       },

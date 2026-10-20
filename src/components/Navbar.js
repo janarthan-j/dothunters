@@ -1,11 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/components/ThemeProvider";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => setMenuOpen(false), [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   const links = [
     { label: "Home",     href: "/" },
@@ -17,21 +32,26 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 fixed top-0 left-0 right-0 z-50">
+    <header className={`bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b fixed top-0 left-0 right-0 z-50 transition-[box-shadow,border-color,background-color] duration-500 ease-fluid ${scrolled ? "border-gray-100 dark:border-gray-800 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.12)]" : "border-transparent"}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center py-3">
 
         {/* Logo */}
-        <a href="/" aria-label="DotHunters home" className="shrink-0">
+        <Link href="/" aria-label="DotHunters home" className="shrink-0">
           <Image src="/logo/logo-horizontal.png" alt="DotHunters" width={797} height={200} priority className="h-9 md:h-10 w-auto dark:hidden" />
           <Image src="/logo/logo-horizontal-white.png" alt="DotHunters" width={797} height={200} priority className="h-9 md:h-10 w-auto hidden dark:block" />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {links.map((l) => (
-            <a key={l.label} href={l.href} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">
+            <Link
+              key={l.label}
+              href={l.href}
+              aria-current={isActive(l.href) ? "page" : undefined}
+              className={`nav-link ${isActive(l.href) ? "text-gray-900 dark:text-white" : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"}`}
+            >
               {l.label}
-            </a>
+            </Link>
           ))}
           <button
             onClick={toggleTheme}
@@ -82,20 +102,27 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 px-6 py-4 flex flex-col gap-4">
-          {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-gray-700 dark:text-gray-300 font-medium text-sm hover:text-red-500 dark:hover:text-red-400 transition py-1"
-            >
-              {l.label}
-            </a>
-          ))}
+      <div
+        className={`md:hidden grid transition-[grid-template-rows,opacity] duration-500 ease-fluid ${menuOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none"}`}
+        aria-hidden={!menuOpen}
+      >
+        <div className="overflow-hidden">
+          <div className="border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 px-6 py-4 flex flex-col gap-4">
+            {links.map((l, i) => (
+              <Link
+                key={l.label}
+                href={l.href}
+                tabIndex={menuOpen ? 0 : -1}
+                onClick={() => setMenuOpen(false)}
+                style={{ transitionDelay: menuOpen ? `${80 + i * 40}ms` : "0ms" }}
+                className={`font-medium text-sm py-1 transition-[transform,opacity,color] duration-500 ease-fluid ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"} ${isActive(l.href) ? "text-red-500 dark:text-red-400" : "text-gray-700 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400"}`}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

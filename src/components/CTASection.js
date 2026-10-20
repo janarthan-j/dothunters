@@ -1,3 +1,4 @@
+import Link from "next/link";
 const CTASection = () => {
   return (
     <section className="dot-bg py-10 bg-gray-50 dark:bg-gray-800">
@@ -17,7 +18,7 @@ const CTASection = () => {
 
           {/* Right */}
           <div className="flex items-center gap-4 flex-wrap shrink-0">
-            <a
+            <Link
               href="/get-started"
               className="inline-flex items-center gap-2 bg-red-500 text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-red-600 transition"
             >
@@ -25,8 +26,8 @@ const CTASection = () => {
               <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
                 <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/projects"
               className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-semibold text-sm transition"
             >
@@ -36,7 +37,7 @@ const CTASection = () => {
                 </svg>
               </span>
               View Our Work
-            </a>
+            </Link>
           </div>
         </div>
       </div>
