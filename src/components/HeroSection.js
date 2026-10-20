@@ -1,4 +1,6 @@
+import Image from "next/image";
 import HeroDotGrid from "./HeroDotGrid";
+import HeroRotator from "./HeroRotator";
 import MarqueeStrip from "./MarqueeStrip";
 
 const HeroSection = () => {
@@ -6,12 +8,20 @@ const HeroSection = () => {
     <section className="relative bg-gray-100 dark:bg-gray-900 h-screen flex flex-col overflow-hidden">
       <HeroDotGrid />
 
-      {/* Hero image — top-right on mobile (half height), full height on desktop */}
-      <img
-        className="absolute top-14 right-0 h-[48%] md:top-0 md:h-full w-auto object-cover object-left pointer-events-none select-none animate-float"
-        src="/images/hero.png"
-        alt="Hero visual"
-      />
+      {/* Hero image — centred above the text on mobile (smaller and faded on short
+          phones, where it sits behind the text); right half of the content column
+          on desktop, kept clear of the navbar and marquee */}
+      <div className="absolute inset-x-0 top-24 h-[40%] sm:h-[44%] flex justify-center px-6 pointer-events-none select-none max-md:[@media(max-height:700px)]:h-[32%] max-md:[@media(max-height:700px)]:opacity-40 md:inset-y-0 md:top-0 md:h-auto md:max-w-7xl md:mx-auto md:justify-end md:items-center md:px-8 md:pt-28 md:pb-24">
+        <Image
+          src="/images/hero.png"
+          alt="Hero visual"
+          width={1122}
+          height={1402}
+          priority
+          sizes="(min-width: 768px) 50vw, 90vw"
+          className="h-full w-auto max-w-full md:max-w-[50%] md:max-h-[860px] object-contain animate-float"
+        />
+      </div>
 
       {/* Main content — bottom on mobile, centered on desktop */}
       <div className="relative z-10 flex flex-col justify-end md:justify-center flex-1 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-16 pb-10 md:pb-0 md:-mt-8">
@@ -20,20 +30,11 @@ const HeroSection = () => {
           {/* Badge pill */}
           <div className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full px-4 py-1.5 w-fit mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Creative Studio</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Digital Product Studio</span>
           </div>
 
-          {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight text-gray-900 dark:text-white mb-5">
-            We Design &amp;<br />
-            Build Digital<br />
-            <span className="text-red-500">Experiences.</span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-8 max-w-md">
-            UI/UX design, web development, and motion crafted to grow your brand and convert your users.
-          </p>
+          {/* Heading + subtitle, rotating through each discipline */}
+          <HeroRotator />
 
           {/* CTAs */}
           <div className="flex items-center gap-4 flex-wrap">

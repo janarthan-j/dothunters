@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { services } from "@/data/services";
 import onboardingQuestions from "@/data/onboardingQuestions";
 import ProgressBar from "./onboarding/ProgressBar";
@@ -8,6 +8,8 @@ import DetailsStep from "./onboarding/DetailsStep";
 import BudgetTimelineStep from "./onboarding/BudgetTimelineStep";
 import ContactStep from "./onboarding/ContactStep";
 import ConfirmationView from "./onboarding/ConfirmationView";
+import Honeypot from "./Honeypot";
+import Turnstile, { turnstileEnabled } from "./Turnstile";
 
 const initialForm = {
   serviceSlug: "",
@@ -28,6 +30,10 @@ export default function OnboardingWizard({ initialService }) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
+  const [token, setToken] = useState("");
+  const [turnstileReset, setTurnstileReset] = useState(0);
+  const startedAt = useRef(Date.now());
 
   const selectedService = services.find((s) => s.slug === form.serviceSlug) || null;
 
@@ -66,12 +72,18 @@ export default function OnboardingWizard({ initialService }) {
       const res = await fetch("/api/onboarding", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          website: honeypot,
+          elapsedMs: Date.now() - startedAt.current,
+          turnstileToken: token,
+        }),
       });
       if (!res.ok) throw new Error("Request failed");
       setSubmitted(true);
     } catch {
       setError("Something went wrong — please try again.");
+      setTurnstileReset((n) => n + 1);
     } finally {
       setSubmitting(false);
     }
@@ -82,7 +94,8 @@ export default function OnboardingWizard({ initialService }) {
   }
 
   return (
-    <div>
+    <div className="relative">
+      <Honeypot value={honeypot} onChange={setHoneypot} />
       <ProgressBar currentStep={step} />
 
       {step === 0 && <ServiceStep value={form.serviceSlug} onSelect={handleSelectService} />}
@@ -102,7 +115,14 @@ export default function OnboardingWizard({ initialService }) {
           onChange={handleFieldChange}
         />
       )}
-      {step === 3 && <ContactStep form={form} onChange={handleFieldChange} />}
+      {step === 3 && (
+        <>
+          <ContactStep form={form} onChange={handleFieldChange} />
+          <div className="mt-6">
+            <Turnstile onToken={setToken} resetKey={turnstileReset} />
+          </div>
+        </>
+      )}
 
       {error && (
         <p className="mt-6 text-sm text-red-500 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/40 rounded-lg px-4 py-3">
@@ -140,7 +160,7 @@ export default function OnboardingWizard({ initialService }) {
             <button
               type="button"
               onClick={handleSubmit}
-              disabled={!canAdvance() || submitting}
+              disabled={!canAdvance() || submitting || (turnstileEnabled && !token)}
               className="inline-flex items-center gap-2 bg-black hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed text-white px-8 py-4 rounded-full font-semibold text-sm transition"
             >
               {submitting ? "Submitting..." : "Submit"}
