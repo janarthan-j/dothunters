@@ -6,6 +6,12 @@
 
 :root {
   --dot-color: #d1d5db;
+  /* Shared motion language */
+  --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-soft: cubic-bezier(0.4, 0, 1, 1);
+  --dur-fast: 180ms;
+  --dur-base: 450ms;
+  --dur-slow: 800ms;
 }
 
 .dark {
@@ -45,13 +51,75 @@
 
 .reveal-hidden {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(32px) scale(0.985);
+  transition: opacity var(--dur-slow) var(--ease-fluid), transform var(--dur-slow) var(--ease-fluid);
 }
 
 .reveal-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
+}
+
+/* ── Page transitions ── */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+
+/* backwards fill: styles drop after the animation, so no lingering
+   transform/filter breaks position:fixed or sticky children */
+.page-shell {
+  animation: page-enter 700ms var(--ease-fluid) backwards;
+}
+
+html[data-navigating] .page-shell {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 220ms var(--ease-in-soft), transform 220ms var(--ease-in-soft);
+  pointer-events: none;
+}
+
+.route-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 60;
+  background: linear-gradient(90deg, #ef4444, #f87171);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+  transform-origin: left;
+  transition: transform 400ms var(--ease-fluid), opacity 300ms ease;
+  pointer-events: none;
+}
+
+/* ── Nav link underline ── */
+.nav-link {
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
+  background: #ef4444;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-base) var(--ease-fluid);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
 }
 
 /* ── Dot-grid overlay — add to any section ── */
@@ -76,6 +144,31 @@
   transition-property: background-color, border-color, color;
   transition-duration: 150ms;
   transition-timing-function: ease;
+}
+
+/* Tactile pill buttons/links: soft lift on hover, press on click */
+a.rounded-full,
+button.rounded-full {
+  transition-property: background-color, border-color, color, box-shadow, transform;
+  transition-duration: var(--dur-base);
+  transition-timing-function: var(--ease-fluid);
+}
+
+a.rounded-full:active,
+button.rounded-full:active {
+  transform: scale(0.97);
+  transition-duration: var(--dur-fast);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shell { animation: none; }
+  html[data-navigating] .page-shell { opacity: 1; transform: none; }
+  .reveal-hidden { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {

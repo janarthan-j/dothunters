@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -8,9 +9,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <a href="/" aria-label="DotHunters home" className="inline-block mb-5">
+            <Link href="/" aria-label="DotHunters home" className="inline-block mb-5">
               <Image src="/logo/logo-horizontal-white.png" alt="DotHunters" width={797} height={200} className="h-11 w-auto" />
-            </a>
+            </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               A creative studio crafting digital products that look great and perform even better.
             </p>
@@ -41,12 +42,12 @@ const Footer = () => {
           <div>
             <h6 className={`font-semibold text-sm uppercase tracking-widest text-gray-400 mb-5`}>Navigation</h6>
             <ul className="space-y-3 text-sm text-gray-300">
-              <li><a href="/" className="hover:text-white transition">Home</a></li>
-              <li><a href="/services" className="hover:text-white transition">Services</a></li>
-              <li><a href="/culture" className="hover:text-white transition">Culture</a></li>
-              <li><a href="/projects" className="hover:text-white transition">Projects</a></li>
-              <li><a href="/products" className="hover:text-white transition">Products</a></li>
-              <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
+              <li><Link href="/" className="hover:text-white transition">Home</Link></li>
+              <li><Link href="/services" className="hover:text-white transition">Services</Link></li>
+              <li><Link href="/culture" className="hover:text-white transition">Culture</Link></li>
+              <li><Link href="/projects" className="hover:text-white transition">Projects</Link></li>
+              <li><Link href="/products" className="hover:text-white transition">Products</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
             </ul>
           </div>
 
@@ -54,11 +55,11 @@ const Footer = () => {
           <div>
             <h6 className={`font-semibold text-sm uppercase tracking-widest text-gray-400 mb-5`}>Services</h6>
             <ul className="space-y-3 text-sm text-gray-300">
-              <li><a href="/services" className="hover:text-white transition">UI/UX Design</a></li>
-              <li><a href="/services" className="hover:text-white transition">Web Development</a></li>
-              <li><a href="/services" className="hover:text-white transition">Mobile Development</a></li>
-              <li><a href="/services" className="hover:text-white transition">3D / VR & AR</a></li>
-              <li><a href="/services" className="hover:text-white transition">Motion Graphics</a></li>
+              <li><Link href="/services" className="hover:text-white transition">UI/UX Design</Link></li>
+              <li><Link href="/services" className="hover:text-white transition">Web Development</Link></li>
+              <li><Link href="/services" className="hover:text-white transition">Mobile Development</Link></li>
+              <li><Link href="/services" className="hover:text-white transition">3D / VR & AR</Link></li>
+              <li><Link href="/services" className="hover:text-white transition">Motion Graphics</Link></li>
             </ul>
           </div>
 

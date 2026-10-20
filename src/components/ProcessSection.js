@@ -1,3 +1,4 @@
+import Link from "next/link";
 const steps = [
   {
     number: "01",
@@ -33,12 +34,12 @@ const ProcessSection = () => {
               A process built for results.
             </h2>
           </div>
-          <a href="/services" className="hidden md:flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium">
+          <Link href="/services" className="hidden md:flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium">
             Learn more
             <svg className="w-4 h-4 ml-1" viewBox="0 0 16 16" fill="currentColor">
               <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </a>
+          </Link>
         </div>
 
         {/* Steps */}

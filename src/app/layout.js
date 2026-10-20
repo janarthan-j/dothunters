@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import RouteTransition from '@/components/RouteTransition'
 
 export const metadata = {
   metadataBase: new URL('https://dothunters.com'),
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>
+          <RouteTransition />
           <Navbar />
           {children}
         </ThemeProvider>

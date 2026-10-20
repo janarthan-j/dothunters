@@ -22,12 +22,12 @@ const PortfolioSection = () => {
           <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-3">Portfolio</p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h2 className="text-4xl md:text-5xl font-bold dark:text-white">Recent Projects.</h2>
-            <a href="/projects" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium">
+            <Link href="/projects" className="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium">
               View all projects
               <svg className="w-4 h-4 ml-1" viewBox="0 0 16 16" fill="currentColor">
                 <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
 
