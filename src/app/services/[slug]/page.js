@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { services, getServiceBySlug } from "@/data/services";
-import ServiceHeroSlideshow from "@/components/ServiceHeroSlideshow";
+import ServiceHero from "@/components/ServiceHero";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ScrollFillText from "@/components/ScrollFillText";
 import SectionHeader, { Eyebrow, ArrowLink, ArrowCircle } from "@/components/SectionHeader";
@@ -60,12 +60,8 @@ export default function ServicePage({ params }) {
 
   return (
     <main>
-      {/* ── Hero Slideshow ── */}
-      <ServiceHeroSlideshow
-        images={service.heroImages}
-        title={service.title}
-        tagline={service.tagline}
-      />
+      {/* ── Hero ── */}
+      <ServiceHero service={service} />
 
       {/* ── Overview ── */}
       <section className="py-24">
@@ -134,7 +130,7 @@ export default function ServicePage({ params }) {
 
       {/* ── Pricing ── */}
       {service.pricing && (
-      <section className="py-24">
+      <section id="pricing" className="py-24 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <SectionHeader
             eyebrow="Pricing"

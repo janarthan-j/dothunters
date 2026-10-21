@@ -1,30 +1,20 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import {
-  GraduationCap, Wrench, FlaskConical, Users,
+  GraduationCap,
   GitBranch, ShieldCheck, Activity, Lock, BookOpen, LifeBuoy,
-  Mail, MessageCircle, Phone, MapPin, ArrowUpRight,
+  MapPin,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
-import AnimatedCounter from "@/components/AnimatedCounter";
 import CTASection from "@/components/CTASection";
 import PageHero from "@/components/PageHero";
 import SectionHeader, { ArrowLink } from "@/components/SectionHeader";
 import {
-  projectFlow, mentorship, team, values,
-  reach, reachChannels, visitSteps, visitNote, productionChecklist,
+  projectFlow, team, visitSteps, visitNote, productionChecklist,
 } from "@/data/culture";
 
 const icons = {
-  GraduationCap, Wrench, FlaskConical, Users,
   GitBranch, ShieldCheck, Activity, Lock, BookOpen, LifeBuoy,
-};
-
-const channelIcons = {
-  "Email":    Mail,
-  "WhatsApp": MessageCircle,
-  "Phone":    Phone,
 };
 
 const initials = (name) => name.split(" ").map((p) => p[0]).join("").slice(0, 2).toUpperCase();
@@ -69,34 +59,6 @@ export default function CulturePage() {
               </ScrollReveal>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* Mentorship */}
-      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="How we grow"
-              title="Seniors lead."
-              accent="Everyone grows."
-              text="Senior engineers guide every project, and the whole team builds alongside them. Our juniors learn on real work, not on the sidelines."
-            />
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {mentorship.map((m, i) => {
-              const Icon = icons[m.icon];
-              return (
-                <ScrollReveal key={m.title} delay={i * 80}>
-                  <div className="h-full bg-white dark:bg-gray-900 border border-gray-200/70 dark:border-gray-700/60 rounded-[2rem] p-8 hover:shadow-xl transition-all duration-300">
-                    <Icon className="w-8 h-8 text-red-500 mb-6" strokeWidth={1.5} />
-                    <h3 className="text-xl font-bold mb-2 dark:text-white">{m.title}</h3>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{m.text}</p>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
         </div>
       </section>
 
@@ -151,69 +113,6 @@ export default function CulturePage() {
                 </div>
               </ScrollReveal>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values with proof */}
-      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="What we believe"
-              title="Principles we"
-              accent="actually ship."
-            />
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {values.map((v, i) => (
-              <ScrollReveal key={v.title} delay={i * 80}>
-                <div className="h-full bg-white dark:bg-gray-900 border border-gray-200/70 dark:border-gray-700/60 rounded-[2rem] p-8 flex flex-col">
-                  <h3 className="text-xl font-bold mb-2 dark:text-white">{v.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">{v.text}</p>
-                  <Link
-                    href={`/projects/${v.slug}`}
-                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-red-500 hover:text-red-600 transition"
-                  >
-                    {v.proof}
-                    <ArrowUpRight className="w-4 h-4 shrink-0" strokeWidth={2} />
-                  </Link>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Quick reach */}
-      <section className="py-24 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="Quick reach"
-              title="Wherever we are,"
-              accent="we’re easy to reach."
-              invert
-            />
-          </ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center mb-14">
-            {reach.map((r) => (
-              <div key={r.label} className="flex flex-col items-center">
-                <AnimatedCounter value={r.value} className="text-5xl font-bold text-red-500 mb-2" />
-                <span className="text-xs uppercase tracking-widest text-gray-400">{r.label}</span>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            {reachChannels.map((c) => {
-              const Icon = channelIcons[c] || Mail;
-              return (
-                <span key={c} className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-700 text-sm text-gray-300">
-                  <Icon className="w-4 h-4 text-red-500" strokeWidth={1.75} />
-                  {c}
-                </span>
-              );
-            })}
           </div>
         </div>
       </section>

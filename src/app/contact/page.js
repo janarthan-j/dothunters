@@ -121,7 +121,7 @@ export default function ContactPage() {
           </aside>
 
           {/* Right — Form */}
-          <div className="lg:col-span-8 rounded-[2rem] border border-gray-200 dark:border-gray-800 p-6 md:p-12">
+          <div className="frosted lg:col-span-8 rounded-[2rem] p-6 md:p-12">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight dark:text-white mb-3">Let’s work together!</h2>
             <p className="text-sm text-gray-400 dark:text-gray-500 mb-10">[ Marked fields are required to fill ]</p>
             <ContactForm />

@@ -1,27 +1,9 @@
-"use client";
-import { useState } from "react";
 import { projects } from "@/data/projects";
 import Link from "next/link";
 import ParallaxImage from "@/components/ParallaxImage";
 import PageHero from "@/components/PageHero";
 
-// "Technology" uses the platform field until projects carry real tech stacks.
-const allServices     = ["All Services", ...Array.from(new Set(projects.map((p) => p.service))).sort()];
-const allTechnologies = ["All Technologies", ...Array.from(new Set(projects.flatMap((p) => p.platform))).sort()];
-
-const selectClass =
-  "text-sm border border-gray-200 dark:border-gray-600 rounded-full px-4 py-1.5 text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-800 focus:outline-none focus:border-gray-400 dark:focus:border-gray-400 cursor-pointer";
-
 export default function ProjectsPage() {
-  const [activeService,    setActiveService]    = useState("All Services");
-  const [activeTechnology, setActiveTechnology] = useState("All Technologies");
-
-  const filtered = projects.filter((p) => {
-    const svcMatch  = activeService    === "All Services"     || p.service === activeService;
-    const techMatch = activeTechnology === "All Technologies" || p.platform.includes(activeTechnology);
-    return svcMatch && techMatch;
-  });
-
   return (
     <main>
       {/* ── Page Hero ── */}
@@ -32,106 +14,60 @@ export default function ProjectsPage() {
         intro="A selection of work across design, development, motion, and immersive experiences — built for clients who care about quality."
       />
 
-      {/* ── Filters ── */}
-      <section className="border-b border-gray-100 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-[57px] z-40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col sm:flex-row gap-3 sm:items-center">
-          {/* Service dropdown */}
-          <select
-            aria-label="Filter by service"
-            value={activeService}
-            onChange={(e) => setActiveService(e.target.value)}
-            className={selectClass}
-          >
-            {allServices.map((s) => (
-              <option key={s}>{s}</option>
-            ))}
-          </select>
-
-          {/* Technology dropdown */}
-          <select
-            aria-label="Filter by technology"
-            value={activeTechnology}
-            onChange={(e) => setActiveTechnology(e.target.value)}
-            className={selectClass}
-          >
-            {allTechnologies.map((t) => (
-              <option key={t}>{t}</option>
-            ))}
-          </select>
-        </div>
-      </section>
-
       {/* ── Grid ── */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {filtered.length === 0 ? (
-            <div className="text-center py-24 text-gray-400">
-              <p className="text-lg font-medium">No projects match these filters.</p>
-              <button
-                onClick={() => { setActiveService("All Services"); setActiveTechnology("All Technologies"); }}
-                className="mt-4 text-sm underline hover:text-gray-700 transition"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14 md:gap-y-20 md:pb-32">
+            {projects.map((project, i) => (
+              <Link
+                key={i}
+                href={`/projects/${project.slug}`}
+                data-cursor="View"
+                className={`group cursor-pointer block ${i % 2 === 1 ? "md:translate-y-32" : ""}`}
               >
-                Clear filters
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14 md:gap-y-20 md:pb-32">
-              {filtered.map((project, i) => (
-                <Link
-                  key={i}
-                  href={`/projects/${project.slug}`}
-                  data-cursor="View"
-                  className={`group cursor-pointer block ${i % 2 === 1 ? "md:translate-y-32" : ""}`}
-                >
-                  {/* Image */}
-                  <ParallaxImage
-                    src={project.image}
-                    alt={project.title}
-                    className="h-[280px] md:h-[420px] rounded-[2rem] mb-6 bg-gray-100 dark:bg-gray-800"
-                    imgClassName="group-hover:scale-105 transition duration-700"
-                  />
+                {/* Image */}
+                <ParallaxImage
+                  src={project.image}
+                  alt={project.title}
+                  className="h-[280px] md:h-[420px] rounded-[2rem] mb-6 bg-gray-100 dark:bg-gray-800"
+                  imgClassName="group-hover:scale-105 transition duration-700"
+                />
 
-                  {/* Meta row */}
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                      {project.service}
-                    </span>
-                    <span className="text-xs text-gray-400 dark:text-gray-500">{project.year}</span>
+                {/* Meta row */}
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                    {project.service}
+                  </span>
+                  <span className="text-xs text-gray-400 dark:text-gray-500">{project.year}</span>
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 group-hover:text-red-500 dark:group-hover:text-red-400 transition leading-snug">
+                  {project.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-3 line-clamp-2">
+                  {project.description}
+                </p>
+
+                {/* Status + categories */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{project.status}</span>
+                  <div className="flex gap-1">
+                    {project.categories.map((cat) => (
+                      <span
+                        key={cat}
+                        className="text-xs border border-gray-200 dark:border-gray-700 rounded-full px-2 py-0.5 text-gray-500 dark:text-gray-400"
+                      >
+                        {cat}
+                      </span>
+                    ))}
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 group-hover:text-red-500 dark:group-hover:text-red-400 transition leading-snug">
-                    {project.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-3 line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  {/* Status + categories */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{project.status}</span>
-                    <div className="flex gap-1">
-                      {project.categories.map((cat) => (
-                        <span
-                          key={cat}
-                          className="text-xs border border-gray-200 dark:border-gray-700 rounded-full px-2 py-0.5 text-gray-500 dark:text-gray-400"
-                        >
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* Result count */}
-          <p className="text-xs text-gray-400 mt-12 text-center">
-            Showing {filtered.length} of {projects.length} projects
-          </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

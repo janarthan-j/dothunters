@@ -18,7 +18,7 @@ export default function GetStartedPage({ searchParams }) {
 
       <section className="pb-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="rounded-[2rem] border border-gray-200 dark:border-gray-800 p-6 md:p-12">
+          <div className="frosted rounded-[2rem] p-6 md:p-12">
             <OnboardingWizard initialService={searchParams?.service} />
           </div>
         </div>

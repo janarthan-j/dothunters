@@ -297,6 +297,76 @@ html[data-navigating] .site-footer {
   background-color: rgb(4 7 15 / 0.45);
 }
 
+/* ── Frosted glass panel (form cards etc.); matches the service cards' idle look ── */
+.frosted {
+  background-color: rgb(255 255 255 / 0.45);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: 0 8px 32px -12px rgb(15 23 42 / 0.18);
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+}
+
+.dark .frosted {
+  background-color: rgb(255 255 255 / 0.04);
+  border-color: rgb(255 255 255 / 0.1);
+  box-shadow: none;
+}
+
+/* ── Service page hero (ServiceHero.js) ── */
+/* Its own rings replace the site-wide ones on these pages */
+body:has(.service-hero) .bg-orbits { display: none; }
+
+.service-hero__rings {
+  width: 0;
+  height: 0;
+}
+
+.service-hero__ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 9999px;
+  translate: -50% -50%;
+  /* Fade each ring out toward its lower half */
+  -webkit-mask-image: linear-gradient(to bottom, #000 25%, transparent 60%);
+  mask-image: linear-gradient(to bottom, #000 25%, transparent 60%);
+}
+
+.service-hero__ring--arc {
+  width: min(560px, 90vw);
+  height: min(560px, 90vw);
+  border: 14px solid rgb(59 130 246 / 0.45);
+  box-shadow: 0 0 40px rgb(59 130 246 / 0.35), inset 0 0 40px rgb(59 130 246 / 0.2);
+}
+
+.service-hero__ring--1 {
+  width: min(760px, 120vw);
+  height: min(760px, 120vw);
+  border: 1.5px solid rgb(79 110 168 / 0.45);
+}
+
+.service-hero__ring--2 {
+  width: min(980px, 155vw);
+  height: min(980px, 155vw);
+  border: 1.5px solid rgb(79 110 168 / 0.3);
+}
+
+.dark .service-hero__ring--arc { border-color: rgb(59 130 246 / 0.6); }
+
+/* Artwork floats gently; the glowing arc breathes */
+.service-hero__art { animation: hero-art-float 6s ease-in-out infinite alternate; }
+.service-hero__ring--arc { animation: hero-arc-glow 5s ease-in-out infinite alternate; }
+
+@keyframes hero-art-float {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-14px); }
+}
+
+@keyframes hero-arc-glow {
+  from { opacity: 0.75; }
+  to   { opacity: 1; }
+}
+
 /* ── Lenis smooth scroll ── */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }

@@ -1,24 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowCircle } from "@/components/SectionHeader";
+import { getServiceArt } from "@/data/serviceArt";
 
-// 3D artwork per service: transparent PNGs in /images/services/cards/<slug>.png,
-// with their pixel size. Services without one fall back to the lucide `Icon`.
-const ART = {
-  "web-design-development":   [1122, 1402],
-  "ai-ml-development":        [1225, 1284],
-  "3d-vr-game-development":   [1122, 1402],
-  "motion-graphics":          [1122, 1402],
-  "saas-product-development": [1122, 1402],
-  "mobile-app-development":   [1122, 1402],
-  "video-production":         [1122, 1402],
-  "digital-marketing":        [1122, 1402],
-};
-
-// Tall service card with its artwork (or icon) bleeding off the bottom-right
-// corner. Frosted glass at rest; the whole card fills brand red on hover.
+// Tall service card with its artwork (or lucide `Icon` if it has none) bleeding
+// off the bottom-right corner. Frosted glass at rest; the whole card fills brand red on hover.
 // `text` defaults to the service description.
 export default function ServiceCard({ service, Icon, text, className = "min-h-[440px] lg:min-h-[540px]" }) {
+  const art = getServiceArt(service.slug);
   return (
     <Link
       href={`/services/${service.slug}`}
@@ -36,12 +25,12 @@ export default function ServiceCard({ service, Icon, text, className = "min-h-[4
         <ArrowCircle className="w-12 h-12 bg-gray-900 text-white dark:bg-white dark:text-gray-900 group-hover:bg-white group-hover:text-red-500" />
       </span>
 
-      {ART[service.slug] ? (
+      {art ? (
         <Image
-          src={`/images/services/cards/${service.slug}.png`}
+          src={art.src}
           alt=""
-          width={ART[service.slug][0]}
-          height={ART[service.slug][1]}
+          width={art.width}
+          height={art.height}
           sizes="(min-width: 1024px) 260px, (min-width: 768px) 30vw, 60vw"
           className="absolute -right-6 -bottom-8 w-[62%] max-w-[300px] h-auto pointer-events-none select-none drop-shadow-2xl group-hover:-translate-y-3 group-hover:scale-105"
         />

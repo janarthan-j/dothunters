@@ -12,7 +12,8 @@ export default function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1, anchors: true });
+    // Anchor jumps stop below the fixed navbar
+    const lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1, anchors: { offset: -88 } });
     lenisRef.current = lenis;
 
     let raf;
@@ -29,14 +30,28 @@ export default function SmoothScroll() {
     };
   }, []);
 
-  // Next.js moves window scroll itself on navigation; resync Lenis to it so a
-  // still-running glide from the previous page doesn't drag the new one along.
+  // Back/Forward should land where the visitor left off; anything else is a fresh page
+  const isHistoryNav = useRef(false);
   useEffect(() => {
-    const lenis = lenisRef.current;
-    if (!lenis) return;
+    const onPop = () => { isHistoryNav.current = true; };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  // New page: start at the top (Next only scrolls far enough to bring the new
+  // segment into view). Back/Forward or #anchor links keep the browser's position.
+  // Either way, resync Lenis so a glide from the previous page can't drag on.
+  useEffect(() => {
+    const fromHistory = isHistoryNav.current;
+    isHistoryNav.current = false;
     const id = requestAnimationFrame(() => {
-      lenis.scrollTo(window.scrollY, { immediate: true, force: true });
-      lenis.resize();
+      const lenis = lenisRef.current;
+      const toTop = !fromHistory && !window.location.hash;
+      if (toTop) window.scrollTo(0, 0);
+      if (lenis) {
+        lenis.scrollTo(toTop ? 0 : window.scrollY, { immediate: true, force: true });
+        lenis.resize();
+      }
     });
     return () => cancelAnimationFrame(id);
   }, [pathname]);
