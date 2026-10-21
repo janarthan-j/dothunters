@@ -3,6 +3,11 @@ import Link from "next/link";
 import { services, getServiceBySlug } from "@/data/services";
 import ServiceHeroSlideshow from "@/components/ServiceHeroSlideshow";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import ScrollFillText from "@/components/ScrollFillText";
+import SectionHeader, { Eyebrow, ArrowLink, ArrowCircle } from "@/components/SectionHeader";
+import ServiceCard from "@/components/ServiceCard";
+import MediaCard from "@/components/MediaCard";
+import CTASection from "@/components/CTASection";
 import { testimonials } from "@/data/testimonials";
 
 const serviceTools = {
@@ -36,71 +41,63 @@ export default function ServicePage({ params }) {
       />
 
       {/* ── Overview ── */}
-      <section className="py-24 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Overview</p>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight dark:text-white mb-6">
-                {service.tagline}
-              </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mb-6">
-                {service.description}
-              </p>
-              {serviceTools[service.slug] && (
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {serviceTools[service.slug].map((tool) => (
-                    <span
-                      key={tool}
-                      className="text-xs px-2.5 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 font-medium"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <Link
-                href="/get-started"
-                className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-gray-900 px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition"
-              >
-                Start a Project
-                <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
-                  <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: "7",    label: "Projects Delivered" },
-                { value: "98%",  label: "Client Satisfaction" },
-                { value: "5+",   label: "Years Experience" },
-                { value: "24h",  label: "Avg. Response Time" },
-              ].map((stat, i) => (
-                <div
-                  key={i}
-                  className="border border-gray-200 dark:border-gray-700 rounded-xl p-6"
-                >
-                  <p className="text-3xl font-bold text-red-500 mb-1">{stat.value}</p>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <Eyebrow className="lg:col-span-4 lg:pt-3">Overview</Eyebrow>
+          <div className="lg:col-span-8">
+            <ScrollFillText
+              as="h2"
+              text={service.tagline}
+              className="text-3xl md:text-5xl font-bold leading-[1.1] tracking-tight dark:text-white mb-8"
+            />
+            <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mb-8 max-w-2xl">
+              {service.description}
+            </p>
+            {serviceTools[service.slug] && (
+              <div className="flex flex-wrap gap-2 mb-10">
+                {serviceTools[service.slug].map((tool) => (
+                  <span
+                    key={tool}
+                    className="text-sm px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            )}
+            <ArrowLink href="/get-started">Start a project</ArrowLink>
+          </div>
+
+          {/* Stats */}
+          <div className="lg:col-start-5 lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+            {[
+              { value: "7",    label: "Projects delivered" },
+              { value: "98%",  label: "Client satisfaction" },
+              { value: "5+",   label: "Years experience" },
+              { value: "24h",  label: "Avg. response time" },
+            ].map((stat) => (
+              <div key={stat.label} className="rounded-[1.5rem] bg-gray-100 dark:bg-white/5 p-6">
+                <p className="text-4xl font-bold tracking-tight text-red-500 mb-2">{stat.value}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── Approach ── */}
-      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">How we work</p>
-          <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-16 max-w-xl">
-            Our approach to {service.title.toLowerCase()}.
-          </h2>
-          <div className="grid md:grid-cols-4 gap-0">
+          <SectionHeader
+            eyebrow="How we work"
+            title={["Our approach to", `${service.title.toLowerCase()}.`]}
+            className="border-gray-300 dark:border-gray-700"
+          />
+          <div className="grid md:grid-cols-4 gap-8 md:gap-0">
             {service.approach.map((step, i) => (
-              <div key={i} className="border-t-2 border-black dark:border-white pt-8 pr-8">
+              <div key={i} className="border-t-2 border-black dark:border-white pt-8 md:pr-8">
                 <span className="text-xs font-bold tracking-widest text-gray-400 dark:text-gray-500 uppercase">{step.number}</span>
-                <h4 className="text-xl font-bold mt-2 mb-3 dark:text-white">{step.title}</h4>
+                <h3 className="text-xl font-bold mt-2 mb-3 dark:text-white">{step.title}</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
@@ -110,47 +107,64 @@ export default function ServicePage({ params }) {
 
       {/* ── Pricing ── */}
       {service.pricing && (
-      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Pricing</p>
-          <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-4 max-w-xl">
-            Transparent starting prices.
-          </h2>
-          <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mb-14">
-            Every project is quoted on scope — these ranges show where most of our work lands.
-          </p>
+          <SectionHeader
+            eyebrow="Pricing"
+            title={["Transparent", "starting prices."]}
+            text="Every project is quoted on scope — these ranges show where most of our work lands."
+          />
           <div
-            className={`grid md:grid-cols-2 gap-6 ${
+            className={`grid md:grid-cols-2 gap-5 ${
               service.pricing.tiers.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"
             }`}
           >
-            {service.pricing.tiers.map((tier, i) => (
-              <div
-                key={tier.name}
-                className={`flex flex-col border rounded-xl p-8 ${
-                  i === 1 ? "border-red-400" : "border-gray-200 dark:border-gray-700"
-                }`}
-              >
-                <h3 className="text-lg font-bold dark:text-white mb-2">{tier.name}</h3>
-                <p className="text-3xl font-bold text-red-500 mb-6">{tier.price}</p>
-                <ul className="space-y-2 mb-8 flex-1">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
-                      <svg className="w-4 h-4 mt-0.5 text-red-400 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={`/get-started?service=${service.slug}`}
-                  className="inline-flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-full font-semibold text-sm hover:border-red-400 hover:text-red-500 dark:hover:text-red-400 transition"
+            {service.pricing.tiers.map((tier, i) => {
+              const featured = i === 1;
+              return (
+                <div
+                  key={tier.name}
+                  className={`flex flex-col rounded-[2rem] border p-8 ${
+                    featured
+                      ? "bg-gray-900 border-gray-900 text-white dark:bg-white dark:border-white dark:text-gray-900"
+                      : "border-gray-300 dark:border-gray-700 dark:text-white"
+                  }`}
                 >
-                  Get a quote
-                </Link>
-              </div>
-            ))}
+                  <h3 className="text-lg font-bold mb-2">{tier.name}</h3>
+                  <p className="text-4xl font-bold tracking-tight text-red-500 mb-8">{tier.price}</p>
+                  <ul className="space-y-3 mb-10 flex-1">
+                    {tier.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className={`flex items-start gap-3 text-sm ${
+                          featured ? "text-gray-300 dark:text-gray-600" : "text-gray-500 dark:text-gray-400"
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0" aria-hidden="true" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={`/get-started?service=${service.slug}`}
+                    className={`arrow-link group inline-flex items-center justify-between gap-3 rounded-full pl-6 pr-1.5 py-1.5 text-xs font-semibold uppercase tracking-widest ${
+                      featured
+                        ? "bg-red-500 text-white"
+                        : "border border-gray-300 dark:border-gray-700 hover:border-red-500"
+                    }`}
+                  >
+                    Get a quote
+                    <ArrowCircle
+                      className={
+                        featured
+                          ? "w-9 h-9 bg-white text-red-500"
+                          : "w-9 h-9 bg-gray-900 text-white dark:bg-white dark:text-gray-900 group-hover:bg-red-500 group-hover:text-white"
+                      }
+                    />
+                  </Link>
+                </div>
+              );
+            })}
           </div>
           <p className="text-xs text-gray-400 dark:text-gray-500 mt-8 max-w-3xl">
             Prices in USD. {service.pricing.note} Sri Lankan clients can be quoted in LKR.
@@ -161,43 +175,23 @@ export default function ServicePage({ params }) {
 
       {/* ── Projects ── */}
       {service.projects.length > 0 && (
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <div>
-              <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-3">Work</p>
-              <h2 className="text-4xl md:text-5xl font-bold dark:text-white">Recent Projects.</h2>
-            </div>
-            <Link
-              href="/projects"
-              className="flex items-center text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition text-sm font-medium shrink-0"
-            >
-              View all projects
-              <svg className="w-4 h-4 ml-1" viewBox="0 0 16 16" fill="currentColor">
-                <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {service.projects.map((project, i) => {
-              const Wrapper = project.slug ? Link : "div";
-              const wrapperProps = project.slug ? { href: `/projects/${project.slug}` } : {};
-              return (
-                <Wrapper key={i} {...wrapperProps} className="group cursor-pointer block">
-                  <div className="overflow-hidden rounded-xl mb-4 bg-gray-100 dark:bg-gray-800">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-[240px] object-cover group-hover:scale-105 transition duration-500"
-                    />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-red-500 dark:group-hover:text-red-400 transition">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 dark:text-gray-500">{project.category}</p>
-                </Wrapper>
-              );
-            })}
+          <SectionHeader
+            eyebrow="Work"
+            title={["Recent", "projects."]}
+            link={{ href: "/projects", label: "All work" }}
+          />
+          <div className="grid md:grid-cols-3 gap-6">
+            {service.projects.map((project, i) => (
+              <MediaCard
+                key={i}
+                href={project.slug ? `/projects/${project.slug}` : undefined}
+                image={project.image}
+                title={project.title}
+                caption={project.category}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -206,66 +200,36 @@ export default function ServicePage({ params }) {
       {/* ── Testimonials ── */}
       <TestimonialsSection
         testimonials={testimonials.filter((t) => t.serviceSlug === service.slug)}
-        title="What clients say."
-        className="dot-bg bg-gray-50 dark:bg-gray-800"
+        title={["What", "clients say."]}
+        className="dot-bg bg-white/25 dark:bg-white/[0.03]"
       />
 
       {/* ── Other Services ── */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-3">Explore more</p>
-          <h2 className="text-4xl font-bold dark:text-white mb-12">Other services.</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <SectionHeader
+            eyebrow="Explore more"
+            title={["Other", "services."]}
+            link={{ href: "/services", label: "See all" }}
+          />
+          <div className="grid md:grid-cols-3 gap-5">
             {otherServices.map((s) => (
-              <Link
+              <ServiceCard
                 key={s.slug}
-                href={`/services/${s.slug}`}
-                className="group border border-gray-200 dark:border-gray-700 rounded-xl p-7 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-500 transition"
-              >
-                <h3 className="font-bold text-lg mb-2 dark:text-white group-hover:text-red-500 dark:group-hover:text-red-400 transition">
-                  {s.title}
-                </h3>
-                <p className="text-gray-400 dark:text-gray-500 text-sm leading-relaxed mb-4 line-clamp-2">{s.tagline}</p>
-                <span className="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-red-500 dark:group-hover:text-red-400 transition">
-                  Learn more
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 16 16" fill="currentColor">
-                    <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </span>
-              </Link>
+                service={s}
+                text={s.tagline}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="py-20 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              Ready to start your {service.title.toLowerCase()} project?
-            </h2>
-            <p className="text-gray-400">Tell us about your goals and we&apos;ll get back within 24 hours.</p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-            <Link
-              href="/get-started"
-              className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-semibold text-sm transition justify-center"
-            >
-              Start a Project
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
-                <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 border border-white/20 hover:border-white text-white px-8 py-4 rounded-full font-semibold text-sm transition justify-center"
-            >
-              All Services
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        eyebrow="Ready when you are"
+        title={[`Ready to start your ${service.title.toLowerCase()} project?`]}
+        text="Tell us about your goals and we’ll get back within 24 hours."
+        secondary={{ href: "/services", label: "All services" }}
+      />
     </main>
   );
 }

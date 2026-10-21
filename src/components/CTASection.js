@@ -1,43 +1,39 @@
 import Link from "next/link";
-const CTASection = () => {
+import SplitReveal from "@/components/SplitReveal";
+import { Eyebrow, ArrowCircle, ArrowLink } from "@/components/SectionHeader";
+
+// Rounded call-to-action card. Defaults are the homepage copy; pages pass their own.
+const CTASection = ({
+  eyebrow = "Let’s connect",
+  title = ["Have a project in mind?", { text: "Let’s build it.", className: "text-red-500" }],
+  text = "Whether you’re launching something new or improving what you have — we’d love to hear about it. Drop us a message and we’ll get back to you within 24 hours.",
+  primary = { href: "/get-started", label: "Start a project" },
+  secondary = { href: "/projects", label: "View our work" },
+}) => {
   return (
-    <section className="dot-bg py-10 bg-gray-50 dark:bg-gray-800">
+    <section className="dot-bg py-16 md:py-20 bg-white/25 dark:bg-white/[0.03]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="border border-gray-200 dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-900 px-6 md:px-10 py-10 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          {/* Left */}
-          <div className="max-w-xl">
-            <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Let&apos;s connect</p>
-            <h2 className={`text-4xl md:text-5xl font-bold leading-tight dark:text-white`}>
-              Have a project in mind?<br />
-              <span className="text-red-500">Let&apos;s build it.</span>
-            </h2>
-            <p className="text-gray-500 dark:text-gray-400 mt-4 text-sm leading-relaxed max-w-md">
-              Whether you&apos;re launching something new or improving what you have — we&apos;d love to hear about it. Drop us a message and we&apos;ll get back to you within 24 hours.
-            </p>
+        <div className="border border-white/60 dark:border-white/10 rounded-[2rem] glass px-6 md:px-14 py-12 md:py-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+          <div className="max-w-2xl">
+            <Eyebrow className="mb-6">{eyebrow}</Eyebrow>
+            <SplitReveal
+              text={title}
+              className="text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight dark:text-white"
+            />
+            {text && (
+              <p className="text-gray-500 dark:text-gray-400 mt-6 leading-relaxed max-w-lg">{text}</p>
+            )}
           </div>
 
-          {/* Right */}
-          <div className="flex items-center gap-4 flex-wrap shrink-0">
+          <div className="flex items-center gap-8 flex-wrap shrink-0">
             <Link
-              href="/get-started"
-              className="inline-flex items-center gap-2 bg-red-500 text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-red-600 transition"
+              href={primary.href}
+              className="arrow-link group inline-flex items-center gap-4 bg-red-500 text-white rounded-full pl-7 pr-1.5 py-1.5 text-xs font-semibold uppercase tracking-widest hover:bg-gray-900 dark:hover:bg-white dark:hover:text-gray-900"
             >
-              Start a Project
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="currentColor">
-                <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+              {primary.label}
+              <ArrowCircle className="w-11 h-11 bg-white text-red-500 group-hover:text-gray-900" />
             </Link>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-semibold text-sm transition"
-            >
-              <span className="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600 flex items-center justify-center">
-                <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor">
-                  <path fillRule="evenodd" d="M8.293 3.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L10.586 9H3a1 1 0 110-2h7.586L8.293 4.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </span>
-              View Our Work
-            </Link>
+            {secondary && <ArrowLink href={secondary.href}>{secondary.label}</ArrowLink>}
           </div>
         </div>
       </div>

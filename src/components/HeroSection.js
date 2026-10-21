@@ -6,7 +6,7 @@ import MarqueeStrip from "./MarqueeStrip";
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gray-100 dark:bg-gray-900 h-screen flex flex-col overflow-hidden">
+    <section className="relative h-screen flex flex-col overflow-hidden">
       <HeroDotGrid />
 
       {/* Hero image — centred above the text on mobile (smaller and faded on short

@@ -14,7 +14,6 @@ import PortfolioSection from "../components/PortfolioSection";
 import ProcessSection from "../components/ProcessSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import CTASection from "../components/CTASection";
-import Footer from "../components/Footer";
 import ScrollReveal from "../components/ScrollReveal";
 
 function App() {
@@ -27,9 +26,8 @@ function App() {
       <ScrollReveal delay={50}>
         <StatsSection />
       </ScrollReveal>
-      <ScrollReveal delay={50}>
-        <PortfolioSection />
-      </ScrollReveal>
+      {/* Pinned horizontal scroll; a reveal transform would fight the sticky pin */}
+      <PortfolioSection />
       <ScrollReveal delay={50}>
         <ProcessSection />
       </ScrollReveal>
@@ -39,7 +37,6 @@ function App() {
       <ScrollReveal delay={50}>
         <CTASection />
       </ScrollReveal>
-      <Footer />
     </div>
   );
 }

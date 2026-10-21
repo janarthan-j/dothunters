@@ -3,6 +3,11 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import { getServiceBySlug } from "@/data/services";
 import ProjectGallery from "@/components/ProjectGallery";
+import ExpandingMedia from "@/components/ExpandingMedia";
+import ScrollFillText from "@/components/ScrollFillText";
+import PageHero from "@/components/PageHero";
+import MediaCard from "@/components/MediaCard";
+import SectionHeader, { Eyebrow, ArrowLink } from "@/components/SectionHeader";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -15,113 +20,87 @@ export default function ProjectPage({ params }) {
   const service = getServiceBySlug(project.serviceSlug);
   const otherProjects = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
 
+  const meta = [
+    { label: "Service", value: project.service, href: project.serviceSlug && `/services/${project.serviceSlug}` },
+    project.client && { label: "Client", value: project.client },
+    { label: "Platform", value: project.platform.join(" + ") },
+    project.url
+      ? { label: "Preview", value: new URL(project.url).hostname.replace(/^www\./, ""), href: project.url, external: true }
+      : { label: "Status", value: project.status },
+  ].filter(Boolean);
+
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="relative bg-gray-900">
-        <div className="aspect-[16/7] w-full bg-gray-800">
-          <img
-            src={project.heroImage}
-            alt={project.title}
-            className="w-full h-full object-cover opacity-70"
-          />
-        </div>
-        <div className="absolute inset-0 flex items-end">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-14 w-full">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              {project.serviceSlug && (
-                <Link
-                  href={`/services/${project.serviceSlug}`}
-                  className="text-xs font-semibold uppercase tracking-widest bg-red-500 text-white px-3 py-1 rounded-full"
-                >
-                  {project.service}
-                </Link>
-              )}
-              <span className="text-xs font-medium uppercase tracking-widest text-gray-200 border border-white/30 px-3 py-1 rounded-full">
-                {project.status}
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight max-w-3xl">
-              {project.title}
-            </h1>
-            <p className="text-gray-300 text-lg mt-4 max-w-2xl">{project.tagline}</p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Project details"
+        crumbs={[{ label: "Home", href: "/" }, { label: "Projects", href: "/projects" }]}
+        title={project.title}
+        intro={project.tagline}
+        media={
+          <ExpandingMedia className="h-[60vh] md:h-[85vh] min-h-[420px] bg-gray-800">
+            <img
+              src={project.heroImage}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+          </ExpandingMedia>
+        }
+      >
+            {/* Meta row */}
+            <dl className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-8 mt-12">
+              {meta.map((m) => (
+                <div key={m.label}>
+                  <dt className="text-sm text-gray-400 dark:text-gray-500 mb-1.5">{m.label}</dt>
+                  <dd className="text-lg font-semibold text-gray-900 dark:text-white">
+                    {m.href ? (
+                      <a
+                        href={m.href}
+                        {...(m.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className="hover:text-red-500 dark:hover:text-red-400 transition"
+                      >
+                        {m.value}
+                      </a>
+                    ) : (
+                      m.value
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+      </PageHero>
 
       {/* ── Overview ── */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-16">
-            <div className="lg:col-span-2">
-              <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Overview</p>
-              <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-10">
-                {project.overview}
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-x-8 lg:gap-y-20">
+            <Eyebrow className="lg:col-span-4 lg:pt-3">Project overview</Eyebrow>
+            <ScrollFillText
+              text={project.overview}
+              className="lg:col-span-8 text-gray-900 dark:text-white text-2xl md:text-4xl font-semibold leading-snug tracking-tight"
+            />
 
-              <div className="grid sm:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-2">The Problem</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                    {project.problem}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 dark:text-white mb-2">The Solution</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                    {project.solution}
-                  </p>
-                </div>
+            <div className="lg:col-start-3 lg:col-span-10 grid sm:grid-cols-2 gap-10 sm:gap-16 border-t border-gray-200 dark:border-gray-800 pt-10">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">The problem</h3>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{project.problem}</p>
               </div>
-            </div>
-
-            {/* Meta sidebar */}
-            <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-8 h-fit">
-              <div className="space-y-6">
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Service</p>
-                  {project.serviceSlug ? (
-                    <Link href={`/services/${project.serviceSlug}`} className="font-semibold text-gray-900 dark:text-white hover:text-red-500 transition">
-                      {project.service}
-                    </Link>
-                  ) : (
-                    <p className="font-semibold text-gray-900 dark:text-white">{project.service}</p>
-                  )}
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Platform</p>
-                  <p className="font-semibold text-gray-900 dark:text-white">{project.platform.join(" + ")}</p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Status</p>
-                  <p className="font-semibold text-gray-900 dark:text-white">{project.status}</p>
-                </div>
-                {project.client && (
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Client</p>
-                    <p className="font-semibold text-gray-900 dark:text-white">{project.client}</p>
-                  </div>
-                )}
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">The solution</h3>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{project.solution}</p>
+              </div>
+              <div className="sm:col-span-2 flex flex-wrap gap-x-10 gap-y-4">
+                <ArrowLink href="/get-started">Start a project</ArrowLink>
                 {project.url && (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex w-full items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-sm transition"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition"
                   >
-                    Visit Live Site
-                    <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                    </svg>
+                    Visit live site ↗
                   </a>
                 )}
-                <Link
-                  href="/get-started"
-                  className="inline-flex w-full items-center justify-center gap-2 bg-black dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition"
-                >
-                  Start a Project
-                </Link>
               </div>
             </div>
           </div>
@@ -129,12 +108,9 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* ── Features ── */}
-      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Highlights</p>
-          <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-16 max-w-xl">
-            What it does.
-          </h2>
+          <SectionHeader eyebrow="Highlights" title={["What it", "does."]} className="border-gray-300 dark:border-gray-700" />
           <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
             {project.features.map((feature, i) => (
               <div key={i} className="flex items-start gap-3 border-t border-gray-200 dark:border-gray-700 pt-4">
@@ -149,34 +125,31 @@ export default function ProjectPage({ params }) {
       </section>
 
       {/* ── Gallery ── */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Gallery</p>
-          <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-12">A closer look.</h2>
+          <SectionHeader eyebrow="Gallery" title={["A closer", "look."]} />
           <ProjectGallery images={project.gallery} title={project.title} />
         </div>
       </section>
 
       {/* ── Other Projects ── */}
-      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-3">Explore more</p>
-          <h2 className="text-4xl font-bold dark:text-white mb-12">Other projects.</h2>
+          <SectionHeader
+            eyebrow="Explore more"
+            title={["Other", "projects."]}
+            link={{ href: "/projects", label: "All work" }}
+            className="border-gray-300 dark:border-gray-700"
+          />
           <div className="grid md:grid-cols-3 gap-8">
             {otherProjects.map((p) => (
-              <Link key={p.slug} href={`/projects/${p.slug}`} className="group cursor-pointer block">
-                <div className="overflow-hidden rounded-xl mb-4 bg-gray-100 dark:bg-gray-700">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-[200px] object-cover group-hover:scale-105 transition duration-500"
-                  />
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-red-500 dark:group-hover:text-red-400 transition">
-                  {p.title}
-                </h3>
-                <p className="text-sm text-gray-400 dark:text-gray-500">{p.service}</p>
-              </Link>
+              <MediaCard
+                key={p.slug}
+                href={`/projects/${p.slug}`}
+                image={p.image}
+                title={p.title}
+                caption={p.service}
+              />
             ))}
           </div>
         </div>

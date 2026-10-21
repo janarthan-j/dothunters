@@ -2,6 +2,10 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import RouteTransition from '@/components/RouteTransition'
+import SmoothScroll from '@/components/SmoothScroll'
+import DotCursor from '@/components/DotCursor'
+import Footer from '@/components/Footer'
+import BackgroundLight from '@/components/BackgroundLight'
 
 export const metadata = {
   metadataBase: new URL('https://dothunters.com'),
@@ -49,9 +53,13 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>
+          <BackgroundLight />
+          <SmoothScroll />
           <RouteTransition />
+          <DotCursor />
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

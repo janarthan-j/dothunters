@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { projects } from "@/data/projects";
 import Link from "next/link";
+import ParallaxImage from "@/components/ParallaxImage";
+import PageHero from "@/components/PageHero";
 
 // "Technology" uses the platform field until projects carry real tech stacks.
 const allServices     = ["All Services", ...Array.from(new Set(projects.map((p) => p.service))).sort()];
@@ -23,20 +25,15 @@ export default function ProjectsPage() {
   return (
     <main>
       {/* ── Page Hero ── */}
-      <section className="dot-bg bg-gray-50 dark:bg-gray-800 py-24 border-b border-gray-100 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Our Work</p>
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-3xl mb-6 dark:text-white">
-            Projects we&apos;re <span className="text-red-500">proud of.</span>
-          </h1>
-          <p className="text-gray-500 dark:text-gray-400 text-lg max-w-xl">
-            A selection of work across design, development, motion, and immersive experiences — built for clients who care about quality.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our portfolio"
+        crumbs={[{ label: "Home", href: "/" }, { label: "Projects" }]}
+        title={["Take a look at", { text: "our projects.", className: "text-red-500" }]}
+        intro="A selection of work across design, development, motion, and immersive experiences — built for clients who care about quality."
+      />
 
       {/* ── Filters ── */}
-      <section className="border-b border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900 sticky top-[57px] z-40">
+      <section className="border-b border-gray-100 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-[57px] z-40">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-col sm:flex-row gap-3 sm:items-center">
           {/* Service dropdown */}
           <select
@@ -65,7 +62,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── Grid ── */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {filtered.length === 0 ? (
             <div className="text-center py-24 text-gray-400">
@@ -78,17 +75,21 @@ export default function ProjectsPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14 md:gap-y-20 md:pb-32">
               {filtered.map((project, i) => (
-                <Link key={i} href={`/projects/${project.slug}`} className="group cursor-pointer block">
+                <Link
+                  key={i}
+                  href={`/projects/${project.slug}`}
+                  data-cursor="View"
+                  className={`group cursor-pointer block ${i % 2 === 1 ? "md:translate-y-32" : ""}`}
+                >
                   {/* Image */}
-                  <div className="overflow-hidden rounded-xl mb-5 bg-gray-100 dark:bg-gray-800">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-[260px] object-cover group-hover:scale-105 transition duration-500"
-                    />
-                  </div>
+                  <ParallaxImage
+                    src={project.image}
+                    alt={project.title}
+                    className="h-[280px] md:h-[420px] rounded-[2rem] mb-6 bg-gray-100 dark:bg-gray-800"
+                    imgClassName="group-hover:scale-105 transition duration-700"
+                  />
 
                   {/* Meta row */}
                   <div className="flex items-center justify-between mb-2">
@@ -99,7 +100,7 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-red-500 dark:group-hover:text-red-400 transition leading-snug">
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-2 group-hover:text-red-500 dark:group-hover:text-red-400 transition leading-snug">
                     {project.title}
                   </h3>
 
@@ -135,7 +136,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── Stats strip ── */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
+      <section className="py-16 bg-white/25 dark:bg-white/[0.03] border-t border-gray-100 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-10">
           {[
             { value: "7",    label: "Projects Delivered" },

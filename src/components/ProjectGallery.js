@@ -33,16 +33,23 @@ export default function ProjectGallery({ images, title }) {
     };
   }, [isOpen, close, prev, next]);
 
+  // 2–5 images: a row of panels where the hovered one opens wide (desktop).
+  // More than that would make the panels too thin, so fall back to a grid.
+  const row = images.length > 1 && images.length <= 5;
+
   return (
     <>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className={row ? "expand-row grid gap-4 md:flex md:h-[480px]" : "grid md:grid-cols-3 gap-6"}>
         {images.map((img, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setActive(i)}
             aria-label={`View ${title} screenshot ${i + 1} full size`}
-            className="group aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-800 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+            data-cursor="Open"
+            className={`group overflow-hidden bg-gray-100 dark:bg-gray-800 cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 ${
+              row ? "aspect-[4/3] md:aspect-auto md:h-full rounded-[2rem]" : "aspect-[4/3] rounded-xl"
+            }`}
           >
             <img
               src={img}
@@ -56,6 +63,7 @@ export default function ProjectGallery({ images, title }) {
       {isOpen && (
         <div
           role="dialog"
+          data-lenis-prevent
           aria-modal="true"
           aria-label={`${title} screenshot ${active + 1} of ${images.length}`}
           onClick={close}

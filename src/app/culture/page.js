@@ -9,7 +9,8 @@ import {
 import ScrollReveal from "@/components/ScrollReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
+import PageHero from "@/components/PageHero";
+import SectionHeader, { ArrowLink } from "@/components/SectionHeader";
 import {
   projectFlow, mentorship, team, values,
   reach, reachChannels, visitSteps, visitNote, productionChecklist,
@@ -29,34 +30,22 @@ const channelIcons = {
 const initials = (name) => name.split(" ").map((p) => p[0]).join("").slice(0, 2).toUpperCase();
 const stepNumber = (i) => String(i + 1).padStart(2, "0");
 
-const SectionHeading = ({ eyebrow, title, accent, text }) => (
-  <div className="max-w-2xl mb-14">
-    <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">{eyebrow}</p>
-    <h2 className="text-4xl md:text-5xl font-bold leading-tight dark:text-white">
-      {title} {accent && <span className="text-red-500">{accent}</span>}
-    </h2>
-    {text && <p className="text-gray-500 dark:text-gray-400 mt-4 leading-relaxed">{text}</p>}
-  </div>
+const SectionHeading = ({ eyebrow, title, accent, text, invert }) => (
+  <SectionHeader eyebrow={eyebrow} title={accent ? [title, accent] : title} text={text} invert={invert} />
 );
 
 export default function CulturePage() {
   return (
     <main>
-      {/* Page Hero */}
-      <section className="dot-bg bg-gray-50 dark:bg-gray-800 py-24 border-b border-gray-100 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Our culture</p>
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-3xl mb-6 dark:text-white">
-            Built together. <span className="text-red-500">Delivered as one.</span>
-          </h1>
-          <p className="text-gray-500 dark:text-gray-400 text-lg max-w-xl">
-            A multi-disciplinary team across Batticaloa, Jaffna, Hatton and Colombo, guided by senior engineers and focused on software that works in the real world.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our culture"
+        crumbs={[{ label: "Home", href: "/" }, { label: "Culture" }]}
+        title={["Built together.", { text: "Delivered as one.", className: "text-red-500" }]}
+        intro="A multi-disciplinary team across Batticaloa, Jaffna, Hatton and Colombo, guided by senior engineers and focused on software that works in the real world."
+      />
 
       {/* Project flow */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
@@ -84,7 +73,7 @@ export default function CulturePage() {
       </section>
 
       {/* Mentorship */}
-      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
@@ -99,7 +88,7 @@ export default function CulturePage() {
               const Icon = icons[m.icon];
               return (
                 <ScrollReveal key={m.title} delay={i * 80}>
-                  <div className="h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+                  <div className="h-full bg-white dark:bg-gray-900 border border-gray-200/70 dark:border-gray-700/60 rounded-[2rem] p-8 hover:shadow-xl transition-all duration-300">
                     <Icon className="w-8 h-8 text-red-500 mb-6" strokeWidth={1.5} />
                     <h3 className="text-xl font-bold mb-2 dark:text-white">{m.title}</h3>
                     <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{m.text}</p>
@@ -112,7 +101,7 @@ export default function CulturePage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
@@ -125,7 +114,7 @@ export default function CulturePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((m, i) => (
               <ScrollReveal key={m.slug} delay={i * 60}>
-                <div className="group h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="group h-full bg-white dark:bg-gray-900 border border-gray-200/70 dark:border-gray-700/60 rounded-[2rem] overflow-hidden hover:shadow-xl transition-all duration-300">
                   <div className="relative aspect-square bg-red-500/10 overflow-hidden">
                     {m.photo ? (
                       <Image
@@ -167,7 +156,7 @@ export default function CulturePage() {
       </section>
 
       {/* Values with proof */}
-      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
@@ -179,7 +168,7 @@ export default function CulturePage() {
           <div className="grid sm:grid-cols-2 gap-6">
             {values.map((v, i) => (
               <ScrollReveal key={v.title} delay={i * 80}>
-                <div className="h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex flex-col">
+                <div className="h-full bg-white dark:bg-gray-900 border border-gray-200/70 dark:border-gray-700/60 rounded-[2rem] p-8 flex flex-col">
                   <h3 className="text-xl font-bold mb-2 dark:text-white">{v.title}</h3>
                   <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">{v.text}</p>
                   <Link
@@ -200,12 +189,12 @@ export default function CulturePage() {
       <section className="py-24 bg-black text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
-            <div className="max-w-2xl mb-14">
-              <p className="uppercase tracking-widest text-gray-500 text-sm mb-4">Quick reach</p>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                Wherever we are, <span className="text-red-500">we&apos;re easy to reach.</span>
-              </h2>
-            </div>
+            <SectionHeading
+              eyebrow="Quick reach"
+              title="Wherever we are,"
+              accent="we’re easy to reach."
+              invert
+            />
           </ScrollReveal>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-center mb-14">
             {reach.map((r) => (
@@ -230,7 +219,7 @@ export default function CulturePage() {
       </section>
 
       {/* Customer premises visits */}
-      <section className="dot-bg py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="dot-bg py-24 bg-white/25 dark:bg-white/[0.03]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
@@ -243,7 +232,7 @@ export default function CulturePage() {
           <ol className="grid md:grid-cols-4 gap-6">
             {visitSteps.map((s, i) => (
               <ScrollReveal key={s.title} delay={i * 80}>
-                <li className="relative h-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
+                <li className="relative h-full bg-white dark:bg-gray-900 border border-gray-200/70 dark:border-gray-700/60 rounded-[2rem] p-8">
                   <span className="block text-5xl font-bold text-red-500/20 mb-4">{stepNumber(i)}</span>
                   <h3 className="text-lg font-bold mb-2 dark:text-white">{s.title}</h3>
                   <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{s.text}</p>
@@ -259,7 +248,7 @@ export default function CulturePage() {
       </section>
 
       {/* Production-ready delivery */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <SectionHeading
@@ -274,7 +263,7 @@ export default function CulturePage() {
               const Icon = icons[c.icon];
               return (
                 <ScrollReveal key={c.title} delay={i * 60}>
-                  <div className="h-full border border-gray-200 dark:border-gray-700 rounded-2xl p-8 flex gap-5">
+                  <div className="h-full border border-gray-200 dark:border-gray-700 rounded-[2rem] p-8 flex gap-5">
                     <Icon className="w-7 h-7 text-red-500 shrink-0" strokeWidth={1.5} />
                     <div>
                       <h3 className="text-lg font-bold mb-2 dark:text-white">{c.title}</h3>
@@ -286,18 +275,12 @@ export default function CulturePage() {
             })}
           </div>
           <div className="mt-12">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-red-500 hover:text-red-600 transition"
-            >
-              See what we&apos;ve shipped &rarr;
-            </Link>
+            <ArrowLink href="/projects">See what we’ve shipped</ArrowLink>
           </div>
         </div>
       </section>
 
       <CTASection />
-      <Footer />
     </main>
   );
 }

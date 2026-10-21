@@ -72,7 +72,9 @@
   animation: page-enter 700ms var(--ease-fluid) backwards;
 }
 
-html[data-navigating] .page-shell {
+/* The footer lives in the layout, outside .page-shell, so fade it with the page */
+html[data-navigating] .page-shell,
+html[data-navigating] .site-footer {
   opacity: 0;
   transform: translateY(-8px);
   transition: opacity 220ms var(--ease-in-soft), transform 220ms var(--ease-in-soft);
@@ -122,6 +124,344 @@ html[data-navigating] .page-shell {
   transform: scaleX(1);
 }
 
+/* ── Site-wide background light (see BackgroundLight.js) ── */
+/* Blue beam from the top centre (fixed) + orbit rings with travelling dots at
+   the top of each page. Sections are transparent or glassy so it shows.
+   Tune with the --light-* and --orbit-* tokens. */
+:root {
+  --light-base: #ffffff;
+  --light-beam: rgb(59 130 246 / 0.34);
+  --light-beam-top: rgb(96 165 250 / 0.30);
+  --light-source: rgb(147 197 253 / 0.75);
+  --light-halo: rgb(96 165 250 / 0.16);
+  --light-noise: 0.06;
+  --light-noise-image: var(--noise-dark-specks, none);
+  --orbit-arc: #3b82f6;
+  --orbit-arc-opacity: 0.35;
+  --orbit-ring: #93a3b8;
+  --orbit-ring-opacity: 0.45;
+  --orbit-dot: #3b82f6;
+}
+
+.dark {
+  --light-base: #04070f;
+  --light-beam: rgb(80 150 255 / 0.62);
+  --light-beam-top: rgb(120 175 255 / 0.55);
+  --light-source: rgb(200 225 255 / 0.95);
+  --light-halo: rgb(37 99 235 / 0.22);
+  --light-noise: 0.05;
+  --light-noise-image: var(--noise-light-specks, none);
+  --orbit-arc: #3b82f6;
+  --orbit-arc-opacity: 0.85;
+  --orbit-ring: #4f6ea8;
+  --orbit-ring-opacity: 0.55;
+  --orbit-dot: #8fb8ff;
+}
+
+/* Fixed layer: base colour, light, grain */
+.bg-light {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: var(--light-base);
+  contain: strict;
+}
+
+/* All light layers hang from the top centre and rise/set together: they sink
+   down from the top edge and brighten, then pull back up and dim. No sideways
+   movement. */
+.bg-light__halo,
+.bg-light__lamp {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  translate: -50% 0;
+  transform-origin: top center;
+  will-change: transform, opacity;
+  animation: light-rise 10s ease-in-out infinite alternate;
+}
+
+/* Wide soft spill around the half circle */
+.bg-light__halo {
+  width: 140vw;
+  height: 90vh;
+  top: -30vh;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, var(--light-halo), transparent);
+}
+
+/* Half circle of light: twice as wide as tall, centred on the top edge */
+.bg-light__lamp {
+  width: max(560px, 90vw);
+  aspect-ratio: 2 / 1;
+}
+
+.bg-light__beam,
+.bg-light__source {
+  position: absolute;
+  top: 0;
+}
+
+/* Body of the half circle: full strength along the top, fading to its rim */
+.bg-light__beam {
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 100% at 50% 0%, var(--light-beam-top) 0%, var(--light-beam) 35%, transparent 100%);
+  filter: blur(20px);
+}
+
+/* Hot core where the light enters, at the very top edge */
+.bg-light__source {
+  left: 25%;
+  right: 25%;
+  top: -12%;
+  height: 40%;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, var(--light-source), transparent);
+  filter: blur(16px);
+}
+
+@keyframes light-rise {
+  from { transform: translateY(-30%) scale(0.85); opacity: 0.5; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Grain over the whole background and the light: dark specks in light mode,
+   light specks in dark mode. The tiles are random per-pixel noise generated in
+   BackgroundLight.js. Strength is --light-noise. */
+.bg-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: var(--light-noise);
+  background-image: var(--light-noise-image);
+  /* One noise pixel per device pixel (tile is drawn at the screen's density) */
+  background-size: 128px 128px;
+  image-rendering: pixelated;
+}
+
+/* Page-top layer: orbit rings. Absolute (not fixed), so it scrolls away. */
+.bg-orbits {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  min-height: 640px;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  /* Fade the whole thing out toward the bottom of the screen */
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 95%);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 95%);
+}
+
+.bg-orbits__svg {
+  position: absolute;
+  left: 50%;
+  top: 12vh;
+  width: min(1700px, 220vw);
+  height: auto;
+  translate: -50% 0;
+}
+
+.bg-orbits__svg > circle:nth-of-type(-n + 4) { opacity: var(--orbit-ring-opacity); }
+.bg-orbits__svg > circle:nth-of-type(n + 5) { opacity: var(--orbit-arc-opacity); }
+
+/* Dots travel slowly round their ring, alternating direction */
+.bg-orbits__dots {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: orbit-spin linear infinite;
+}
+
+.bg-orbits__dots--0 { animation-duration: 90s; }
+.bg-orbits__dots--1 { animation-duration: 120s; animation-direction: reverse; }
+.bg-orbits__dots--2 { animation-duration: 150s; }
+.bg-orbits__dots--3 { animation-duration: 190s; animation-direction: reverse; }
+
+@keyframes orbit-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Translucent glass for cards that sit on the background */
+.glass {
+  background-color: rgb(255 255 255 / 0.45);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.dark .glass {
+  background-color: rgb(4 7 15 / 0.45);
+}
+
+/* ── Lenis smooth scroll ── */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ── Dot cursor ── */
+.dot-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  will-change: transform;
+}
+
+.dot-cursor.is-visible { opacity: 1; }
+.dot-cursor[data-state="hidden"] { opacity: 0; }
+
+/* Drawn at full label size and scaled down, so growing is a pure transform */
+.dot-cursor__dot {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;
+  border-radius: 9999px;
+  background-color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.1);
+  transition: transform var(--dur-base) var(--ease-fluid), background-color var(--dur-base) var(--ease-fluid);
+}
+
+.dot-cursor[data-state="hover"] .dot-cursor__dot {
+  transform: scale(0.5);
+  background-color: rgba(239, 68, 68, 0.18);
+}
+
+.dot-cursor[data-state="label"] .dot-cursor__dot { transform: scale(1); }
+.dot-cursor.is-pressed .dot-cursor__dot { transform: scale(0.08); }
+.dot-cursor.is-pressed[data-state="hover"] .dot-cursor__dot { transform: scale(0.4); }
+.dot-cursor.is-pressed[data-state="label"] .dot-cursor__dot { transform: scale(0.9); }
+
+.dot-cursor__label {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.dot-cursor[data-state="label"] .dot-cursor__label {
+  opacity: 1;
+  transition-delay: 120ms;
+}
+
+/* ── Split-word heading reveal ── */
+/* Padding + negative margin keeps descenders (g, y, p) inside the mask */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.split-word__inner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 900ms var(--ease-fluid);
+}
+
+.split-reveal.is-revealed .split-word__inner { transform: none; }
+
+/* ── Arrow link: arrow exits right, re-enters from left ── */
+.arrow-link__circle {
+  transition: background-color var(--dur-base) var(--ease-fluid), border-color var(--dur-base) var(--ease-fluid), color var(--dur-base) var(--ease-fluid);
+}
+
+/* Magnetic pull eases toward the pointer rather than snapping */
+.magnetic {
+  transition: transform 500ms var(--ease-fluid);
+  will-change: transform;
+}
+
+.arrow-link:hover .arrow-link__icon { animation: arrow-swap 600ms var(--ease-fluid); }
+
+@keyframes arrow-swap {
+  0%   { transform: translateX(0); }
+  45%  { transform: translateX(150%); }
+  46%  { transform: translateX(-150%); }
+  100% { transform: translateX(0); }
+}
+
+/* ── Service card: slow colour fill on hover, for the card and everything in it ── */
+/* .magnetic keeps its own transform easing */
+.service-card,
+.service-card :not(.magnetic) {
+  transition-property: background-color, border-color, color, transform;
+  transition-duration: var(--dur-slow);
+  transition-timing-function: var(--ease-fluid);
+}
+
+/* ── Drag-scroll row ── */
+.drag-scroll {
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.drag-scroll::-webkit-scrollbar { display: none; }
+
+.drag-scroll.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+/* First card lines up with the max-w-7xl content column; row runs off-screen right */
+.drag-scroll--bleed {
+  --gutter: 1.5rem;
+  padding-left: max(var(--gutter), calc((100% - 80rem) / 2 + var(--gutter)));
+  padding-right: var(--gutter);
+  scroll-padding-left: max(var(--gutter), calc((100% - 80rem) / 2 + var(--gutter)));
+}
+
+@media (min-width: 1024px) {
+  .drag-scroll--bleed { --gutter: 2rem; }
+}
+
+/* ── FAQ: plus that turns into a minus ── */
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq__icon::before,
+.faq__icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 1.5px;
+  margin: -0.75px 0 0 -6px;
+  background: currentColor;
+  transition: transform var(--dur-base) var(--ease-fluid), background-color var(--dur-base) var(--ease-fluid);
+}
+
+.faq__icon::after { transform: rotate(90deg); }
+.faq[open] .faq__icon { color: #fff; }
+.faq[open] .faq__icon::after { transform: rotate(0deg); }
+
+/* ── Gallery: hovered panel opens wide (desktop) ── */
+@media (min-width: 768px) {
+  .expand-row > * {
+    flex: 1 1 0%;
+    transition: flex-grow 700ms var(--ease-fluid);
+  }
+  .expand-row > *:first-child { flex-grow: 4; }
+  .expand-row:hover > * { flex-grow: 1; }
+  .expand-row > *:hover,
+  .expand-row > *:focus-visible { flex-grow: 4; }
+}
+
 /* ── Dot-grid overlay — add to any section ── */
 .dot-bg {
   position: relative;
@@ -162,8 +502,10 @@ button.rounded-full:active {
 
 @media (prefers-reduced-motion: reduce) {
   .page-shell { animation: none; }
-  html[data-navigating] .page-shell { opacity: 1; transform: none; }
+  html[data-navigating] .page-shell,
+  html[data-navigating] .site-footer { opacity: 1; transform: none; }
   .reveal-hidden { opacity: 1; transform: none; transition: none; }
+  .split-word__inner { transform: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

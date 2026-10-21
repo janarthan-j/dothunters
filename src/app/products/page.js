@@ -1,84 +1,74 @@
 import Link from "next/link";
 import { products, productHref } from "@/data/products";
 import ProductBadges from "@/components/ProductBadges";
+import ParallaxImage from "@/components/ParallaxImage";
+import PageHero from "@/components/PageHero";
+import { FrostedPill } from "@/components/MediaCard";
 
 export const metadata = {
   title: "Products",
   description: "Products DotHunters builds and owns, and the open-source tools we share with the community.",
 };
 
+// Masonry rhythm: columns fill top-to-bottom, so tall/short/short/tall
+// staggers the two columns against each other
+const heightFor = (i) => (i % 4 === 0 || i % 4 === 3 ? "h-[360px] md:h-[560px]" : "h-[300px] md:h-[400px]");
+
 export default function ProductsPage() {
   return (
     <main>
-      {/* ── Page Hero ── */}
-      <section className="dot-bg bg-gray-50 dark:bg-gray-800 py-24 border-b border-gray-100 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="uppercase tracking-widest text-gray-400 dark:text-gray-500 text-sm mb-4">Our Products</p>
-          <h1 className="text-5xl md:text-6xl font-bold leading-tight max-w-3xl mb-6 dark:text-white">
-            Products we build <span className="text-red-500">and own.</span>
-          </h1>
-          <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl">
-            Alongside client work, we build our own software — and we open-source our tools where we can.
-            EdgeCam is free and open source, and Aragorn is an experimental project built in the open.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our products"
+        crumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
+        title={["Products we build", { text: "and own.", className: "text-red-500" }]}
+        intro="Alongside client work, we build our own software — and we open-source our tools where we can. EdgeCam is free and open source, and Aragorn is an experimental project built in the open."
+      />
 
-      {/* ── Grid ── */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      {/* ── Masonry ── */}
+      <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
-            {products.map((product) => (
-              <div key={product.slug} className="group flex flex-col">
-                {/* Duplicates "Learn more", so it's skipped by keyboard and screen readers. */}
+          <div className="md:columns-2 gap-10">
+            {products.map((product, i) => (
+              <article key={product.slug} className="break-inside-avoid mb-14 md:mb-16">
                 <Link
                   href={productHref(product)}
-                  tabIndex={-1}
-                  aria-hidden="true"
-                  className="block overflow-hidden rounded-xl mb-5 bg-gray-100 dark:bg-gray-800"
+                  data-cursor="View"
+                  className="arrow-link group relative block rounded-[2rem] overflow-hidden bg-gray-100 dark:bg-gray-800 mb-6"
                 >
                   {product.image ? (
-                    <img
+                    <ParallaxImage
                       src={product.image}
-                      alt={product.title}
-                      className="w-full h-[280px] object-cover group-hover:scale-105 transition duration-500"
+                      alt=""
+                      className={heightFor(i)}
+                      imgClassName="group-hover:scale-105 transition duration-700"
                     />
                   ) : (
-                    <div className="w-full h-[280px] flex items-center justify-center text-gray-400 dark:text-gray-500 group-hover:text-red-500 transition">
+                    <div className={`${heightFor(i)} flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-700 text-white/30 group-hover:text-red-400 transition`}>
                       {/* Inline mic icon: lucide-react needs a client component, and this page is a server component. */}
-                      <svg className="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.25} strokeLinecap="round" strokeLinejoin="round">
+                      <svg className="w-24 h-24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
                         <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
                         <line x1="12" x2="12" y1="19" y2="22" />
                       </svg>
                     </div>
                   )}
+
+                  <FrostedPill>{product.title}</FrostedPill>
                 </Link>
 
                 <ProductBadges badges={product.badges} />
-
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-4 mb-2">{product.title}</h2>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">{product.tagline}</p>
-
-                <div className="flex items-center gap-3 mt-auto">
-                  <Link
-                    href={productHref(product)}
-                    className="inline-flex items-center gap-2 bg-black dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition"
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed mt-4 max-w-lg">{product.tagline}</p>
+                {product.repoUrl && (
+                  <a
+                    href={product.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-4 text-xs font-semibold uppercase tracking-widest text-gray-900 dark:text-white hover:text-red-500 dark:hover:text-red-400 transition"
                   >
-                    Learn more
-                  </Link>
-                  {product.repoUrl && (
-                    <a
-                      href={product.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200 px-6 py-3 rounded-full font-semibold text-sm hover:border-gray-500 transition"
-                    >
-                      GitHub
-                    </a>
-                  )}
-                </div>
-              </div>
+                    View on GitHub ↗
+                  </a>
+                )}
+              </article>
             ))}
           </div>
         </div>
